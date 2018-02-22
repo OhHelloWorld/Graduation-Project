@@ -1,3 +1,17 @@
+<!-- Modal -->
+<div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel" style="text-align: center;">欢迎登录</h4>
+      </div>
+      <div class="modal-body">
+        <app-sign-in></app-sign-in>
+      </div>
+    </div>
+  </div>
+</div>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -8,42 +22,38 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Brand</a>
+      <a href=""><img class="navbar-brand" src="../../assets/image/brand.jpg"></a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Link</a></li>
+        <li class="active"><a href="#">病例</a></li>
+        <li><a href="#">文档</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">所有项目 <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
+            <li><a href="#">自身免疫性肝病</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
+            <li><a href="#">药物性肝损伤</a></li>
+            <li role="separator" class="divider"></li>
           </ul>
         </li>
       </ul>
       <form class="navbar-form navbar-left">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
+          <input type="text" class="form-control" placeholder="关键字">
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn btn-success">搜索</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
+        <li><a role="button" data-toggle="modal" data-target="#signInModal">登录</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">关于我们<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
+            <li><a href="#">背景</a></li>
+            <li><a href="#">创作人员</a></li>
+            <li><a href="#">您的建议</a></li>
           </ul>
         </li>
       </ul>
@@ -52,113 +62,49 @@
   </div>
   <!-- /.container-fluid -->
 </nav>
-<div id="myCarousel" class="carousel slide">
-  <!-- 轮播（Carousel）指标 -->
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-  </ol>
-  <!-- 轮播（Carousel）项目 -->
-  <div class="carousel-inner">
-    <div class="item active">
-      <img src="https://www.starbucks.com.cn//assets/img/kv-image-pc-20171220175727.jpg" alt="First slide">
-      <div class="carousel-caption">标题 1</div>
-    </div>
-    <div class="item">
-      <img src="https://www.starbucks.com.cn//assets/img/kv-image-pc-20171220175727.jpg" alt="Second slide">
-      <div class="carousel-caption">标题 2</div>
-    </div>
-    <div class="item">
-      <img src="https://www.starbucks.com.cn//assets/img/kv-image-pc-20171220175727.jpg" alt="Third slide">
-      <div class="carousel-caption">标题 3</div>
-    </div>
-  </div>
-  <!-- 轮播（Carousel）导航 -->
-  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;
-    </a>
-  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;
-    </a>
-</div>
-<br/>
-<p style="text-align: center" class="h1">My Case</p>
-<br/>
-<div style="background-color:#dcc39b">
-  <div class="container" style="background-color:#dcc39b">
-    <br/>
-    <div class="col-md-2">
-      <a style="cursor: pointer;text-decoration: none;">
-        <div class="thumbnail rose">
-          <img src="https://www.starbucks.com.cn//assets/img/kv-image-pc-20171220175727.jpg" alt="..." class="img-circle">
-          <div class="caption">
-            <h3>Thumbnail label</h3>
-            <p>...</p>
-          </div>
-        </div>
-      </a>
-    </div>
-    <div class="col-md-2">
-      <a style="cursor: pointer;text-decoration: none">
-        <div class="thumbnail rose">
-          <img src="https://www.starbucks.com.cn//assets/img/kv-image-pc-20171220175727.jpg" alt="..." class="img-circle">
-          <div class="caption">
-            <h3>Thumbnail label</h3>
-            <p>...</p>
-          </div>
-        </div>
-      </a>
-    </div>
-    <div class="col-md-2">
-      <a style="cursor: pointer;text-decoration: none">
-        <div class="thumbnail rose">
-          <img src="https://www.starbucks.com.cn//assets/img/kv-image-pc-20171220175727.jpg" alt="..." class="img-circle">
-          <div class="caption">
-            <h3>Thumbnail label</h3>
-            <p>...</p>
-          </div>
-        </div>
-      </a>
-    </div>
-    <div class="col-md-2">
-      <a style="cursor: pointer;text-decoration: none">
-        <div class="thumbnail rose">
-          <img src="https://www.starbucks.com.cn//assets/img/kv-image-pc-20171220175727.jpg" alt="..." class="img-circle">
-          <div class="caption">
-            <h3>Thumbnail label</h3>
-            <p>...</p>
-          </div>
-        </div>
-      </a>
-    </div>
-    <div class="col-md-2">
-      <a style="cursor: pointer;text-decoration: none">
-        <div class="thumbnail rose">
-          <img src="https://www.starbucks.com.cn//assets/img/kv-image-pc-20171220175727.jpg" alt="..." class="img-circle">
-          <div class="caption">
-            <h3>Thumbnail label</h3>
-            <p>...</p>
-          </div>
-        </div>
-      </a>
-    </div>
-    <div class="col-md-2">
-      <a style="cursor: pointer;text-decoration: none">
-        <div class="thumbnail rose">
-          <img src="https://www.starbucks.com.cn//assets/img/kv-image-pc-20171220175727.jpg" alt="..." class="img-circle">
-          <div class="caption">
-            <h3>Thumbnail label</h3>
-            <p>...</p>
-          </div>
-        </div>
-      </a>
+<router-outlet></router-outlet>
+<!--Footer-->
+<footer style="background-color: #222222;bottom: 0px;width: 100%">
+  <!--Footer Links-->
+  <div class="container text-center">
+    <div class="row">
+      <!--First column-->
+      <div class="col-md-4 col-md-offset-1">
+        <h5 class="text-uppercase font-weight-bold" style="color: grey">Footer Content</h5>
+        <p style="color: grey">Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+      </div>
+      <!--Second column-->
+      <div class="col-md-2 col-md-offset-1">
+        <h5 class="text-uppercase font-weight-bold" style="color: grey">友情链接</h5>
+        <ul class="list-unstyled">
+          <li><a href="http://www.shou.edu.cn/">上海海洋大学</a></li>
+        </ul>
+      </div>
+      <!--Third column-->
+      <div class="col-md-2 mx-auto">
+        <h5 class="text-uppercase font-weight-bold" style="color: grey">合作伙伴</h5>
+        <ul class="list-unstyled">
+          <li><a href="http://www.shou.edu.cn/">上海海洋大学</a></li>
+        </ul>
+      </div>
+      <!--Fourth column-->
+      <div class="col-md-2">
+        <h5 class="text-uppercase font-weight-bold" style="color: grey">更多内容</h5>
+        <ul class="list-unstyled">
+          <li><a href="http://www.baidu.com">百度百科</a></li>
+          <li><a href="http://zh.wikipedia.org">维基百科</a></li>
+        </ul>
+      </div>
+      <!--/.Fourth column-->
     </div>
   </div>
-</div>
-<br/>
-<div role="listbox" class="carousel-inner">
-  <div class="item active">
-    <a href="http://www.google.com">
-      <img border="0" src="https://www.starbucks.com.cn//assets/img/kv-image-pc-20171220175727.jpg" class="big desktop" data-holder-rendered="true">
-    </a>
+  <hr>
+  <!--Copyright-->
+  <div class="footer-copyright text-center">
+    <div class="container-fluid">
+      © 2017 Copyright: <a href="https://mdbootstrap.com/material-design-for-bootstrap/"> shou.edu.cn </a>
+    </div>
   </div>
-</div>
+  <!--/.Copyright-->
+</footer>
+<!--/.Footer-->
