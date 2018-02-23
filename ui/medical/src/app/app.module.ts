@@ -9,6 +9,9 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { HomeComponent } from './home/home.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { HomeTopItemComponent } from './home-top-item/home-top-item.component';
+import { DiseaseCaseComponent } from './disease-case/disease-case.component';
+import { AutoimmuneLiverComponent } from './autoimmune-liver/autoimmune-liver.component';
+import { MedicineLiverComponent } from './medicine-liver/medicine-liver.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +20,9 @@ import { HomeTopItemComponent } from './home-top-item/home-top-item.component';
     HomeComponent,
     SignUpComponent,
     HomeTopItemComponent,
+    DiseaseCaseComponent,
+    AutoimmuneLiverComponent,
+    MedicineLiverComponent,
   ],
   imports: [
     BrowserModule,

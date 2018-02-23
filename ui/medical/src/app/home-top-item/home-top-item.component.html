@@ -1,10 +1,10 @@
-<div class="col-md-2" *ngFor="let project of projects">
+<div class="col-md-2" *ngFor="let case of cases">
   <a style="cursor: pointer;text-decoration: none;">
     <div class="thumbnail rose">
-      <img src="{{project.imgUrl}}" alt="..." style="height:100px">
+      <img src="{{case.imgUrl}}" alt="..." style="height:100px">
       <div class="caption">
-        <h3>{{project.projectName}}</h3>
-        <p>{{project.projectInfo}}</p>
+        <h3>{{case.caseName}}</h3>
+        <p>{{case.caseInfo}}</p>
       </div>
     </div>
   </a>

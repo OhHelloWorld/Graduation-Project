@@ -7,31 +7,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeTopItemComponent implements OnInit {
 
-  projects = [
+  cases = [
     {
       imgUrl:'../../assets/image/medicine2.jpg',
-      projectName:'自免肝',
-      projectInfo:'自身免疫性肝病'
+      caseName:'小明',
+      caseInfo:'自身免疫性肝病'
     },{
       imgUrl:'../../assets/image/medicine5.jpg',
-      projectName:'药肝',
-      projectInfo:'药物性肝损伤'
+      caseName:'小王',
+      caseInfo:'药物性肝损伤'
     },{
       imgUrl:'../../assets/image/medicine4.jpg',
-      projectName:'暂无',
-      projectInfo:'暂无内容'
+      caseName:'小李',
+      caseInfo:'感冒'
     },{
       imgUrl:'../../assets/image/medicine1.jpg',
-      projectName:'暂无',
-      projectInfo:'暂无内容'
+      caseName:'小黑',
+      caseInfo:'发烧'
     },{
       imgUrl:'../../assets/image/medicine3.jpg',
-      projectName:'暂无',
-      projectInfo:'暂无内容'
+      caseName:'张三',
+      caseInfo:'四肢无力'
     },{
       imgUrl:'../../assets/image/medicine2.jpg',
-      projectName:'暂无',
-      projectInfo:'暂无内容'
+      caseName:'李四',
+      caseInfo:'不明'
     }]
 
   constructor() { }
