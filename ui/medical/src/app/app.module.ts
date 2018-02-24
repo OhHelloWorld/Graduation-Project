@@ -8,10 +8,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { HomeComponent } from './home/home.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
-import { HomeTopItemComponent } from './home-top-item/home-top-item.component';
+import { CaseListComponent } from './case-list/case-list.component';
 import { DiseaseCaseComponent } from './disease-case/disease-case.component';
 import { AutoimmuneLiverComponent } from './autoimmune-liver/autoimmune-liver.component';
 import { MedicineLiverComponent } from './medicine-liver/medicine-liver.component';
+import { DocumentComponent } from './document/document.component';
+
+import {AppSelectColorDirective} from './app-select-color.directive';
+import { PaginationComponent } from './pagination/pagination.component';
+import { DocListComponent } from './doc-list/doc-list.component';
 
 @NgModule({
   declarations: [
@@ -19,10 +24,14 @@ import { MedicineLiverComponent } from './medicine-liver/medicine-liver.componen
     SignInComponent,
     HomeComponent,
     SignUpComponent,
-    HomeTopItemComponent,
+    CaseListComponent,
     DiseaseCaseComponent,
     AutoimmuneLiverComponent,
     MedicineLiverComponent,
+    DocumentComponent,
+    AppSelectColorDirective,
+    PaginationComponent,
+    DocListComponent
   ],
   imports: [
     BrowserModule,

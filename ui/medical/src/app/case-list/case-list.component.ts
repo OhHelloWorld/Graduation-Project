@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-home-top-item',
-  templateUrl: './home-top-item.component.html',
-  styleUrls: ['./home-top-item.component.css']
+  selector: 'app-case-list',
+  templateUrl: './case-list.component.html',
+  styleUrls: ['./case-list.component.css']
 })
-export class HomeTopItemComponent implements OnInit {
+export class CaseListComponent implements OnInit {
 
   cases = [
     {
