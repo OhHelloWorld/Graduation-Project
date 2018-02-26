@@ -1,0 +1,28 @@
+.rose {
+  position: relative;
+  transition: transform 0.5s;
+  background-color: white;
+}
+
+.rose::after {
+  content: "";
+  position: absolute;
+  bottom: -19px;
+  left: 50%;
+  height: 8px;
+  width: 100%;
+  border-radius: 50%;
+  transform: translate(-50%, 0);
+  transition: transform 1s;
+}
+
+.rose:hover {
+  transform: translateX(5px) translateY(-5px);
+  transition: transform 0.5s;
+  box-shadow: -8px 8px 8px 0px #888888;
+}
+
+.rose:hover::after {
+  transform: translate(-50%, 40px) scale(0.75);
+  transition: transform 1s;
+}

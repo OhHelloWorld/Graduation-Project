@@ -17,6 +17,9 @@ import { DocumentComponent } from './document/document.component';
 import {AppSelectColorDirective} from './app-select-color.directive';
 import { PaginationComponent } from './pagination/pagination.component';
 import { DocListComponent } from './doc-list/doc-list.component';
+import { CaseDetailComponent } from './case-detail/case-detail.component';
+import { DocDetailComponent } from './doc-detail/doc-detail.component';
+import { CommentComponent } from './comment/comment.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,10 @@ import { DocListComponent } from './doc-list/doc-list.component';
     DocumentComponent,
     AppSelectColorDirective,
     PaginationComponent,
-    DocListComponent
+    DocListComponent,
+    CaseDetailComponent,
+    DocDetailComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,

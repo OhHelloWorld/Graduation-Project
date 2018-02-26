@@ -1,0 +1,48 @@
+<div class="container" style="height: auto">
+  <div class="box box-widget">
+    <div class="box-header with-border">
+      <h3>科普文章标题{{title}}</h3>
+      <div class="user-block">
+        <img class="img-circle" src="../../assets/image/medicine1.jpg" alt="User Image">
+        <span class="username"><a>Jonathan Burke Jr.</a></span>
+        <span class="description">来源：中国医学报</span>
+      </div>
+      <!-- /.user-block -->
+      <div class="box-tools">
+        <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="" data-original-title="Mark as read">
+          <i class="fa fa-circle-o"></i></button>
+        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+        </button>
+        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+      </div>
+      <!-- /.box-tools -->
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body">
+      <img class="img-responsive pad" style="height: 350px;width: 100%" src="../../assets/image/medicine1.jpg" alt="Photo">
+      <blockquote>
+        I took this photo this morning. What do you guys think? It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+      </blockquote>
+      <span class="pull-right text-muted">127 views - 3 comments</span>
+    </div>
+    <!-- /.box-body -->
+    <div class="box-footer box-comments">
+      <!-- /.box-comment -->
+      <div *ngFor="let comment of comments">
+        <app-comment [comment]="comment"></app-comment>
+        <hr>
+      </div>
+    </div>
+    <!-- /.box-footer -->
+    <div class="box-footer">
+      <form action="#" method="post">
+        <img class="img-responsive img-circle img-sm" src="../../assets/image/medicine1.jpg" alt="Alt Text">
+        <!-- .img-push is used to add margin to elements next to floating images -->
+        <div class="img-push">
+          <input type="text" class="form-control input-sm" placeholder="Press enter to post comment">
+        </div>
+      </form>
+    </div>
+    <!-- /.box-footer -->
+  </div>
+</div>

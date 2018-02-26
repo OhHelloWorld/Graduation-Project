@@ -7,6 +7,8 @@ import { DiseaseCaseComponent} from './disease-case/disease-case.component';
 import { AutoimmuneLiverComponent } from './autoimmune-liver/autoimmune-liver.component';
 import { MedicineLiverComponent } from './medicine-liver/medicine-liver.component';
 import { DocumentComponent } from './document/document.component';
+import { CaseDetailComponent} from './case-detail/case-detail.component';
+import { DocDetailComponent} from './doc-detail/doc-detail.component';
 
 const appRoutes:Routes = [
   {path:'',redirectTo:'/home',pathMatch:'full'},
@@ -15,7 +17,9 @@ const appRoutes:Routes = [
   {path:'case',component:DiseaseCaseComponent},
   {path:'autoimmune',component:AutoimmuneLiverComponent},
   {path:'medicineLiver',component:MedicineLiverComponent},
-  {path:'document',component:DocumentComponent}
+  {path:'document',component:DocumentComponent},
+  {path:'caseDetail',component:CaseDetailComponent},
+  {path:'docDetail',component:DocDetailComponent}
 ];
 
 @NgModule(
