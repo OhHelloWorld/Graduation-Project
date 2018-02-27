@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,HostBinding } from '@angular/core';
 
 @Component({
   selector: 'app-autoimmune-liver',
@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./autoimmune-liver.component.css']
 })
 export class AutoimmuneLiverComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit() {

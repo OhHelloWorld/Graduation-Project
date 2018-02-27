@@ -2,3 +2,7 @@
 
 @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 @import '../node_modules/adminlte/dist/css/AdminLTE.min.css';
+@import '../node_modules/icheck/skins/square/green.css';
+a.small-box {
+  border-radius: 5px
+}
