@@ -1,6 +1,8 @@
 package com.gp.medical.serviceImpl;
 
+import com.gp.medical.entity.Authority;
 import com.gp.medical.entity.User;
+import com.gp.medical.repository.AuthorityRepository;
 import com.gp.medical.repository.UserRepository;
 import com.gp.medical.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.codec.Base64;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,6 +24,9 @@ public class UserServiceImpl implements UserDetailsService,UserService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private AuthorityRepository authorityRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -38,11 +44,15 @@ public class UserServiceImpl implements UserDetailsService,UserService {
     }
 
     @Override
-    public void saveUser(User user) {
-        String password  = user.getPassword().split(" ")[1];
-        CharSequence nowPass = new String(Base64.decode(password.getBytes())).split(":")[1];
-        System.out.println(nowPass);
+    public Long registeredUser(User user) {
+
+        List<Authority> authorityList = new ArrayList<>();
+        authorityList.add(authorityRepository.findOne(1L));
+
+        CharSequence nowPass = new String(Base64.decode(user.getPassword().getBytes()));
         user.setPassword(new BCryptPasswordEncoder().encode(nowPass));
-        userRepository.save(user);
+        user.setAuthorities(authorityList);
+
+        return userRepository.save(user).getId();
     }
 }

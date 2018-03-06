@@ -13,6 +13,6 @@ public interface UserService {
 
     List<User> listUsers();
 
-    void saveUser(User user);
+    Long registeredUser(User user);
 
 }

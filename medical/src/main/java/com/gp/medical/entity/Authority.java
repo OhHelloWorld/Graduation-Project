@@ -2,10 +2,8 @@ package com.gp.medical.entity;
 
 import org.springframework.security.core.GrantedAuthority;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by Administrator on 2018/1/8 0008.
@@ -18,6 +16,9 @@ public class Authority implements GrantedAuthority {
     private Long id;
 
     private String name;
+
+    @ManyToMany(mappedBy = "authorities")
+    private List<User> userList;
 
     public Long getId() {
         return id;
