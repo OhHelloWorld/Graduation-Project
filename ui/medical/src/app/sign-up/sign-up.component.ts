@@ -19,7 +19,7 @@ export class SignUpComponent implements OnInit {
 
   registered(){
     this.user = {name:this.register.name,password:btoa(this.register.password),username:'jiarui',age:15}
-    this.http.post('/user',this.user).subscribe(data => console.log(data));
+    this.http.post('/api/user',this.user).subscribe(data => console.log(data));
   }
 
 }
