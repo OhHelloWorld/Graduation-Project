@@ -34,7 +34,6 @@ import { MlFourComponent } from './enter-ml/ml-four/ml-four.component';
 import { MlDiseaseComponent } from './enter-ml/ml-disease/ml-disease.component';
 import { MlAllergyComponent } from './enter-ml/ml-allergy/ml-allergy.component';
 import { MlDrinkComponent } from './enter-ml/ml-drink/ml-drink.component';
-import { MlSymptomComponent } from './enter-ml/ml-symptom/ml-symptom.component';
 import { MlExamComponent } from './enter-ml/ml-exam/ml-exam.component';
 import { MlBloodComponent } from './enter-ml/ml-blood/ml-blood.component';
 import { MlLiverComponent } from './enter-ml/ml-liver/ml-liver.component';
@@ -70,7 +69,6 @@ import { NationDropDownComponent } from './myPlugin/nation-drop-down/nation-drop
     MlDiseaseComponent,
     MlAllergyComponent,
     MlDrinkComponent,
-    MlSymptomComponent,
     MlExamComponent,
     MlBloodComponent,
     MlLiverComponent,
