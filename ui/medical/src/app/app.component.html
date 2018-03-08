@@ -1,17 +1,4 @@
-<!-- Modal -->
-<div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel" style="text-align: center;">欢迎登录</h4>
-      </div>
-      <div class="modal-body">
-        <app-sign-in></app-sign-in>
-      </div>
-    </div>
-  </div>
-</div>
+<app-sign-in></app-sign-in>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -47,7 +34,13 @@
         <button type="submit" class="btn btn-success">搜索</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a role="button" data-toggle="modal" data-target="#signInModal">登录</a></li>
+        <li>
+          <a *ngIf="!hasUser" role="button" data-toggle="modal" data-target="#signInModal">登录</a>
+          <a *ngIf="hasUser" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">{{username}}</a>
+          <ul class="dropdown-menu">
+            <li><a role="button" (click)="logout()">退出</a></li>
+          </ul>
+        </li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">关于我们<span class="caret"></span></a>
           <ul class="dropdown-menu">

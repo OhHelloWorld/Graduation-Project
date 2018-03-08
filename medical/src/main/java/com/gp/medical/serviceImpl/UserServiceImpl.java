@@ -28,19 +28,11 @@ public class UserServiceImpl implements UserDetailsService,UserService {
     @Autowired
     private AuthorityRepository authorityRepository;
 
+    private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return userRepository.findByUsername(username);
-    }
-
-    @Override
-    public void removeUser(Long id) {
-        userRepository.delete(id);
-    }
-
-    @Override
-    public List<User> listUsers() {
-        return userRepository.findAll();
     }
 
     @Override
@@ -49,10 +41,21 @@ public class UserServiceImpl implements UserDetailsService,UserService {
         List<Authority> authorityList = new ArrayList<>();
         authorityList.add(authorityRepository.findOne(1L));
 
-        CharSequence nowPass = new String(Base64.decode(user.getPassword().getBytes()));
-        user.setPassword(new BCryptPasswordEncoder().encode(nowPass));
+        String nowPass = new String(Base64.decode(user.getPassword().getBytes()));
+        user.setPassword(encoder.encode(nowPass));
         user.setAuthorities(authorityList);
 
         return userRepository.save(user).getId();
+    }
+
+    @Override
+    public User login(User user) {
+        String password = new String(Base64.decode(user.getPassword().getBytes()));
+        User userInDatabase = userRepository.findByUsername(user.getUsername());
+        if(encoder.matches(password,userInDatabase.getPassword())){
+            return userInDatabase;
+        }else{
+            return null;
+        }
     }
 }
