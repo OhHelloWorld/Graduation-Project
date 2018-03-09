@@ -23,6 +23,8 @@ public class User implements UserDetails{
     @JoinTable(name = "user_authority",joinColumns = @JoinColumn(name = "user_id",referencedColumnName = "id"),
     inverseJoinColumns = @JoinColumn(name = "authority_id",referencedColumnName = "id"))
     private List<Authority> authorities;
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
+    private List<AlPerson> alPersons;
 
     public Long getId() {
         return id;
@@ -79,4 +81,11 @@ public class User implements UserDetails{
         return true;
     }
 
+    public List<AlPerson> getAlPeople() {
+        return alPersons;
+    }
+
+    public void setAlPeople(List<AlPerson> alPersons) {
+        this.alPersons = alPersons;
+    }
 }

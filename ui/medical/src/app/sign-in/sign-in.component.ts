@@ -27,6 +27,7 @@ export class SignInComponent implements OnInit {
       .subscribe(data =>{
         if(data != null){
           localStorage['username'] = data['username'];
+          localStorage['id'] = data['id'];
           this.closeBtn.nativeElement.click();
           location.reload();
         }else{

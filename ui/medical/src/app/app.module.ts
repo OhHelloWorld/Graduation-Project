@@ -15,7 +15,6 @@ import { AutoimmuneLiverComponent } from './autoimmune-liver/autoimmune-liver.co
 import { MedicineLiverComponent } from './medicine-liver/medicine-liver.component';
 import { DocumentComponent } from './document/document.component';
 
-import {AppSelectColorDirective} from './app-select-color.directive';
 import { PaginationComponent } from './myPlugin/pagination/pagination.component';
 import { DocListComponent } from './doc-list/doc-list.component';
 import { CaseDetailComponent } from './case-detail/case-detail.component';
@@ -50,7 +49,6 @@ import { NationDropDownComponent } from './myPlugin/nation-drop-down/nation-drop
     AutoimmuneLiverComponent,
     MedicineLiverComponent,
     DocumentComponent,
-    AppSelectColorDirective,
     PaginationComponent,
     DocListComponent,
     CaseDetailComponent,

@@ -36,7 +36,7 @@ const appRoutes:Routes = [
   {path:'autoimmune',component:AutoimmuneLiverComponent},
   {path:'medicineLiver',component:MedicineLiverComponent},
   {path:'document',component:DocumentComponent},
-  {path:'caseDetail',component:CaseDetailComponent},
+  {path:'caseDetail/:id',component:CaseDetailComponent},
   {path:'docDetail',component:DocDetailComponent},
   {path:'alPerson',component:AlPersonComponent},
   {path:'alFour',component:AlFourComponent},

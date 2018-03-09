@@ -23,6 +23,7 @@ export class AppComponent implements OnInit{
 
   logout(){
     localStorage.removeItem('username');
+    localStorage.removeItem('id');
     location.reload();
   }
 }

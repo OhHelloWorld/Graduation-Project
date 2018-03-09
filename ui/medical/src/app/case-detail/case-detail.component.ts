@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router,ActivatedRoute,ParamMap } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-case-detail',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CaseDetailComponent implements OnInit {
 
-  constructor() { }
+  case:{name:string};
+
+  constructor(private router:Router,private route:ActivatedRoute,private http:HttpClient) { }
 
   ngOnInit() {
+    this.case = {name:''};
+    this.route.paramMap.subscribe((params:ParamMap) => {
+      this.http.get<any>('/api/alPerson/' + params.get('id')).subscribe(data => {
+        this.case = data;
+      });
+    })
   }
 
 }
