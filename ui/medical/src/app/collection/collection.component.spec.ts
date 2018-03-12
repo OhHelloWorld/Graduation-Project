@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MlPersonComponent } from './ml-person.component';
+import { CollectionComponent } from './collection.component';
 
-describe('MlPersonComponent', () => {
-  let component: MlPersonComponent;
-  let fixture: ComponentFixture<MlPersonComponent>;
+describe('CollectionComponent', () => {
+  let component: CollectionComponent;
+  let fixture: ComponentFixture<CollectionComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MlPersonComponent ]
+      declarations: [ CollectionComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MlPersonComponent);
+    fixture = TestBed.createComponent(CollectionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

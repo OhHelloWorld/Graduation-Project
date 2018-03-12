@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-disease-case',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DiseaseCaseComponent implements OnInit {
 
-  constructor() { }
+  cases:any[];
+  constructor(private http:HttpClient) { }
 
   ngOnInit() {
+    this.listCase();
+  }
+
+  listCase(){
+    this.http.get<any>('/api/person/all').subscribe(data => {
+      this.cases = data;
+    });
   }
 
 }

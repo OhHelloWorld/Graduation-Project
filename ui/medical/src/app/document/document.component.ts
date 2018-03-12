@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-document',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DocumentComponent implements OnInit {
 
-  constructor() { }
+  docs:any[];
+  constructor(private http:HttpClient) { }
 
   ngOnInit() {
+    this.allDocuments();
+  }
+
+  allDocuments(){
+    this.http.get<any>('/api/doc').subscribe(data => {
+      this.docs = data;
+    })
   }
 
 }

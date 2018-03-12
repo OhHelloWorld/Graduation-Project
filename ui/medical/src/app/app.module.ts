@@ -20,7 +20,6 @@ import { DocListComponent } from './doc-list/doc-list.component';
 import { CaseDetailComponent } from './case-detail/case-detail.component';
 import { DocDetailComponent } from './doc-detail/doc-detail.component';
 import { CommentComponent } from './myPlugin/comment/comment.component';
-import { AlPersonComponent } from './enter-al/al-person/al-person.component';
 import { AlFourComponent } from './enter-al/al-four/al-four.component';
 import { AlTongueComponent } from './enter-al/al-tongue/al-tongue.component';
 import { AlExamComponent } from './enter-al/al-exam/al-exam.component';
@@ -28,7 +27,6 @@ import { AlLiverComponent } from './enter-al/al-liver/al-liver.component';
 import { AlBoneComponent } from './enter-al/al-bone/al-bone.component';
 import { AlAihComponent } from './enter-al/al-aih/al-aih.component';
 import { AlDiagnosisComponent } from './enter-al/al-diagnosis/al-diagnosis.component';
-import { MlPersonComponent } from './enter-ml/ml-person/ml-person.component';
 import { MlFourComponent } from './enter-ml/ml-four/ml-four.component';
 import { MlDiseaseComponent } from './enter-ml/ml-disease/ml-disease.component';
 import { MlAllergyComponent } from './enter-ml/ml-allergy/ml-allergy.component';
@@ -37,6 +35,8 @@ import { MlExamComponent } from './enter-ml/ml-exam/ml-exam.component';
 import { MlBloodComponent } from './enter-ml/ml-blood/ml-blood.component';
 import { MlLiverComponent } from './enter-ml/ml-liver/ml-liver.component';
 import { NationDropDownComponent } from './myPlugin/nation-drop-down/nation-drop-down.component';
+import { PersonComponent } from './person/person.component';
+import { CollectionComponent } from './collection/collection.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +54,6 @@ import { NationDropDownComponent } from './myPlugin/nation-drop-down/nation-drop
     CaseDetailComponent,
     DocDetailComponent,
     CommentComponent,
-    AlPersonComponent,
     AlFourComponent,
     AlTongueComponent,
     AlExamComponent,
@@ -62,7 +61,6 @@ import { NationDropDownComponent } from './myPlugin/nation-drop-down/nation-drop
     AlBoneComponent,
     AlAihComponent,
     AlDiagnosisComponent,
-    MlPersonComponent,
     MlFourComponent,
     MlDiseaseComponent,
     MlAllergyComponent,
@@ -70,7 +68,9 @@ import { NationDropDownComponent } from './myPlugin/nation-drop-down/nation-drop
     MlExamComponent,
     MlBloodComponent,
     MlLiverComponent,
-    NationDropDownComponent
+    NationDropDownComponent,
+    PersonComponent,
+    CollectionComponent
   ],
   imports: [
     BrowserModule,

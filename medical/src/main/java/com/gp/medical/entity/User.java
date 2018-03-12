@@ -19,12 +19,18 @@ public class User implements UserDetails{
     private Long id;
     private String username;
     private String password;
-    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinTable(name = "user_authority",joinColumns = @JoinColumn(name = "user_id",referencedColumnName = "id"),
     inverseJoinColumns = @JoinColumn(name = "authority_id",referencedColumnName = "id"))
     private List<Authority> authorities;
-    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
-    private List<AlPerson> alPersons;
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    private List<Person> persons;
+    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @JoinTable(name = "user_person",joinColumns = @JoinColumn(name = "user_id",referencedColumnName = "id"),
+    inverseJoinColumns = @JoinColumn(name = "person_id",referencedColumnName = "id"))
+    private List<Person> personCollections;
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    private List<Comment> comments;
 
     public Long getId() {
         return id;
@@ -81,11 +87,27 @@ public class User implements UserDetails{
         return true;
     }
 
-    public List<AlPerson> getAlPeople() {
-        return alPersons;
+    public List<Person> getPersons() {
+        return persons;
     }
 
-    public void setAlPeople(List<AlPerson> alPersons) {
-        this.alPersons = alPersons;
+    public void setPersons(List<Person> persons) {
+        this.persons = persons;
+    }
+
+    public List<Person> getPersonCollections() {
+        return personCollections;
+    }
+
+    public void setPersonCollections(List<Person> personCollections) {
+        this.personCollections = personCollections;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 }

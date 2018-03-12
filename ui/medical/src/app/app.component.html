@@ -39,6 +39,7 @@
           <a *ngIf="hasUser" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">{{username}}</a>
           <ul class="dropdown-menu">
             <li><a role="button" (click)="logout()">退出</a></li>
+            <li><a role="button" routerLink="/collection">我的收藏</a></li>
           </ul>
         </li>
         <li class="dropdown">

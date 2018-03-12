@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router,ActivatedRoute,ParamMap } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-doc-detail',
@@ -7,22 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DocDetailComponent implements OnInit {
 
-  comments=[{
-    username:'jr',
-    time:'today',
-    context:'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout'
-  },{
-    username:'hhh',
-    time:'today',
-    context:'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout'
-  },{
-    username:'jiarui',
-    time:'today',
-    context:'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout'
-  },];
-  constructor() { }
+  doc:{id:number,name:string,author:string,source:string,image:string,content:string,comments:any[]};
+  count:number = 0;
+
+  constructor(private router:Router,private route:ActivatedRoute,private http:HttpClient) { }
 
   ngOnInit() {
+    this.count = this.count + 1;
+    this.route.paramMap.subscribe((params:ParamMap) => {
+      this.http.get<any>('/api/doc/' + params.get('id')).subscribe(data => {
+        this.doc = data;
+      })
+    })
   }
 
 }

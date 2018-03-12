@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute,ParamMap } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-case-detail',
@@ -9,17 +9,25 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CaseDetailComponent implements OnInit {
 
-  case:{name:string};
+  case:{id:number,name:string};
 
   constructor(private router:Router,private route:ActivatedRoute,private http:HttpClient) { }
 
   ngOnInit() {
-    this.case = {name:''};
+    this.case = {id:-1,name:''};
     this.route.paramMap.subscribe((params:ParamMap) => {
-      this.http.get<any>('/api/alPerson/' + params.get('id')).subscribe(data => {
+      this.http.get<any>('/api/person/' + params.get('id')).subscribe(data => {
         this.case = data;
       });
     })
+  }
+
+  collect(){
+    this.http.get('/api/user/collection/' + this.case.id,
+      {
+        headers:new HttpHeaders().set('userId',localStorage['id'])
+      }
+    ).subscribe();
   }
 
 }

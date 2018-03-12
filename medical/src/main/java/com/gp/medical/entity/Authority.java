@@ -17,7 +17,7 @@ public class Authority implements GrantedAuthority {
 
     private String name;
 
-    @ManyToMany(mappedBy = "authorities")
+    @ManyToMany(mappedBy = "authorities",fetch = FetchType.LAZY)
     private List<User> userList;
 
     public Long getId() {

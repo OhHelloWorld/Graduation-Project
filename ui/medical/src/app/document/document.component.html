@@ -1,11 +1,10 @@
 <div class="container" style="height: auto">
   <div>
-    <b>年龄：</b>
+    <b>发布时间：</b>
     <a class="col-md-offset-1" role="button">全部</a>
-    <a class="col-md-offset-1" role="button">0到10岁</a>
-    <a class="col-md-offset-1" role="button">11到20岁</a>
-    <a class="col-md-offset-1" role="button">21到60岁</a>
-    <a class="col-md-offset-1" role="button">60岁以上</a>
+    <a class="col-md-offset-1" role="button">今天</a>
+    <a class="col-md-offset-1" role="button">最近三天</a>
+    <a class="col-md-offset-1" role="button">一周内</a>
     <hr>
     <b>分类：</b>
     <a class="col-md-offset-1" role="button">全部</a>
@@ -13,6 +12,6 @@
     <a class="col-md-offset-1" style="width: 110px" role="button">肝病</a>
   </div>
   <hr>
-  <app-doc-list></app-doc-list>
+  <app-doc-list [docs]="docs"></app-doc-list>
   <app-pagination></app-pagination>
 </div>

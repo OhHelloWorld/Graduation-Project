@@ -1,9 +1,12 @@
 package com.gp.medical.controller;
 
+import com.gp.medical.entity.Person;
 import com.gp.medical.entity.User;
 import com.gp.medical.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * Created by Administrator on 2018/3/6 0006.
@@ -25,9 +28,24 @@ public class UserController {
         return userService.registeredUser(user);
     }
 
+    /**
+     * 用户登录
+     * @param user
+     * @return
+     */
     @PostMapping(path = "/login")
     public @ResponseBody User login(@RequestBody User user){
         return userService.login(user);
+    }
+
+    @GetMapping(path = "/collection/{personId}")
+    public void collectPerson(@PathVariable Long personId,@RequestHeader(value = "userId") Long userId){
+        userService.collectionPerson(userId,personId);
+    }
+
+    @GetMapping(path = "/collections")
+    public List<Person> getCollections(@RequestHeader(value = "userId") Long userId){
+        return userService.getCollections(userId);
     }
 
 }

@@ -1,11 +1,11 @@
 <div class="container" style="height: auto">
   <div class="box box-widget">
     <div class="box-header with-border">
-      <h3 style="text-align: center;">科普文章标题{{title}}</h3>
+      <h3 style="text-align: center;">{{doc.name}}</h3>
       <hr>
       <div class="user-block">
-        <span class="username"><a>Jonathan Burke Jr.</a></span>
-        <span class="description">来源：中国医学报</span>
+        <span class="username"><a>{{doc.author}}</a></span>
+        <span class="description">{{doc.source}}</span>
       </div>
       <!-- /.user-block -->
       <div class="box-tools">
@@ -19,16 +19,16 @@
     </div>
     <!-- /.box-header -->
     <div class="box-body">
-      <img class="img-responsive pad" style="height: 350px;width: 100%" src="../../assets/image/medicine1.jpg" alt="Photo">
+      <img class="img-responsive pad" style="height: 350px;width: 100%" src="{{doc.image}}" alt="Photo">
       <blockquote>
-        I took this photo this morning. What do you guys think? It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+        {{doc.content}}
       </blockquote>
-      <span class="pull-right text-muted">127 views - 3 comments</span>
+      <span class="pull-right text-muted">{{count}} views</span>
     </div>
     <!-- /.box-body -->
     <div class="box-footer box-comments">
       <!-- /.box-comment -->
-      <div *ngFor="let comment of comments">
+      <div *ngFor="let comment of doc.comments">
         <app-comment [comment]="comment"></app-comment>
         <hr>
       </div>

@@ -1,8 +1,10 @@
 package com.gp.medical.serviceImpl;
 
 import com.gp.medical.entity.Authority;
+import com.gp.medical.entity.Person;
 import com.gp.medical.entity.User;
 import com.gp.medical.repository.AuthorityRepository;
+import com.gp.medical.repository.PersonRepository;
 import com.gp.medical.repository.UserRepository;
 import com.gp.medical.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +30,9 @@ public class UserServiceImpl implements UserDetailsService,UserService {
     @Autowired
     private AuthorityRepository authorityRepository;
 
+    @Autowired
+    private PersonRepository personRepository;
+
     private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
     @Override
@@ -38,12 +43,17 @@ public class UserServiceImpl implements UserDetailsService,UserService {
     @Override
     public Long registeredUser(User user) {
 
+        //权限设置
         List<Authority> authorityList = new ArrayList<>();
         authorityList.add(authorityRepository.findOne(1L));
+
+        //收藏列表初始化
+        List<Person> collectionPersons = new ArrayList<>();
 
         String nowPass = new String(Base64.decode(user.getPassword().getBytes()));
         user.setPassword(encoder.encode(nowPass));
         user.setAuthorities(authorityList);
+        user.setPersonCollections(collectionPersons);
 
         return userRepository.save(user).getId();
     }
@@ -57,5 +67,35 @@ public class UserServiceImpl implements UserDetailsService,UserService {
         }else{
             return null;
         }
+    }
+
+    @Override
+    public void collectionPerson(Long userId,Long personId) {
+        User user = userRepository.findOne(userId);
+        user.getPersonCollections().add(personRepository.findOne(personId));
+        userRepository.save(user);
+    }
+
+    @Override
+    public List<Person> getCollections(Long userId){
+        User user = userRepository.findOne(userId);
+        List<Person> collectionsInDatabase =  user.getPersonCollections();
+        List<Person> collections = new ArrayList<>();
+        for(Person person : collectionsInDatabase){
+            collections.add(switchPerson(person));
+        }
+        return collections;
+    }
+
+    /**
+     * 将person对象转换为可发送至前端的方式
+     * @param person
+     * @return
+     */
+    private Person switchPerson(Person person){
+        Person newPerson = new Person();
+        newPerson.setName(person.getName());
+        newPerson.setId(person.getId());
+        return newPerson;
     }
 }
