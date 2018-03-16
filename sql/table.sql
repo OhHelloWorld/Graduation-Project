@@ -14,6 +14,16 @@ create table person(
 	id int auto_increment,
     name varchar(50) not null,
 	user_id int not null,
+    age int not null,
+    gender varchar(10) not null,
+    nation varchar(20) not null,
+    culture varchar(20) not null,
+    height int not null,
+    weight int not null,
+    bmi float not null,
+    phone varchar(50) not null,
+    address varchar(50) not null,
+    file_name varchar(20) not null,
     primary key(id)
 );
 

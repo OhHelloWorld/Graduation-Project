@@ -1,6 +1,7 @@
 package com.gp.medical.service;
 
 import com.gp.medical.entity.Person;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -16,4 +17,6 @@ public interface PersonService {
     List<Person> allPerson();
 
     Person getPersonById(Long id);
+
+    String uploadImage(MultipartFile file);
 }

@@ -3,22 +3,21 @@
     <tr>
       <td class="col-md-3">姓名：{{case.name}}</td>
       <td class="col-md-3">病例号：{{id}}</td>
-      <td class="col-md-3">年龄：{{age}}</td>
-      <td class="col-md-3" rowspan="4"><img src="../../assets/image/medicine3.jpg" style="height: 30%;width: 80%;margin-left: 10%"></td>
+      <td class="col-md-3">年龄：{{case.age}}</td>
+      <td class="col-md-3" rowspan="4"><img src="/image/{{case.fileName}}" style="height: 30%;width: 80%;margin-left: 10%"></td>
     </tr>
     <tr>
-      <td>性别：{{gender}}</td>
-      <td>民族：{{catagory}}</td>
-      <td>出生日期：{{birthday}}</td>
+      <td>性别：{{case.gender}}</td>
+      <td>民族：{{case.nation}}</td>
     </tr>
     <tr>
-      <td>身高：{{height}}</td>
-      <td>体重：{{weight}}</td>
-      <td>BMI：{{bmi}}</td>
+      <td>身高：{{case.height}}</td>
+      <td>体重：{{case.weight}}</td>
+      <td>BMI：{{case.bmi}}</td>
     </tr>
     <tr>
       <td>婚否：{{marry}}</td>
-      <td>文化程度：{{culture}}</td>
+      <td>文化程度：{{case.culture}}</td>
       <td>职业：{{job}}</td>
     </tr>
     <tr>

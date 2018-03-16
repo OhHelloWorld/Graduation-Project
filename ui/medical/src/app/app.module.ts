@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { FileUploadModule } from 'ng2-file-upload';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -34,7 +36,6 @@ import { MlDrinkComponent } from './enter-ml/ml-drink/ml-drink.component';
 import { MlExamComponent } from './enter-ml/ml-exam/ml-exam.component';
 import { MlBloodComponent } from './enter-ml/ml-blood/ml-blood.component';
 import { MlLiverComponent } from './enter-ml/ml-liver/ml-liver.component';
-import { NationDropDownComponent } from './myPlugin/nation-drop-down/nation-drop-down.component';
 import { PersonComponent } from './person/person.component';
 import { CollectionComponent } from './collection/collection.component';
 
@@ -68,7 +69,6 @@ import { CollectionComponent } from './collection/collection.component';
     MlExamComponent,
     MlBloodComponent,
     MlLiverComponent,
-    NationDropDownComponent,
     PersonComponent,
     CollectionComponent
   ],
@@ -76,7 +76,9 @@ import { CollectionComponent } from './collection/collection.component';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule,
+    FileUploadModule
   ],
   providers: [],
   bootstrap: [AppComponent]
