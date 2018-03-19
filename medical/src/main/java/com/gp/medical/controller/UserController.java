@@ -38,11 +38,21 @@ public class UserController {
         return userService.login(user);
     }
 
+    /**
+     * 收藏病例
+     * @param personId
+     * @param userId
+     */
     @GetMapping(path = "/collection/{personId}")
     public void collectPerson(@PathVariable Long personId,@RequestHeader(value = "userId") Long userId){
         userService.collectionPerson(userId,personId);
     }
 
+    /**
+     * 根据用户Id得到该用户的所有收藏
+     * @param userId
+     * @return
+     */
     @GetMapping(path = "/collections")
     public List<Person> getCollections(@RequestHeader(value = "userId") Long userId){
         return userService.getCollections(userId);

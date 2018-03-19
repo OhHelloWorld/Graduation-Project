@@ -39,6 +39,10 @@ import { MlLiverComponent } from './enter-ml/ml-liver/ml-liver.component';
 import { PersonComponent } from './person/person.component';
 import { CollectionComponent } from './collection/collection.component';
 
+import { AuthGuard } from './auth-guard.service';
+import { InfoGuard } from './info-guard.service'; 
+import { PersonSelectComponent } from './person-select/person-select.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,7 +74,8 @@ import { CollectionComponent } from './collection/collection.component';
     MlBloodComponent,
     MlLiverComponent,
     PersonComponent,
-    CollectionComponent
+    CollectionComponent,
+    PersonSelectComponent
   ],
   imports: [
     BrowserModule,
@@ -80,7 +85,7 @@ import { CollectionComponent } from './collection/collection.component';
     CommonModule,
     FileUploadModule
   ],
-  providers: [],
+  providers: [AuthGuard,InfoGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

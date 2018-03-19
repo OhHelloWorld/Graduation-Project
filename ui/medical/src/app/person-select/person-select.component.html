@@ -1,0 +1,18 @@
+<div class="container" style="height: auto;">
+  <hr>
+  <span class="h3">请选择病例或者<a routerLink="/person">新建一个病例</a></span>
+  <hr>
+  <div class="col-md-2" *ngFor="let case of cases">
+    <a style="cursor: pointer;text-decoration: none;" (click)="navigateToCategory(case.id)">
+      <div class="thumbnail rose">
+        <img src="/image/{{case.fileName}}" style="height:100px;width: 100%">
+        <div class="caption">
+          <p class="h4 bold" style="text-align: center">{{case.name}}</p>
+          <hr>
+          <span class="bold">{{case.age}}岁</span>
+          <span class="col-md-offset-2 bold">{{case.gender}}</span>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>

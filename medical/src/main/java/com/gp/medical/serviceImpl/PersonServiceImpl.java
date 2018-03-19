@@ -4,6 +4,7 @@ import com.gp.medical.entity.Person;
 import com.gp.medical.repository.PersonRepository;
 import com.gp.medical.repository.UserRepository;
 import com.gp.medical.service.PersonService;
+import com.gp.medical.tool.Switch;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -35,21 +36,25 @@ public class PersonServiceImpl implements PersonService {
 
     @Override
     public List<Person> minePerson(Long userId) {
-        return personRepository.minePerson(userId);
+        List<Person> personList = new ArrayList<>();
+        for(Person person : personRepository.minePerson(userId)){
+            personList.add(Switch.switchPerson(person));
+        }
+        return personList;
     }
 
     @Override
     public List<Person> allPerson() {
         List<Person> alPersonList = new ArrayList<>();
         for(Person alPerson : personRepository.allPerson()){
-            alPersonList.add(switchAlPerson(alPerson));
+            alPersonList.add(Switch.switchPerson(alPerson));
         }
         return alPersonList;
     }
 
     @Override
     public Person getPersonById(Long id) {
-        return switchAlPerson(personRepository.findOne(id));
+        return Switch.switchPerson(personRepository.findOne(id));
     }
 
     @Override
@@ -64,26 +69,13 @@ public class PersonServiceImpl implements PersonService {
         return imageName;
     }
 
-    /**
-     * 转换entity格式使程序不会陷入死循环
-     * @param personInDatabase
-     * @return
-     */
-    private Person switchAlPerson(Person personInDatabase){
-        Person newPerson = new Person();
-        newPerson.setName(personInDatabase.getName());
-        newPerson.setId(personInDatabase.getId());
-        newPerson.setAddress(personInDatabase.getAddress());
-        newPerson.setAge(personInDatabase.getAge());
-        newPerson.setBmi(personInDatabase.getBmi());
-        newPerson.setCulture(personInDatabase.getCulture());
-        newPerson.setFileName(personInDatabase.getFileName());
-        newPerson.setGender(personInDatabase.getGender());
-        newPerson.setHeight(personInDatabase.getHeight());
-        newPerson.setNation(personInDatabase.getNation());
-        newPerson.setPhone(personInDatabase.getPhone());
-        newPerson.setWeight(personInDatabase.getWeight());
-        return newPerson;
+    @Override
+    public List<Person> latestPerson() {
+        List<Person> personList = new ArrayList<>();
+        List<Person> personInDatabase = personRepository.latestPerson();
+        for(Person person : personInDatabase){
+            personList.add(Switch.switchPerson(person));
+        }
+        return personList;
     }
-
 }

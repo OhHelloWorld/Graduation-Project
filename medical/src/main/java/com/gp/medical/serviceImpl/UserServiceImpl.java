@@ -7,6 +7,7 @@ import com.gp.medical.repository.AuthorityRepository;
 import com.gp.medical.repository.PersonRepository;
 import com.gp.medical.repository.UserRepository;
 import com.gp.medical.service.UserService;
+import com.gp.medical.tool.Switch;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -62,8 +63,12 @@ public class UserServiceImpl implements UserDetailsService,UserService {
     public User login(User user) {
         String password = new String(Base64.decode(user.getPassword().getBytes()));
         User userInDatabase = userRepository.findByUsername(user.getUsername());
-        if(encoder.matches(password,userInDatabase.getPassword())){
-            return userInDatabase;
+        if(userInDatabase != null){
+            if(encoder.matches(password,userInDatabase.getPassword())){
+                return userInDatabase;
+            }else{
+                return null;
+            }
         }else{
             return null;
         }
@@ -82,20 +87,8 @@ public class UserServiceImpl implements UserDetailsService,UserService {
         List<Person> collectionsInDatabase =  user.getPersonCollections();
         List<Person> collections = new ArrayList<>();
         for(Person person : collectionsInDatabase){
-            collections.add(switchPerson(person));
+            collections.add(Switch.switchPerson(person));
         }
         return collections;
-    }
-
-    /**
-     * 将person对象转换为可发送至前端的方式
-     * @param person
-     * @return
-     */
-    private Person switchPerson(Person person){
-        Person newPerson = new Person();
-        newPerson.setName(person.getName());
-        newPerson.setId(person.getId());
-        return newPerson;
     }
 }

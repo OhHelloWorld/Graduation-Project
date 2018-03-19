@@ -19,4 +19,6 @@ public interface PersonService {
     Person getPersonById(Long id);
 
     String uploadImage(MultipartFile file);
+
+    List<Person> latestPerson();
 }

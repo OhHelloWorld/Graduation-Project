@@ -1,10 +1,12 @@
 <div class="col-md-2" *ngFor="let case of cases">
   <a style="cursor: pointer;text-decoration: none;" [routerLink]="['/caseDetail',case.id]">
     <div class="thumbnail rose">
-      <img src="/image/{{case.fileName}}" style="height:100px">
+      <img src="/image/{{case.fileName}}" style="height:100px;width: 100%">
       <div class="caption">
-        <h3>{{case.name}}</h3>
-        <p>{{case.caseInfo}}</p>
+        <p class="h4 bold" style="text-align: center;">{{case.name}}</p>
+        <hr>
+        <span class="bold">{{case.age}}岁</span>
+        <span class=" col-md-offset-2 bold">{{case.gender}}性</span>
       </div>
     </div>
   </a>

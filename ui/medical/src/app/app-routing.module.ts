@@ -28,33 +28,38 @@ import { MlBloodComponent } from './enter-ml/ml-blood/ml-blood.component';
 import { MlLiverComponent } from './enter-ml/ml-liver/ml-liver.component';
 
 import { CollectionComponent } from './collection/collection.component';
+import { PersonSelectComponent } from './person-select/person-select.component';
+
+import { AuthGuard } from './auth-guard.service';
+import { InfoGuard } from './info-guard.service';
 
 const appRoutes:Routes = [
   {path:'',redirectTo:'/home',pathMatch:'full'},
   {path:'home',component:HomeComponent},
   {path:'signUp',component:SignUpComponent},
-  {path:'case',component:DiseaseCaseComponent},
-  {path:'autoimmune',component:AutoimmuneLiverComponent},
-  {path:'medicineLiver',component:MedicineLiverComponent},
-  {path:'document',component:DocumentComponent},
-  {path:'caseDetail/:id',component:CaseDetailComponent},
-  {path:'docDetail/:id',component:DocDetailComponent},
-  {path:'person',component:PersonComponent},
-  {path:'alFour',component:AlFourComponent},
-  {path:'alTongue',component:AlTongueComponent},
-  {path:'alExam',component:AlExamComponent},
-  {path:'alLiver',component:AlLiverComponent},
-  {path:'alBone',component:AlBoneComponent},
-  {path:'alAih',component:AlAihComponent},
-  {path:'alDiagnosis',component:AlDiagnosisComponent},
-  {path:'mlFour',component:MlFourComponent},
-  {path:'mlDisease',component:MlDiseaseComponent},
-  {path:'mlAllergy',component:MlAllergyComponent},
-  {path:'mlDrink',component:MlDrinkComponent},
-  {path:'mlExam',component:MlExamComponent},
-  {path:'mlBlood',component:MlBloodComponent},
-  {path:'mlLiver',component:MlLiverComponent},
-  {path:'collection',component:CollectionComponent}
+  {path:'case',component:DiseaseCaseComponent,canActivate:[AuthGuard]},
+  {path:'autoimmune',component:AutoimmuneLiverComponent,canActivate:[AuthGuard]},
+  {path:'medicineLiver',component:MedicineLiverComponent,canActivate:[AuthGuard]},
+  {path:'document',component:DocumentComponent,canActivate:[AuthGuard]},
+  {path:'caseDetail/:id',component:CaseDetailComponent,canActivate:[AuthGuard]},
+  {path:'docDetail/:id',component:DocDetailComponent,canActivate:[AuthGuard]},
+  {path:'person',component:PersonComponent,canActivate:[AuthGuard]},
+  {path:'alFour',component:AlFourComponent,canActivate:[AuthGuard,InfoGuard]},
+  {path:'alTongue',component:AlTongueComponent,canActivate:[AuthGuard,InfoGuard]},
+  {path:'alExam',component:AlExamComponent,canActivate:[AuthGuard,InfoGuard]},
+  {path:'alLiver',component:AlLiverComponent,canActivate:[AuthGuard,InfoGuard]},
+  {path:'alBone',component:AlBoneComponent,canActivate:[AuthGuard,InfoGuard]},
+  {path:'alAih',component:AlAihComponent,canActivate:[AuthGuard,InfoGuard]},
+  {path:'alDiagnosis',component:AlDiagnosisComponent,canActivate:[AuthGuard,InfoGuard]},
+  {path:'mlFour',component:MlFourComponent,canActivate:[AuthGuard,InfoGuard]},
+  {path:'mlDisease',component:MlDiseaseComponent,canActivate:[AuthGuard,InfoGuard]},
+  {path:'mlAllergy',component:MlAllergyComponent,canActivate:[AuthGuard,InfoGuard]},
+  {path:'mlDrink',component:MlDrinkComponent,canActivate:[AuthGuard,InfoGuard]},
+  {path:'mlExam',component:MlExamComponent,canActivate:[AuthGuard,InfoGuard]},
+  {path:'mlBlood',component:MlBloodComponent,canActivate:[AuthGuard,InfoGuard]},
+  {path:'mlLiver',component:MlLiverComponent,canActivate:[AuthGuard,InfoGuard]},
+  {path:'collection',component:CollectionComponent,canActivate:[AuthGuard]},
+  {path:'select/:category',component:PersonSelectComponent,canActivate:[AuthGuard]}
 ];
 
 @NgModule(

@@ -17,4 +17,7 @@ public interface PersonRepository extends CrudRepository<Person,Long>{
     @Query(value = "select * from person",nativeQuery = true)
     List<Person> allPerson();
 
+    @Query(value = "select * from person order by id desc limit 6",nativeQuery = true)
+    List<Person> latestPerson();
+
 }

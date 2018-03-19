@@ -53,7 +53,7 @@ export class PersonComponent implements OnInit {
 
   }
 
-  sendPerson(){
+  submit(){
     this.uploadFile(this.person,this.http);
   }
   uploadFile(person:any,http:any) {

@@ -50,3 +50,19 @@ create table comment(
     user_id int not null,
     primary key(id)
 );
+
+create table al_four(
+	id int not null auto_increment,
+    person_id int not null,
+    fatigue varchar(20),
+    itch varchar(20),
+    dry varchar(20),
+    vague varchar(20),
+    depress varchar(20),
+    angry varchar(20),
+    insomnia varchar(20),
+    wake varchar(20),
+    tinnitus varchar(20),
+    thirst varchar(20),
+    primary key(id)
+);
