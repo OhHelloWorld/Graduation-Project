@@ -16,6 +16,8 @@ public interface UserService {
 
     void collectionPerson(Long userId,Long personId);
 
-    List<Person> getCollections(Long userId);
+    List<Person> pageCollections(Long userId,int page);
+
+    int getCollectionCount(Long userId);
 
 }

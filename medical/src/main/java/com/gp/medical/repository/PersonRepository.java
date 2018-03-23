@@ -11,8 +11,8 @@ import java.util.List;
  */
 public interface PersonRepository extends CrudRepository<Person,Long>{
 
-    @Query(value = "select * from person where user_id = ?1",nativeQuery = true)
-    List<Person> minePerson(Long userId);
+    @Query(value = "select * from person where user_id = ?1 order by id desc limit ?3 offset ?2",nativeQuery = true)
+    List<Person> minePersonByPage(Long userId,int offset,int limitNum);
 
     @Query(value = "select * from person",nativeQuery = true)
     List<Person> allPerson();
@@ -20,4 +20,9 @@ public interface PersonRepository extends CrudRepository<Person,Long>{
     @Query(value = "select * from person order by id desc limit 6",nativeQuery = true)
     List<Person> latestPerson();
 
+    @Query(value = "select * from person order by id desc limit ?1 offset ?2",nativeQuery = true)
+    List<Person> getPersonByPage(int limitNum,int offset);
+
+    @Query(value = "select * from person where user_id = ?1",nativeQuery = true)
+    List<Person> getPersonByUserId(Long userId);
 }

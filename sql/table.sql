@@ -66,3 +66,15 @@ create table al_four(
     thirst varchar(20),
     primary key(id)
 );
+create table al_tongue(
+	id int not null auto_increment,
+    person_id int not null,
+    tongue_quality varchar(10),
+    tongue_body varchar(10),
+    mossy_quality varchar(10),
+    mossy_color varchar(10),
+    varice varchar(10),
+    tongue_left varchar(10),
+    tongue_right varchar(10),
+    primary key(id)
+);

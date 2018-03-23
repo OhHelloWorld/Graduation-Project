@@ -23,7 +23,6 @@
       <blockquote>
         {{doc.content}}
       </blockquote>
-      <span class="pull-right text-muted">{{count}} views</span>
     </div>
     <!-- /.box-body -->
     <div class="box-footer box-comments">
@@ -39,7 +38,9 @@
         <img class="img-responsive img-circle img-sm" src="../../assets/image/medicine1.jpg" alt="Alt Text">
         <!-- .img-push is used to add margin to elements next to floating images -->
         <div class="img-push">
-          <input type="text" class="form-control input-sm" placeholder="Press enter to post comment">
+          <textarea class="form-control" placeholder="请输入评论" [(ngModel)]="commentDTO.content" name="content"></textarea>
+          <br/>
+          <button class="btn btn-success btn-sm" (click)="submit(doc.id)">提交评论</button>
         </div>
       </form>
     </div>

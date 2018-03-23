@@ -28,6 +28,7 @@ import { MlBloodComponent } from './enter-ml/ml-blood/ml-blood.component';
 import { MlLiverComponent } from './enter-ml/ml-liver/ml-liver.component';
 
 import { CollectionComponent } from './collection/collection.component';
+import { CollectionDocComponent } from './collection-doc/collection-doc.component';
 import { PersonSelectComponent } from './person-select/person-select.component';
 
 import { AuthGuard } from './auth-guard.service';
@@ -59,6 +60,7 @@ const appRoutes:Routes = [
   {path:'mlBlood',component:MlBloodComponent,canActivate:[AuthGuard,InfoGuard]},
   {path:'mlLiver',component:MlLiverComponent,canActivate:[AuthGuard,InfoGuard]},
   {path:'collection',component:CollectionComponent,canActivate:[AuthGuard]},
+  {path:'collectionDoc',component:CollectionDocComponent,canActivate:[AuthGuard]},
   {path:'select/:category',component:PersonSelectComponent,canActivate:[AuthGuard]}
 ];
 

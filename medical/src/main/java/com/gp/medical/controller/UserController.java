@@ -49,13 +49,23 @@ public class UserController {
     }
 
     /**
-     * 根据用户Id得到该用户的所有收藏
+     * 根据用户Id得到该用户的所有病例收藏（分页）
      * @param userId
      * @return
      */
-    @GetMapping(path = "/collections")
-    public List<Person> getCollections(@RequestHeader(value = "userId") Long userId){
-        return userService.getCollections(userId);
+    @GetMapping(path = "/collections/page")
+    public List<Person> pageCollections(@RequestHeader(value = "userId") Long userId,@RequestParam(value = "page") String page){
+        return userService.pageCollections(userId,Integer.valueOf(page));
+    }
+
+    /**
+     * 根据用户Id得到该用户的病例收藏数量
+     * @param userId
+     * @return
+     */
+    @GetMapping(path = "/collections/count")
+    public int getCollectionCount(@RequestHeader(value = "userId") Long userId){
+         return userService.getCollectionCount(userId);
     }
 
 }

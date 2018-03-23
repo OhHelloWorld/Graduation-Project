@@ -12,4 +12,8 @@ public interface DocumentService {
     List<Document> allDocument();
 
     Document getDocumentById(Long docId);
+
+    List<Document> getDocByPage(String page);
+
+    Long getDocCount();
 }

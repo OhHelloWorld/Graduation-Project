@@ -47,14 +47,25 @@ public class PersonController {
     }
 
     /**
-     * 得到该用户创建的病例
+     * 得到该用户创建的病例（分页）
      * @param userId
      * @return
      */
-    @GetMapping(path = "/mine")
-    public List<Person> minePerson(@RequestHeader(value = "userId") Long userId){
-        return personService.minePerson(userId);
+    @GetMapping(path = "/mine/page")
+    public List<Person> minePerson(@RequestHeader(value = "userId") Long userId,@RequestParam(value = "page") String page){
+        return personService.minePersonByPage(userId,page);
     }
+
+    /**
+     * 得到某个用户创建的病例数量
+     * @param userId
+     * @return
+     */
+    @GetMapping(path = "/mine/count")
+    public int minePersonCount(@RequestHeader(value = "userId") Long userId){
+        return personService.getMinePersonCount(userId);
+    }
+
 
     /**
      * 跟据病例id得到某个病例
@@ -66,6 +77,11 @@ public class PersonController {
         return personService.getPersonById(id);
     }
 
+    @GetMapping(path = "/count")
+    public Long getPersonCount(){
+        return personService.getPersonCount();
+    }
+
     /**
      * 上传文件
      * @param file
@@ -74,6 +90,16 @@ public class PersonController {
     @PostMapping(path = "/file")
     public String uploadImage(@RequestParam MultipartFile file){
         return personService.uploadImage(file);
+    }
+
+    /**
+     * 得到所有用户的病例（分页）
+     * @param page
+     * @return
+     */
+    @GetMapping(path = "/page")
+    public List<Person> getPersonByPage(@RequestParam String page){
+        return personService.getPersonByPage(page);
     }
 
 }

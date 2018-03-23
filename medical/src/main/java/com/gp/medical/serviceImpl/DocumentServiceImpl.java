@@ -1,11 +1,10 @@
 package com.gp.medical.serviceImpl;
 
-import com.gp.medical.entity.Comment;
 import com.gp.medical.entity.Document;
-import com.gp.medical.entity.User;
 import com.gp.medical.repository.CommentRepository;
 import com.gp.medical.repository.DocumentRepository;
 import com.gp.medical.service.DocumentService;
+import com.gp.medical.tool.Switch;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,48 +27,29 @@ public class DocumentServiceImpl implements DocumentService{
     public List<Document> allDocument() {
         List<Document> documentList = new ArrayList<>();
         for(Document document : documentRepository.findAll()){
-            Document newDocument = new Document();
-            newDocument.setId(document.getId());
-            newDocument.setName(document.getName());
-            newDocument.setAuthor(document.getAuthor());
-            documentList.add(newDocument);
+            documentList.add(Switch.switchDoc(document));
         }
         return documentList;
     }
 
     public Document getDocumentById(Long docId){
         Document documentInDatabase = documentRepository.findOne(docId);
-        return switchDoc(documentInDatabase);
+        return Switch.switchDoc(documentInDatabase);
     }
 
-    private Document switchDoc(Document document){
-        Document newDocument = new Document();
-        newDocument.setId(document.getId());
-        newDocument.setName(document.getName());
-        newDocument.setAuthor(document.getAuthor());
-        newDocument.setContent(document.getContent());
-        newDocument.setImage(document.getImage());
-        newDocument.setSource(document.getSource());
-        List<Comment> newComments = new ArrayList<>();
-        List<Comment> commentsInDatabase = document.getComments();
-        if(!commentsInDatabase.isEmpty()) {
-            for (Comment comment : commentsInDatabase) {
-                newComments.add(switchComment(comment));
-            }
+    @Override
+    public List<Document> getDocByPage(String page) {
+        List<Document> docInDatabase = documentRepository.getDocByPage(Integer.valueOf(page) - 1);
+        List<Document> documents = new ArrayList<>();
+        for(Document document : docInDatabase){
+            documents.add(Switch.switchDoc(document));
         }
-        newDocument.setComments(newComments);
-        return newDocument;
+        return documents;
     }
 
-    private Comment switchComment(Comment comment){
-        Comment newComment = new Comment();
-        newComment.setContent(comment.getContent());
-        newComment.setId(comment.getId());
-        newComment.setTime(comment.getTime());
-        User user = new User();
-        user.setUsername(comment.getUser().getUsername());
-        newComment.setUser(user);
-        return newComment;
+    @Override
+    public Long getDocCount() {
+        return documentRepository.count();
     }
 
 }

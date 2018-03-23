@@ -9,6 +9,7 @@ import com.gp.medical.repository.UserRepository;
 import com.gp.medical.service.UserService;
 import com.gp.medical.tool.Switch;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -33,6 +34,9 @@ public class UserServiceImpl implements UserDetailsService,UserService {
 
     @Autowired
     private PersonRepository personRepository;
+
+    @Value("${limitNum}")
+    private int limitNum;
 
     private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
@@ -65,7 +69,7 @@ public class UserServiceImpl implements UserDetailsService,UserService {
         User userInDatabase = userRepository.findByUsername(user.getUsername());
         if(userInDatabase != null){
             if(encoder.matches(password,userInDatabase.getPassword())){
-                return userInDatabase;
+                return Switch.switchUser(userInDatabase);
             }else{
                 return null;
             }
@@ -82,13 +86,25 @@ public class UserServiceImpl implements UserDetailsService,UserService {
     }
 
     @Override
-    public List<Person> getCollections(Long userId){
+    public List<Person> pageCollections(Long userId,int page){
         User user = userRepository.findOne(userId);
         List<Person> collectionsInDatabase =  user.getPersonCollections();
         List<Person> collections = new ArrayList<>();
-        for(Person person : collectionsInDatabase){
-            collections.add(Switch.switchPerson(person));
+        for(int i = (page - 1) * limitNum + 1; i<=limitNum * page && i <= collectionsInDatabase.size();i++){
+            collections.add(Switch.switchPerson(collectionsInDatabase.get(i-1)));
         }
         return collections;
     }
+
+    @Override
+    public int getCollectionCount(Long userId) {
+        User user = userRepository.findOne(userId);
+        if(user.getPersonCollections() != null) {
+            return user.getPersonCollections().size();
+        }else{
+            return 0;
+        }
+    }
+
+
 }

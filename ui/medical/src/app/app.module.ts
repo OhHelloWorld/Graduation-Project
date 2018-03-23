@@ -42,6 +42,7 @@ import { CollectionComponent } from './collection/collection.component';
 import { AuthGuard } from './auth-guard.service';
 import { InfoGuard } from './info-guard.service'; 
 import { PersonSelectComponent } from './person-select/person-select.component';
+import { CollectionDocComponent } from './collection-doc/collection-doc.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import { PersonSelectComponent } from './person-select/person-select.component';
     MlLiverComponent,
     PersonComponent,
     CollectionComponent,
-    PersonSelectComponent
+    PersonSelectComponent,
+    CollectionDocComponent
   ],
   imports: [
     BrowserModule,

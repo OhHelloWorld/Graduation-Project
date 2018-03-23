@@ -14,6 +14,6 @@
   <hr>
   <app-doc-list [docs]="docs"></app-doc-list>
   <div class="col-md-12">
-    <app-pagination></app-pagination>
+    <app-pagination [dataNums]="dataNums" (currentPage)="currentPageHandle($event)"></app-pagination>
   </div>
 </div>

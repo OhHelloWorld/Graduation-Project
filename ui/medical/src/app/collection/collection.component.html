@@ -1,3 +1,6 @@
 <div class="container" style="height: auto;">
   <app-case-list [cases]="collections"></app-case-list>
+  <div class="col-md-12">
+    <app-pagination [dataNums]="dataNums" (currentPage)="currentPageHandle($event)"></app-pagination>
+  </div>
 </div>

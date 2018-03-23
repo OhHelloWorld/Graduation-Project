@@ -1,9 +1,7 @@
 <ul class="pagination pagination-lg" style="margin-left: 40%">
-  <li><a href="#">&laquo;</a></li>
-  <li><a href="#">1</a></li>
-  <li><a href="#">2</a></li>
-  <li><a href="#">3</a></li>
-  <li><a href="#">4</a></li>
-  <li><a href="#">5</a></li>
-  <li><a href="#">&raquo;</a></li>
+  <li><a role="button" (click)="previous()">&laquo;</a></li>
+  <li *ngFor="let page of pages">
+    <a id="page" (click)="getPage(page)" [class.active]="page==pageCurrent" role="button">{{page}}</a>
+  </li>
+  <li><a role="button" (click)="next() ">&raquo;</a></li>
 </ul>

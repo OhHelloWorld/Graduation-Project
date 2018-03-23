@@ -12,7 +12,7 @@ public interface PersonService {
 
     void savePerson(Person alPerson, Long userId);
 
-    List<Person> minePerson(Long userId);
+    List<Person> minePersonByPage(Long userId,String page);
 
     List<Person> allPerson();
 
@@ -21,4 +21,10 @@ public interface PersonService {
     String uploadImage(MultipartFile file);
 
     List<Person> latestPerson();
+
+    Long getPersonCount();
+
+    int getMinePersonCount(Long userId);
+
+    List<Person> getPersonByPage(String page);
 }

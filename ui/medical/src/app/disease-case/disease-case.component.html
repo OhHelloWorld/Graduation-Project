@@ -20,6 +20,6 @@
   <hr>
   <app-case-list [cases]="cases"></app-case-list>
   <div class="col-md-12">
-    <app-pagination></app-pagination>
+    <app-pagination [dataNums]="dataNums" (currentPage)="currentPageHandle($event)"></app-pagination>
   </div>
 </div>

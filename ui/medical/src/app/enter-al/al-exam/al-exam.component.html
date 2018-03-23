@@ -16,205 +16,225 @@
         <form class="form-inline">
           <div class="form-group">
             <label class="control-label">白蛋白：</label>
-            <input type="email" class="form-control" placeholder="白蛋白">
+            <input type="text" class="form-control" name="albumin" [(ngModel)]="examLiver.albumin" placeholder="白蛋白">
           </div>
           <div class="form-group col-md-offset-1">
             <label class="control-label">球蛋白：</label>
-            <input type="email" class="form-control" placeholder="球蛋白">
+            <input type="text" class="form-control" name="globulin" [(ngModel)]="examLiver.globulin" placeholder="球蛋白">
           </div>
           <hr>
           <div class="form-group">
             <label class="control-label">ALT：</label>
-            <input type="email" class="form-control" placeholder="白蛋白">
+            <input type="text" class="form-control" name="alt" [(ngModel)]="examLiver.alt" placeholder="ALT">
           </div>
           <div class="form-group col-md-offset-1">
             <label class="control-label">AST：</label>
-            <input type="email" class="form-control" placeholder="球蛋白">
+            <input type="text" class="form-control" name="ast" [(ngModel)]="examLiver.ast" placeholder="AST">
           </div>
           <hr>
           <div class="form-group">
             <label class="control-label">GGT：</label>
-            <input type="email" class="form-control" placeholder="球蛋白">
+            <input type="text" class="form-control" name="ggt" [(ngModel)]="examLiver.ggt" placeholder="GGT">
           </div>
           <div class="form-group col-md-offset-1">
             <label class="control-label">ALP：</label>
-            <input type="email" class="form-control" placeholder="球蛋白">
+            <input type="text" class="form-control" name="alp" [(ngModel)]="examLiver.alp" placeholder="ALP">
           </div>
           <hr>
           <div class="form-group">
             <label class="control-label">总胆固醇：</label>
-            <input type="email" class="form-control" placeholder="球蛋白">
+            <input type="text" class="form-control" name="cholesterol" [(ngModel)]="examLiver.cholesterol" placeholder="总胆固醇">
           </div>
           <div class="form-group col-md-offset-1">
             <label class="control-label">总胆红素：</label>
-            <input type="email" class="form-control" placeholder="球蛋白">
+            <input type="text" class="form-control" name="tBilirubin" [(ngModel)]="examLiver.tBilirubin" placeholder="总胆红素">
           </div>
           <hr>
           <div class="form-group">
             <label class="control-label">直接胆红素：</label>
-            <input type="email" class="form-control" placeholder="球蛋白">
+            <input type="text" class="form-control" name="dBilirubin" [(ngModel="examLiver.dBilirubin" )] placeholder="直接胆红素">
           </div>
           <div class="form-group col-md-offset-1">
             <label class="control-label">γ-球蛋白：</label>
-            <input type="email" class="form-control" placeholder="球蛋白">
+            <input type="text" class="form-control" name="gGlobulin" [(ngModel)]="examLiver.gGlobulin" placeholder="γ-球蛋白">
           </div>
         </form>
+        <hr>
+        <button class="btn btn-danger" routerLink="/autoimmune">返回</button>
+        <button class="btn btn-success" (click)="submit1()">确定</button>
+        <hr>
       </div>
       <div role="tabpanel" class="tab-pane" id="b">
         <form class="form-inline">
           <div class="form-group">
             <label class="control-label">BUN：</label>
-            <input type="email" class="form-control" placeholder="白蛋白">
+            <input type="text" class="form-control" name="bun" [(ngModel)]="examKidney.bun" placeholder="BUN">
           </div>
           <div class="form-group col-md-offset-1">
             <label class="control-label">Cr：</label>
-            <input type="email" class="form-control" placeholder="球蛋白">
+            <input type="text" class="form-control" name="cr" [(ngModel)]="examKidney.cr" placeholder="球蛋白">
           </div>
         </form>
+        <hr>
+        <button class="btn btn-danger" routerLink="/autoimmune">返回</button>
+        <button class="btn btn-success" (click)="submit2()">确定</button>
+        <hr>
       </div>
       <div role="tabpanel" class="tab-pane" id="c">
         <form class="form-inline">
           <div class="form-group">
             <label class="control-label">RBC：</label>
-            <input type="email" class="form-control" placeholder="白蛋白">
+            <input type="text" class="form-control" name="rbc" [(ngModel)]="examBlood.rbc" placeholder="RBC">
           </div>
           <div class="form-group col-md-offset-1">
             <label class="control-label">Hb：</label>
-            <input type="email" class="form-control" placeholder="球蛋白">
+            <input type="text" class="form-control" name="hb" [(ngModel)]="examBlood.hb" placeholder="Hb">
           </div>
           <hr>
           <div class="form-group">
             <label class="control-label">WBC：</label>
-            <input type="email" class="form-control" placeholder="球蛋白">
+            <input type="text" class="form-control" name="wbc" [(ngModel)]="examBlood.wbc" placeholder="WBC">
           </div>
           <div class="form-group col-md-offset-1">
             <label class="control-label">中性粒细胞：</label>
-            <input type="email" class="form-control" placeholder="球蛋白">
+            <input type="text" class="form-control" name="Neutrophils" [(ngModel)]="examBlood.neutrophils" placeholder="中性粒细胞">
           </div>
           <hr>
           <div class="form-group">
             <label class="control-label">淋巴细胞：</label>
-            <input type="email" class="form-control" placeholder="球蛋白">
+            <input type="text" class="form-control" name="lymphocyte" [(ngModel)]="examBlood.lymphocyte" placeholder="淋巴细胞">
           </div>
           <div class="form-group col-md-offset-1">
             <label class="control-label">嗜酸性粒细胞：</label>
-            <input type="email" class="form-control" placeholder="球蛋白">
+            <input type="text" class="form-control" name="eosinophils" [(ngModel)]="examBlood.eosinophils" placeholder="嗜酸性粒细胞">
           </div>
           <hr>
           <div class="form-group">
             <label class="control-label">血小板：</label>
-            <input type="email" class="form-control" placeholder="球蛋白">
+            <input type="text" class="form-control" name="platelet" [(ngModel)]="examBlood.platelet" placeholder="血小板">
           </div>
         </form>
+        <hr>
+        <button class="btn btn-danger" routerLink="/autoimmune">返回</button>
+        <button class="btn btn-success" (click)="submit3()">确定</button>
+        <hr>
       </div>
       <div role="tabpanel" class="tab-pane" id="d">
         <form class="form-inline">
           <div class="form-group">
             <label class="control-label">抗线粒体抗体：</label>
-            <input type="email" class="form-control" placeholder="球蛋白">
+            <input type="text" class="form-control" name="mitochondrial" [(ngModel)]="antibody.mitochondrial" placeholder="抗线粒体抗体">
           </div>
           <div class="form-group col-md-offset-1">
             <label class="control-label">AMA-M2：</label>
-            <input type="email" class="form-control" placeholder="球蛋白">
+            <input type="text" class="form-control" name="antibody.amam2" [(ngModel)]="antibody.amam2" placeholder="AMA-M2">
           </div>
           <hr>
           <div class="form-group">
             <label class="control-label">抗平滑肌抗体：</label>
-            <input type="email" class="form-control" placeholder="球蛋白">
+            <input type="text" class="form-control" name="muscle" [(ngModel)]="antibody.muscle" placeholder="抗平滑肌抗体">
           </div>
           <div class="form-group col-md-offset-1">
             <label class="control-label">肝肾微粒体抗体：</label>
-            <input type="email" class="form-control" placeholder="球蛋白">
+            <input type="text" class="form-control" name="microsomal" [(ngModel)]="antibody.microsomal" placeholder="肝肾微粒体抗体">
           </div>
           <hr>
           <div class="form-group">
             <label class="control-label">肝细胞溶质抗原：</label>
-            <input type="email" class="form-control" placeholder="球蛋白">
+            <input type="text" class="form-control" name="hepatocyte" [(ngModel)]="antibody.hepatocyte" placeholder="肝细胞溶质抗原">
           </div>
           <div class="form-group col-md-offset-1">
             <label class="control-label">可溶性肝-胰抗原：</label>
-            <input type="email" class="form-control" placeholder="球蛋白">
+            <input type="text" class="form-control" name="pancreatic" [(ngModel)]="antibody.pancreatic" placeholder="可溶性肝-胰抗原">
           </div>
         </form>
+        <hr>
+        <button class="btn btn-danger" routerLink="/autoimmune">返回</button>
+        <button class="btn btn-success" (click)="submit4()">确定</button>
+        <hr>
       </div>
       <div role="tabpanel" class="tab-pane" id="e">
         <form class="form-inline">
           <div class="form-group">
             <label class="control-label">igG：</label>
-            <input type="email" class="form-control" placeholder="球蛋白">
+            <input type="text" class="form-control" name="igg" [(ngModel)]="humoral.igg" placeholder="igG">
           </div>
           <div class="form-group col-md-offset-1">
             <label class="control-label">igA：</label>
-            <input type="email" class="form-control" placeholder="球蛋白">
+            <input type="text" class="form-control" name="iga" [(ngModel)]="humoral.iga" placeholder="igA">
           </div>
           <hr>
           <div class="form-group">
             <label class="control-label">igM：</label>
-            <input type="email" class="form-control" placeholder="球蛋白">
+            <input type="text" class="form-control" name="igm" [(ngModel)]="humoral.igm" placeholder="igM">
           </div>
           <div class="form-group col-md-offset-1">
             <label class="control-label">免疫复合物：</label>
-            <input type="email" class="form-control" placeholder="球蛋白">
+            <input type="text" class="form-control" name="immune " [(ngModel)]="humoral.immune" placeholder="免疫复合物">
           </div>
           <hr>
           <div class="form-group">
             <label class="control-label">补体C3：</label>
-            <input type="email" class="form-control" placeholder="球蛋白">
+            <input type="text" class="form-control" name="c3" [(ngModel)]="humoral.c3" placeholder="补体C3">
           </div>
           <div class="form-group col-md-offset-1">
             <label class="control-label">补体C4：</label>
-            <input type="email" class="form-control" placeholder="球蛋白">
+            <input type="text" class="form-control" name="c4" [(ngModel)]="humoral.c4" placeholder="补体C4">
           </div>
           <hr>
           <div class="form-group">
             <label class="control-label">igE：</label>
-            <input type="email" class="form-control" placeholder="球蛋白">
+            <input type="text" class="form-control" name="ige" [(ngModel)]="humoral.ige" placeholder="igE">
           </div>
           <div class="form-group col-md-offset-1">
             <label class="control-label">κ-轻链：</label>
-            <input type="email" class="form-control" placeholder="球蛋白">
+            <input type="text" class="form-control" name="chain1" [(ngModel)]="humoral.chain1" placeholder="κ-轻链">
           </div>
           <hr>
           <div class="form-group">
             <label class="control-label">λ-轻链：</label>
-            <input type="email" class="form-control" placeholder="球蛋白">
+            <input type="text" class="form-control" name="chain2" [(ngModel)]="humoral.chain2" placeholder="λ-轻链">
           </div>
         </form>
+        <hr>
+        <button class="btn btn-danger" routerLink="/autoimmune">返回</button>
+        <button class="btn btn-success" (click)="submit5()">确定</button>
+        <hr>
       </div>
       <div role="tabpanel" class="tab-pane" id="f">
         <form class="form-inline">
           <div class="form-group">
             <label class="control-label">HBsAg：</label>
-            <input type="email" class="form-control" placeholder="球蛋白">
+            <input type="text" class="form-control" placeholder="HBsAg">
           </div>
           <div class="form-group col-md-offset-1">
             <label class="control-label">HBsAb：</label>
-            <input type="email" class="form-control" placeholder="球蛋白">
+            <input type="text" class="form-control" placeholder="HBsAb">
           </div>
           <hr>
           <div class="form-group">
             <label class="control-label">HBeAg：</label>
-            <input type="email" class="form-control" placeholder="球蛋白">
+            <input type="text" class="form-control" placeholder="HBeAg">
           </div>
           <div class="form-group col-md-offset-1">
             <label class="control-label">HBeAb：</label>
-            <input type="email" class="form-control" placeholder="球蛋白">
+            <input type="text" class="form-control" placeholder="HBeAb">
           </div>
           <hr>
           <div class="form-group">
             <label class="control-label">HBcAb：</label>
-            <input type="email" class="form-control" placeholder="球蛋白">
+            <input type="text" class="form-control" placeholder="HBcAb">
           </div>
           <div class="form-group col-md-offset-1">
             <label class="control-label">HBV-RNA：</label>
-            <input type="email" class="form-control" placeholder="球蛋白">
+            <input type="text" class="form-control" placeholder="HBV-RNA">
           </div>
         </form>
+        <hr>
+        <button class="btn btn-danger" routerLink="/autoimmune">返回</button>
+        <button class="btn btn-success" (click)="submit6()">确定</button>
+        <hr>
       </div>
     </div>
-    <hr>
-    <button class="btn btn-danger">返回</button>
-    <button class="btn btn-success">确定</button>
-    <hr>
   </div>
 </div>

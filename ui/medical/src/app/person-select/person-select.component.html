@@ -15,4 +15,7 @@
       </div>
     </a>
   </div>
+  <div class="col-md-12">
+    <app-pagination [dataNums]="dataNums" (currentPage)="currentPageHandle($event)"></app-pagination>
+  </div>
 </div>

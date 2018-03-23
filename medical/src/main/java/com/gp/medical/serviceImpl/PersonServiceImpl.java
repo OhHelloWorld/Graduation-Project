@@ -6,6 +6,7 @@ import com.gp.medical.repository.UserRepository;
 import com.gp.medical.service.PersonService;
 import com.gp.medical.tool.Switch;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -26,7 +27,11 @@ public class PersonServiceImpl implements PersonService {
     @Autowired
     private UserRepository userRepository;
 
-    private final String path = "F://image";
+    @Value("${image_path}")
+    private String path;
+
+    @Value("${limitNum}")
+    private int limitNum;
 
     @Override
     public void savePerson(Person person, Long userId) {
@@ -35,9 +40,9 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public List<Person> minePerson(Long userId) {
+    public List<Person> minePersonByPage(Long userId,String page) {
         List<Person> personList = new ArrayList<>();
-        for(Person person : personRepository.minePerson(userId)){
+        for(Person person : personRepository.minePersonByPage(userId,Integer.valueOf(page),limitNum)){
             personList.add(Switch.switchPerson(person));
         }
         return personList;
@@ -73,6 +78,26 @@ public class PersonServiceImpl implements PersonService {
     public List<Person> latestPerson() {
         List<Person> personList = new ArrayList<>();
         List<Person> personInDatabase = personRepository.latestPerson();
+        for(Person person : personInDatabase){
+            personList.add(Switch.switchPerson(person));
+        }
+        return personList;
+    }
+
+    @Override
+    public Long getPersonCount() {
+        return personRepository.count();
+    }
+
+    @Override
+    public int getMinePersonCount(Long userId) {
+        return personRepository.getPersonByUserId(userId).size();
+    }
+
+    @Override
+    public List<Person> getPersonByPage(String page) {
+        List<Person> personInDatabase = personRepository.getPersonByPage(limitNum,(Integer.valueOf(page)-1) * limitNum);
+        List<Person> personList = new ArrayList<>();
         for(Person person : personInDatabase){
             personList.add(Switch.switchPerson(person));
         }

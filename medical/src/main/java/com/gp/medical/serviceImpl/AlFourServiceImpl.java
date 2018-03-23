@@ -3,6 +3,7 @@ package com.gp.medical.serviceImpl;
 import com.gp.medical.entity.AlFour;
 import com.gp.medical.repository.AlFourRepository;
 import com.gp.medical.service.AlFourService;
+import com.gp.medical.tool.Switch;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,6 @@ public class AlFourServiceImpl implements AlFourService{
 
     @Override
     public void saveAlFour(AlFour alFour) {
-        alFourRepository.save(alFour);
+        alFourRepository.save(Switch.switchAlFour(alFour));
     }
 }
