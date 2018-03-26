@@ -1,3 +1,6 @@
-<p>
-  collection-doc works!
-</p>
+<div class="container" style="height: auto;">
+  <app-doc-list [docs]="collections"></app-doc-list>
+  <div class="col-md-12">
+    <app-pagination [dataNums]="dataNums" (currentPage)="currentPageHandle($event)"></app-pagination>
+  </div>
+</div>

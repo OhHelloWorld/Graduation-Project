@@ -141,4 +141,14 @@ public class Person {
     public void setFileName(String fileName) {
         this.fileName = fileName;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Person person = (Person) o;
+
+        return id != null ? id.equals(person.id) : person.id == null;
+    }
 }

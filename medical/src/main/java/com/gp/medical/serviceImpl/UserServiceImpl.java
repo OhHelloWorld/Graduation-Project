@@ -1,9 +1,11 @@
 package com.gp.medical.serviceImpl;
 
 import com.gp.medical.entity.Authority;
+import com.gp.medical.entity.Document;
 import com.gp.medical.entity.Person;
 import com.gp.medical.entity.User;
 import com.gp.medical.repository.AuthorityRepository;
+import com.gp.medical.repository.DocumentRepository;
 import com.gp.medical.repository.PersonRepository;
 import com.gp.medical.repository.UserRepository;
 import com.gp.medical.service.UserService;
@@ -34,6 +36,9 @@ public class UserServiceImpl implements UserDetailsService,UserService {
 
     @Autowired
     private PersonRepository personRepository;
+
+    @Autowired
+    private DocumentRepository documentRepository;
 
     @Value("${limitNum}")
     private int limitNum;
@@ -86,6 +91,27 @@ public class UserServiceImpl implements UserDetailsService,UserService {
     }
 
     @Override
+    public void uncollectPerson(Long userId, Long personId) {
+        User user = userRepository.findOne(userId);
+        user.getPersonCollections().remove(personRepository.findOne(personId));
+        userRepository.save(user);
+    }
+
+    @Override
+    public void uncollectDoc(Long userId,Long docId){
+        User user = userRepository.findOne(userId);
+        user.getDocCollections().remove(documentRepository.findOne(docId));
+        userRepository.save(user);
+    }
+
+    @Override
+    public void collectionDoc(Long userId,Long docId){
+        User user = userRepository.findOne(userId);
+        user.getDocCollections().add(documentRepository.findOne(docId));
+        userRepository.save(user);
+    }
+
+    @Override
     public List<Person> pageCollections(Long userId,int page){
         User user = userRepository.findOne(userId);
         List<Person> collectionsInDatabase =  user.getPersonCollections();
@@ -97,10 +123,31 @@ public class UserServiceImpl implements UserDetailsService,UserService {
     }
 
     @Override
+    public List<Document> pageDocCollections(Long userId,int page){
+        User user = userRepository.findOne(userId);
+        List<Document> collectionsInDatabase = user.getDocCollections();
+        List<Document> collections = new ArrayList<>();
+        for(int i = (page - 1) * limitNum + 1;i<=limitNum * page && i <= collectionsInDatabase.size();i++){
+            collections.add(Switch.switchDoc(collectionsInDatabase.get(i - 1)));
+        }
+        return collections;
+    }
+
+    @Override
     public int getCollectionCount(Long userId) {
         User user = userRepository.findOne(userId);
         if(user.getPersonCollections() != null) {
             return user.getPersonCollections().size();
+        }else{
+            return 0;
+        }
+    }
+
+    @Override
+    public int getDocCollectionCount(Long userId) {
+        User user = userRepository.findOne(userId);
+        if(user.getDocCollections() != null){
+            return user.getDocCollections().size();
         }else{
             return 0;
         }

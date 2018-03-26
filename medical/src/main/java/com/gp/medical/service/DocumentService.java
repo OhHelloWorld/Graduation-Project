@@ -16,4 +16,6 @@ public interface DocumentService {
     List<Document> getDocByPage(String page);
 
     Long getDocCount();
+
+    Boolean hasCollect(Long userId,Long docId);
 }

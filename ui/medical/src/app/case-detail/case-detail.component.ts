@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute,ParamMap } from '@angular/router';
-import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { HttpClient,HttpHeaders,HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-case-detail',
@@ -10,6 +10,7 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 export class CaseDetailComponent implements OnInit {
 
   case:{id:number,name:string};
+  hasCollect:boolean;
 
   constructor(private router:Router,private route:ActivatedRoute,private http:HttpClient) { }
 
@@ -19,6 +20,12 @@ export class CaseDetailComponent implements OnInit {
       this.http.get<any>('/api/person/' + params.get('id')).subscribe(data => {
         this.case = data;
       });
+      this.http.get<any>('/api/person/hasCollect',{
+        headers:new HttpHeaders().set('userId',localStorage['id']),
+        params:new HttpParams().set('personId',params.get('id'))
+      }).subscribe(data =>{
+        this.hasCollect = data;
+      })
     })
   }
 
@@ -26,6 +33,15 @@ export class CaseDetailComponent implements OnInit {
     this.http.get('/api/user/collection/' + this.case.id,
       {
         headers:new HttpHeaders().set('userId',localStorage['id'])
+      }
+    ).subscribe();
+  }
+
+  uncollect(){
+    this.http.get<any>('/api/user/uncollectPerson/',
+      {
+        headers:new HttpHeaders().set('userId',localStorage['id']),
+        params:new HttpParams().set('personId',''+this.case.id)
       }
     ).subscribe();
   }

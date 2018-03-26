@@ -78,3 +78,7 @@ create table al_tongue(
     tongue_right varchar(10),
     primary key(id)
 );
+create table user_doc(
+	user_id int not null,
+    doc_id int not null
+);

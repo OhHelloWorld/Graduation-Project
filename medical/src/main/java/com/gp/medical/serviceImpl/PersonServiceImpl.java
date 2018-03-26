@@ -1,6 +1,7 @@
 package com.gp.medical.serviceImpl;
 
 import com.gp.medical.entity.Person;
+import com.gp.medical.entity.User;
 import com.gp.medical.repository.PersonRepository;
 import com.gp.medical.repository.UserRepository;
 import com.gp.medical.service.PersonService;
@@ -102,5 +103,19 @@ public class PersonServiceImpl implements PersonService {
             personList.add(Switch.switchPerson(person));
         }
         return personList;
+    }
+
+    @Override
+    public Boolean hasCollect(Long userId, Long personId) {
+        List<User> userList = personRepository.findOne(personId).getUserList();
+        List<Long> userIdList = new ArrayList<>();
+        for(User user : userList){
+            userIdList.add(user.getId());
+        }
+        if(userIdList.contains(userId)){
+            return true;
+        }else{
+            return false;
+        }
     }
 }

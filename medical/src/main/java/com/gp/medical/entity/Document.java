@@ -20,6 +20,8 @@ public class Document {
     private String content;
     @OneToMany(mappedBy = "document",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private List<Comment> comments;
+    @ManyToMany(mappedBy = "docCollections",fetch = FetchType.LAZY)
+    private List<User> userList;
 
     public Long getId() {
         return id;
@@ -75,5 +77,23 @@ public class Document {
 
     public void setComments(List<Comment> comments) {
         this.comments = comments;
+    }
+
+    public List<User> getUserList() {
+        return userList;
+    }
+
+    public void setUserList(List<User> userList) {
+        this.userList = userList;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Document document = (Document) o;
+
+        return id != null ? id.equals(document.id) : document.id == null;
     }
 }

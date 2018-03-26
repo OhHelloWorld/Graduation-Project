@@ -31,6 +31,10 @@ public class User implements UserDetails{
     private List<Person> personCollections;
     @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<Comment> comments;
+    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @JoinTable(name = "user_doc",joinColumns = @JoinColumn(name = "user_id",referencedColumnName = "id"),
+    inverseJoinColumns = @JoinColumn(name = "doc_id",referencedColumnName = "id"))
+    private List<Document> docCollections;
 
     public Long getId() {
         return id;
@@ -109,5 +113,13 @@ public class User implements UserDetails{
 
     public void setComments(List<Comment> comments) {
         this.comments = comments;
+    }
+
+    public List<Document> getDocCollections() {
+        return docCollections;
+    }
+
+    public void setDocCollections(List<Document> docCollections) {
+        this.docCollections = docCollections;
     }
 }

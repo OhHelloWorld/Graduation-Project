@@ -102,4 +102,15 @@ public class PersonController {
         return personService.getPersonByPage(page);
     }
 
+    /**
+     * 判断用户是否收藏某病例
+     * @param userId
+     * @param personId
+     * @return
+     */
+    @GetMapping(path = "/hasCollect")
+    public Boolean getCollectStatus(@RequestHeader(value = "userId") Long userId,@RequestParam(value = "personId") Long personId){
+        return personService.hasCollect(userId,personId);
+    }
+
 }

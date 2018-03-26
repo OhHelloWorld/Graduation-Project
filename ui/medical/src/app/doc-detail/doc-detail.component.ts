@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute,ParamMap } from '@angular/router';
-import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { HttpClient,HttpHeaders,HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-doc-detail',
@@ -23,7 +23,9 @@ export class DocDetailComponent implements OnInit {
     userId:number,
     docId:number,
     content:string
-  }
+  };
+
+  hasCollect:boolean;
 
   constructor(private router:Router,private route:ActivatedRoute,private http:HttpClient) { }
   
@@ -45,6 +47,14 @@ export class DocDetailComponent implements OnInit {
     this.route.paramMap.subscribe((params:ParamMap) => {
       this.http.get<any>('/api/doc/' + params.get('id')).subscribe(data => {
         this.doc = data;
+      });
+      this.http.get<any>('/api/doc/hasCollect',
+        {
+          headers:new HttpHeaders().set('userId',localStorage['id']),
+          params:new HttpParams().set('docId',params.get('id'))
+        }
+      ).subscribe(data => {
+        this.hasCollect = data;
       })
     })
   }
@@ -53,6 +63,23 @@ export class DocDetailComponent implements OnInit {
     this.commentDTO.userId = localStorage['id'];
     this.commentDTO.docId = id;
     this.http.post('/api/com',this.commentDTO).subscribe();
+  }
+
+  collect(){
+    this.http.get('/api/user/docCollection/' + this.doc.id,
+      {
+        headers:new HttpHeaders().set('userId',localStorage['id'])
+      }
+    ).subscribe();
+  }
+
+  uncollect(){
+    this.http.get<any>('/api/user/uncollectDoc/',
+      {
+        headers:new HttpHeaders().set('userId',localStorage['id']),
+        params:new HttpParams().set('docId',''+this.doc.id)
+      }
+    ).subscribe();
   }
 
 }

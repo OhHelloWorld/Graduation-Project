@@ -27,4 +27,6 @@ public interface PersonService {
     int getMinePersonCount(Long userId);
 
     List<Person> getPersonByPage(String page);
+
+    Boolean hasCollect(Long userId,Long personId);
 }

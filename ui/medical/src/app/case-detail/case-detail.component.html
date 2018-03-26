@@ -58,5 +58,7 @@
     </tr>
   </table>
   <hr>
-  <button class="btn btn-success" (click)="collect()">收藏</button>
+  <button *ngIf="!hasCollect" class="btn btn-success" (click)="collect()">收藏</button>
+  <button *ngIf="hasCollect" class="btn btn-info" (click)="uncollect()">取消收藏</button>
+  <hr>
 </div>

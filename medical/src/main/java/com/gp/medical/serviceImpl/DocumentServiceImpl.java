@@ -1,6 +1,7 @@
 package com.gp.medical.serviceImpl;
 
 import com.gp.medical.entity.Document;
+import com.gp.medical.entity.User;
 import com.gp.medical.repository.CommentRepository;
 import com.gp.medical.repository.DocumentRepository;
 import com.gp.medical.service.DocumentService;
@@ -50,6 +51,20 @@ public class DocumentServiceImpl implements DocumentService{
     @Override
     public Long getDocCount() {
         return documentRepository.count();
+    }
+
+    @Override
+    public Boolean hasCollect(Long userId, Long docId) {
+        List<User> userList = documentRepository.findOne(docId).getUserList();
+        List<Long> userIdList = new ArrayList<>();
+        for(User user : userList){
+            userIdList.add(user.getId());
+        }
+        if(userIdList.contains(userId)){
+            return true;
+        }else{
+            return false;
+        }
     }
 
 }
