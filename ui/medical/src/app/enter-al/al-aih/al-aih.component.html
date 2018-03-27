@@ -7,10 +7,10 @@
     </tr>
     <tr>
       <td>
-        <input type="radio" name="">阴性
+        <input type="radio" name="anasma1" value="阴性" [(ngModel)]="anasma1">阴性
       </td>
       <td colspan="2">
-        <input type="radio" name="">阳性
+        <input type="radio" name="anasma1" value="阳性" [(ngModel)]="anasma1">阳性
       </td>
     </tr>
     <tr>
@@ -20,13 +20,13 @@
     </tr>
     <tr>
       <td>
-        <input type="radio" name="">
+        <input type="radio" value="<1:100" [(ngModel)]="anasma2" name="anasma2">
         <1:100 </td>
           <td>
-            <input type="radio" name="">=1:100
+            <input type="radio" value="=1:100" [(ngModel)]="anasma2" name="anasma2">=1:100
           </td>
           <td>
-            <input type="radio" name="">>1:100
+            <input type="radio" value=">1:100" [(ngModel)]="anasma2" name="anasma2">>1:100
           </td>
     </tr>
     <tr>
@@ -36,10 +36,10 @@
     </tr>
     <tr>
       <td>
-        <input type="radio" name="">阴性
+        <input type="radio" value="阴性" name="lkm" [(ngModel)]="lkm">阴性
       </td>
       <td colspan="2">
-        <input type="radio" name="">阳性
+        <input type="radio" value="阳性" name="lkm" [(ngModel)]="lkm">阳性
       </td>
     </tr>
     <tr>
@@ -49,10 +49,10 @@
     </tr>
     <tr>
       <td>
-        <input type="radio" name="">阴性
+        <input type="radio" value="阴性" name="sla" [(ngModel)]="sla">阴性
       </td>
       <td colspan="2">
-        <input type="radio" name="">阳性
+        <input type="radio" value="阳性" name="sla" [(ngModel)]="sla">阳性
       </td>
     </tr>
     <tr>
@@ -62,10 +62,10 @@
     </tr>
     <tr>
       <td>
-        <input type="radio" name="">≥正常值上限
+        <input type="radio" value="≥正常值上限" name="igg" [(ngModel)]="igg">≥正常值上限
       </td>
       <td colspan="2">
-        <input type="radio" name="">≥1.10倍正常上限
+        <input type="radio" value="≥1.10倍正常上限" name="igg" [(ngModel)]="igg">≥1.10倍正常上限
       </td>
     </tr>
     <tr>
@@ -75,10 +75,10 @@
     </tr>
     <tr>
       <td>
-        <input type="radio" name="">符合AIH
+        <input type="radio" value="符合AIH" name="aih" [(ngModel)]="aih">符合AIH
       </td>
       <td colspan="2">
-        <input type="radio" name="">典型AIH表现
+        <input type="radio" value="典型AIH表现" name="aih" [(ngModel)]="aih">典型AIH表现
       </td>
     </tr>
     <tr>
@@ -88,10 +88,10 @@
     </tr>
     <tr>
       <td>
-        <input type="radio" name="">否
+        <input type="radio" value="否" name="liver" [(ngModel)]="liver">否
       </td>
       <td colspan="2">
-        <input type="radio" name="">是
+        <input type="radio" value="是" name="liver" [(ngModel)]="liver">是
       </td>
     </tr>
   </table>

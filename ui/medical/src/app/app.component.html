@@ -38,9 +38,9 @@
           <a *ngIf="!hasUser" role="button" data-toggle="modal" data-target="#signInModal">登录</a>
           <a *ngIf="hasUser" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">{{username}}</a>
           <ul class="dropdown-menu">
-            <li><a role="button" (click)="logout()">退出</a></li>
             <li><a role="button" routerLink="/collection">我的病例收藏</a></li>
             <li><a role="button" routerLink="/collectionDoc">我的文章收藏</a></li>
+            <li><a role="button" (click)="logout()">退出</a></li>
           </ul>
         </li>
         <li class="dropdown">
