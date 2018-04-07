@@ -66,6 +66,10 @@ public class PersonServiceImpl implements PersonService {
     @Override
     public String uploadImage(MultipartFile file) {
         String imageName = ""+file.hashCode()+".jpg";
+        File oldFile = new File(path);
+        if(!oldFile.exists()){
+            oldFile.mkdir();
+        }
         File targetFile = new File(path,imageName);
         try {
             file.transferTo(targetFile);

@@ -43,6 +43,7 @@ import { AuthGuard } from './auth-guard.service';
 import { InfoGuard } from './info-guard.service'; 
 import { PersonSelectComponent } from './person-select/person-select.component';
 import { CollectionDocComponent } from './collection-doc/collection-doc.component';
+import { InfoboxComponent } from './infobox/infobox.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,8 @@ import { CollectionDocComponent } from './collection-doc/collection-doc.componen
     PersonComponent,
     CollectionComponent,
     PersonSelectComponent,
-    CollectionDocComponent
+    CollectionDocComponent,
+    InfoboxComponent
   ],
   imports: [
     BrowserModule,
