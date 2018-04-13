@@ -82,3 +82,9 @@ create table user_doc(
 	user_id int not null,
     doc_id int not null
 );
+
+create table authority(
+    id int not null auto_increment,
+    name varchar(20) not null,
+    primary key(id)
+);

@@ -13,13 +13,17 @@ public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    //评论时间
     private Date time;
+    //评论内容
     private String content;
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JoinColumn(name="doc_id")
+    //评论的文章
     private Document document;
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JoinColumn(name="user_id")
+    //评论的用户
     private User user;
 
     public Long getId() {

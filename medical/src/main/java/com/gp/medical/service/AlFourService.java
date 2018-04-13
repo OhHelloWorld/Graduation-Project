@@ -7,5 +7,9 @@ import com.gp.medical.entity.AlFour;
  */
 public interface AlFourService {
 
+    /**
+     * 存储自免肝四诊信息
+     * @param alFour
+     */
     void saveAlFour(AlFour alFour);
 }

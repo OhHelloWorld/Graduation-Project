@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { FileUploader } from 'ng2-file-upload';
+import { Router } from '@angular/router';
 
 const URL = 'http://localhost:4200/api/person/file'
 
@@ -34,7 +35,7 @@ export class PersonComponent implements OnInit {
     removeAfterUpload:true
   });
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,private router:Router) { }
 
   ngOnInit() {
     this.person = {

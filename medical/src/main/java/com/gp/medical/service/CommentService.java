@@ -7,5 +7,11 @@ import com.gp.medical.entity.Comment;
  */
 public interface CommentService {
 
+    /**
+     * 存储评论信息
+     * @param comment
+     * @param userId
+     * @param docId
+     */
     void saveComment(Comment comment,Long userId,Long docId);
 }

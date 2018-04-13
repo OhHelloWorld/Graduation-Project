@@ -16,6 +16,10 @@ public class CommentController {
     @Autowired
     private CommentService commentService;
 
+    /**
+     * 保存评论信息
+     * @param commentDTO
+     */
     @PostMapping(path = "")
     public void saveComment(@RequestBody CommentDTO commentDTO){
         Comment comment = new Comment();

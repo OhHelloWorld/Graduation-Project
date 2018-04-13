@@ -61,7 +61,7 @@ const appRoutes:Routes = [
   {path:'mlLiver',component:MlLiverComponent,canActivate:[AuthGuard,InfoGuard]},
   {path:'collection',component:CollectionComponent,canActivate:[AuthGuard]},
   {path:'collectionDoc',component:CollectionDocComponent,canActivate:[AuthGuard]},
-  {path:'select/:category',component:PersonSelectComponent,canActivate:[AuthGuard]}
+  {path:'select/:category',component:PersonSelectComponent,canActivate:[AuthGuard]},
 ];
 
 @NgModule(

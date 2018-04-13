@@ -18,6 +18,10 @@ public class AlFourController {
     @Autowired
     private AlFourService alFourService;
 
+    /**
+     * 存储自免肝四诊信息数据
+     * @param alFour
+     */
     @PostMapping(path = "")
     public void saveAlFour(@RequestBody AlFour alFour){
         alFourService.saveAlFour(alFour);

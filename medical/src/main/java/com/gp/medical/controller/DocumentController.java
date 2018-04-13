@@ -18,7 +18,7 @@ public class DocumentController {
     private DocumentService documentService;
 
     /**
-     * 得到所有病例
+     * 得到所有文章
      * @return
      */
     @GetMapping(path = "")
@@ -27,7 +27,7 @@ public class DocumentController {
     }
 
     /**
-     * 根据Id得到病例
+     * 根据Id得到文章
      * @param docId
      * @return
      */
@@ -37,7 +37,7 @@ public class DocumentController {
     }
 
     /**
-     * 得到所有病例（分页）
+     * 得到所有文章（分页）
      * @param page
      * @return
      */

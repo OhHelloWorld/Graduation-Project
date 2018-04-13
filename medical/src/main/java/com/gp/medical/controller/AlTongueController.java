@@ -18,6 +18,10 @@ public class AlTongueController {
     @Autowired
     private AlTongueService alTongueService;
 
+    /**
+     * 存储
+     * @param tongue
+     */
     @PostMapping(path = "")
     public void saveAlTongue(@RequestBody  AlTongue tongue){
         alTongueService.saveTongue(tongue);

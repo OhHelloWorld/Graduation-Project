@@ -7,5 +7,9 @@ import com.gp.medical.entity.AlTongue;
  */
 public interface AlTongueService {
 
+    /**
+     * 存储自免肝舌脉象信息
+     * @param tongue
+     */
     void saveTongue(AlTongue tongue);
 }
