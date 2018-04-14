@@ -4,10 +4,9 @@
     <ul class="nav nav-tabs" role="tablist">
       <li role="presentation" class="active"><a href="#a" aria-controls="a" role="tab" data-toggle="tab">肝功能</a></li>
       <li role="presentation"><a href="#b" aria-controls="b" role="tab" data-toggle="tab">肾功能</a></li>
-      <li role="presentation"><a href="#c" aria-controls="c" role="tab" data-toggle="tab">血常规</a></li>
-      <li role="presentation"><a href="#d" aria-controls="d" role="tab" data-toggle="tab">肝病自身抗体</a></li>
-      <li role="presentation"><a href="#e" aria-controls="e" role="tab" data-toggle="tab">体液免疫</a></li>
-      <li role="presentation"><a href="#f" aria-controls="f" role="tab" data-toggle="tab">乙肝五项+定量</a></li>
+      <li role="presentation"><a href="#c" aria-controls="c" role="tab" data-toggle="tab">凝血</a></li>
+      <li role="presentation"><a href="#d" aria-controls="d" role="tab" data-toggle="tab">血常规</a></li>
+      <li role="presentation"><a href="#e" aria-controls="e" role="tab" data-toggle="tab">乙肝</a></li>
     </ul>
     <hr>
     <!-- Tab panes -->
@@ -16,47 +15,29 @@
         <form class="form-inline">
           <div class="form-group">
             <label class="control-label">白蛋白：</label>
-            <input type="text" class="form-control" name="albumin" [(ngModel)]="examLiver.albumin" placeholder="白蛋白">
+            <input type="text" class="form-control" name="albumin" [(ngModel)]="alPcInsLiver.albumin" placeholder="白蛋白">
           </div>
           <div class="form-group col-md-offset-1">
             <label class="control-label">球蛋白：</label>
-            <input type="text" class="form-control" name="globulin" [(ngModel)]="examLiver.globulin" placeholder="球蛋白">
+            <input type="text" class="form-control" name="globulin" [(ngModel)]="alPcInsLiver.globulin" placeholder="球蛋白">
           </div>
           <hr>
           <div class="form-group">
             <label class="control-label">ALT：</label>
-            <input type="text" class="form-control" name="alt" [(ngModel)]="examLiver.alt" placeholder="ALT">
+            <input type="text" class="form-control" name="alt" [(ngModel)]="alPcInsLiver.alt" placeholder="ALT">
           </div>
           <div class="form-group col-md-offset-1">
             <label class="control-label">AST：</label>
-            <input type="text" class="form-control" name="ast" [(ngModel)]="examLiver.ast" placeholder="AST">
+            <input type="text" class="form-control" name="ast" [(ngModel)]="alPcInsLiver.ast" placeholder="AST">
           </div>
           <hr>
           <div class="form-group">
             <label class="control-label">GGT：</label>
-            <input type="text" class="form-control" name="ggt" [(ngModel)]="examLiver.ggt" placeholder="GGT">
+            <input type="text" class="form-control" name="ggt" [(ngModel)]="alPcInsLiver.ggt" placeholder="GGT">
           </div>
           <div class="form-group col-md-offset-1">
             <label class="control-label">ALP：</label>
-            <input type="text" class="form-control" name="alp" [(ngModel)]="examLiver.alp" placeholder="ALP">
-          </div>
-          <hr>
-          <div class="form-group">
-            <label class="control-label">总胆固醇：</label>
-            <input type="text" class="form-control" name="cholesterol" [(ngModel)]="examLiver.cholesterol" placeholder="总胆固醇">
-          </div>
-          <div class="form-group col-md-offset-1">
-            <label class="control-label">总胆红素：</label>
-            <input type="text" class="form-control" name="tBilirubin" [(ngModel)]="examLiver.tBilirubin" placeholder="总胆红素">
-          </div>
-          <hr>
-          <div class="form-group">
-            <label class="control-label">直接胆红素：</label>
-            <input type="text" class="form-control" name="dBilirubin" [(ngModel="examLiver.dBilirubin" )] placeholder="直接胆红素">
-          </div>
-          <div class="form-group col-md-offset-1">
-            <label class="control-label">γ-球蛋白：</label>
-            <input type="text" class="form-control" name="gGlobulin" [(ngModel)]="examLiver.gGlobulin" placeholder="γ-球蛋白">
+            <input type="text" class="form-control" name="alp" [(ngModel)]="alPcInsLiver.alp" placeholder="ALP">
           </div>
         </form>
         <hr>
@@ -68,11 +49,11 @@
         <form class="form-inline">
           <div class="form-group">
             <label class="control-label">BUN：</label>
-            <input type="text" class="form-control" name="bun" [(ngModel)]="examKidney.bun" placeholder="BUN">
+            <input type="text" class="form-control" name="bun" [(ngModel)]="alPcInsKidney.bun" placeholder="BUN">
           </div>
           <div class="form-group col-md-offset-1">
             <label class="control-label">Cr：</label>
-            <input type="text" class="form-control" name="cr" [(ngModel)]="examKidney.cr" placeholder="球蛋白">
+            <input type="text" class="form-control" name="cr" [(ngModel)]="alPcInsKidney.cr" placeholder="CR">
           </div>
         </form>
         <hr>
@@ -83,35 +64,12 @@
       <div role="tabpanel" class="tab-pane" id="c">
         <form class="form-inline">
           <div class="form-group">
-            <label class="control-label">RBC：</label>
-            <input type="text" class="form-control" name="rbc" [(ngModel)]="examBlood.rbc" placeholder="RBC">
+            <label class="control-label">PT：</label>
+            <input type="text" class="form-control" name="pt" [(ngModel)]="alPcInsCoagulation.pt" placeholder="PT">
           </div>
           <div class="form-group col-md-offset-1">
-            <label class="control-label">Hb：</label>
-            <input type="text" class="form-control" name="hb" [(ngModel)]="examBlood.hb" placeholder="Hb">
-          </div>
-          <hr>
-          <div class="form-group">
-            <label class="control-label">WBC：</label>
-            <input type="text" class="form-control" name="wbc" [(ngModel)]="examBlood.wbc" placeholder="WBC">
-          </div>
-          <div class="form-group col-md-offset-1">
-            <label class="control-label">中性粒细胞：</label>
-            <input type="text" class="form-control" name="Neutrophils" [(ngModel)]="examBlood.neutrophils" placeholder="中性粒细胞">
-          </div>
-          <hr>
-          <div class="form-group">
-            <label class="control-label">淋巴细胞：</label>
-            <input type="text" class="form-control" name="lymphocyte" [(ngModel)]="examBlood.lymphocyte" placeholder="淋巴细胞">
-          </div>
-          <div class="form-group col-md-offset-1">
-            <label class="control-label">嗜酸性粒细胞：</label>
-            <input type="text" class="form-control" name="eosinophils" [(ngModel)]="examBlood.eosinophils" placeholder="嗜酸性粒细胞">
-          </div>
-          <hr>
-          <div class="form-group">
-            <label class="control-label">血小板：</label>
-            <input type="text" class="form-control" name="platelet" [(ngModel)]="examBlood.platelet" placeholder="血小板">
+            <label class="control-label">INR：</label>
+            <input type="text" class="form-control" name="inr" [(ngModel)]="alPcInsCoagulation.inr" placeholder="INR">
           </div>
         </form>
         <hr>
@@ -122,30 +80,26 @@
       <div role="tabpanel" class="tab-pane" id="d">
         <form class="form-inline">
           <div class="form-group">
-            <label class="control-label">抗线粒体抗体：</label>
-            <input type="text" class="form-control" name="mitochondrial" [(ngModel)]="antibody.mitochondrial" placeholder="抗线粒体抗体">
+            <label class="control-label">RBC：</label>
+            <input type="text" class="form-control" name="rbc" [(ngModel)]="alPcInsBlood.rbc" placeholder="RBC">
           </div>
           <div class="form-group col-md-offset-1">
-            <label class="control-label">AMA-M2：</label>
-            <input type="text" class="form-control" name="antibody.amam2" [(ngModel)]="antibody.amam2" placeholder="AMA-M2">
+            <label class="control-label">HB：</label>
+            <input type="text" class="form-control" name="hb" [(ngModel)]="alPcInsBlood.hb" placeholder="HB">
           </div>
           <hr>
           <div class="form-group">
-            <label class="control-label">抗平滑肌抗体：</label>
-            <input type="text" class="form-control" name="muscle" [(ngModel)]="antibody.muscle" placeholder="抗平滑肌抗体">
+            <label class="control-label">WBC：</label>
+            <input type="text" class="form-control" name="wbc" [(ngModel)]="alPcInsBlood.wbc" placeholder="wWBC">
           </div>
           <div class="form-group col-md-offset-1">
-            <label class="control-label">肝肾微粒体抗体：</label>
-            <input type="text" class="form-control" name="microsomal" [(ngModel)]="antibody.microsomal" placeholder="肝肾微粒体抗体">
+            <label class="control-label">中性粒细胞：</label>
+            <input type="text" class="form-control" name="neutrophil" [(ngModel)]="alPcInsBlood.neutrophil" placeholder="肝肾微粒体抗体">
           </div>
           <hr>
           <div class="form-group">
-            <label class="control-label">肝细胞溶质抗原：</label>
-            <input type="text" class="form-control" name="hepatocyte" [(ngModel)]="antibody.hepatocyte" placeholder="肝细胞溶质抗原">
-          </div>
-          <div class="form-group col-md-offset-1">
-            <label class="control-label">可溶性肝-胰抗原：</label>
-            <input type="text" class="form-control" name="pancreatic" [(ngModel)]="antibody.pancreatic" placeholder="可溶性肝-胰抗原">
+            <label class="control-label">淋巴细胞：</label>
+            <input type="text" class="form-control" name="lymphocyte" [(ngModel)]="alPcInsBlood.lymphocyte" placeholder="肝细胞溶质抗原">
           </div>
         </form>
         <hr>
@@ -156,83 +110,35 @@
       <div role="tabpanel" class="tab-pane" id="e">
         <form class="form-inline">
           <div class="form-group">
-            <label class="control-label">igG：</label>
-            <input type="text" class="form-control" name="igg" [(ngModel)]="humoral.igg" placeholder="igG">
+            <label class="control-label">hbsAg：</label>
+            <input type="text" class="form-control" name="hbsAg" [(ngModel)]="alPcInsHepatitisB.hbsAg" placeholder="hbsAg">
           </div>
           <div class="form-group col-md-offset-1">
-            <label class="control-label">igA：</label>
-            <input type="text" class="form-control" name="iga" [(ngModel)]="humoral.iga" placeholder="igA">
+            <label class="control-label">hbsAb：</label>
+            <input type="text" class="form-control" name="hbsAb" [(ngModel)]="alPcInsHepatitisB.hbsAb" placeholder="hbsAb">
           </div>
           <hr>
           <div class="form-group">
-            <label class="control-label">igM：</label>
-            <input type="text" class="form-control" name="igm" [(ngModel)]="humoral.igm" placeholder="igM">
+            <label class="control-label">hbeAg：</label>
+            <input type="text" class="form-control" name="hbeAg" [(ngModel)]="alPcInsHepatitisB.hbeAg" placeholder="hbeAg">
           </div>
           <div class="form-group col-md-offset-1">
-            <label class="control-label">免疫复合物：</label>
-            <input type="text" class="form-control" name="immune " [(ngModel)]="humoral.immune" placeholder="免疫复合物">
+            <label class="control-label">hbeAb：</label>
+            <input type="text" class="form-control" name="hbeAb " [(ngModel)]="alPcInsHepatitisB.hbeAb" placeholder="hbeAb">
           </div>
           <hr>
           <div class="form-group">
-            <label class="control-label">补体C3：</label>
-            <input type="text" class="form-control" name="c3" [(ngModel)]="humoral.c3" placeholder="补体C3">
+            <label class="control-label">hbcAb：</label>
+            <input type="text" class="form-control" name="hbcAb" [(ngModel)]="alPcInsHepatitisB.hbcAb" placeholder="hbcAb">
           </div>
           <div class="form-group col-md-offset-1">
-            <label class="control-label">补体C4：</label>
-            <input type="text" class="form-control" name="c4" [(ngModel)]="humoral.c4" placeholder="补体C4">
-          </div>
-          <hr>
-          <div class="form-group">
-            <label class="control-label">igE：</label>
-            <input type="text" class="form-control" name="ige" [(ngModel)]="humoral.ige" placeholder="igE">
-          </div>
-          <div class="form-group col-md-offset-1">
-            <label class="control-label">κ-轻链：</label>
-            <input type="text" class="form-control" name="chain1" [(ngModel)]="humoral.chain1" placeholder="κ-轻链">
-          </div>
-          <hr>
-          <div class="form-group">
-            <label class="control-label">λ-轻链：</label>
-            <input type="text" class="form-control" name="chain2" [(ngModel)]="humoral.chain2" placeholder="λ-轻链">
+            <label class="control-label">hbvRna：</label>
+            <input type="text" class="form-control" name="hbvRna" [(ngModel)]="alPcInsHepatitisB.hbvRna" placeholder="hbvRna">
           </div>
         </form>
         <hr>
         <button class="btn btn-danger" routerLink="/autoimmune">返回</button>
         <button class="btn btn-success" (click)="submit5()">确定</button>
-        <hr>
-      </div>
-      <div role="tabpanel" class="tab-pane" id="f">
-        <form class="form-inline">
-          <div class="form-group">
-            <label class="control-label">HBsAg：</label>
-            <input type="text" class="form-control" placeholder="HBsAg" name="hbsag" [(ngModel)]="five.hbsag">
-          </div>
-          <div class="form-group col-md-offset-1">
-            <label class="control-label">HBsAb：</label>
-            <input type="text" class="form-control" placeholder="HBsAb" name="hbsab" [(ngModel)]="five.hbsab">
-          </div>
-          <hr>
-          <div class="form-group">
-            <label class="control-label">HBeAg：</label>
-            <input type="text" class="form-control" placeholder="HBeAg" name="hbeag" [(ngModel)]="five.hbeag">
-          </div>
-          <div class="form-group col-md-offset-1">
-            <label class="control-label">HBeAb：</label>
-            <input type="text" class="form-control" placeholder="HBeAb" name="hbeab" [(ngModel)]="five.hbeab">
-          </div>
-          <hr>
-          <div class="form-group">
-            <label class="control-label">HBcAb：</label>
-            <input type="text" class="form-control" placeholder="HBcAb" name="hbcab" [(ngModel)]="five.hbcab">
-          </div>
-          <div class="form-group col-md-offset-1">
-            <label class="control-label">HBV-RNA：</label>
-            <input type="text" class="form-control" placeholder="HBV-RNA" name="hbvrna" [(ngModel)]="five.hbvrna">
-          </div>
-        </form>
-        <hr>
-        <button class="btn btn-danger" routerLink="/autoimmune">返回</button>
-        <button class="btn btn-success" (click)="submit6()">确定</button>
         <hr>
       </div>
     </div>
