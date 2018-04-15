@@ -7,13 +7,13 @@
     </tr>
     <tr>
       <td>
-        <input type="radio" value="临床前期" name="pbc" [(ngModel)]="pbc">临床前期</td>
+        <input type="radio" value="临床前期" name="pbc" [(ngModel)]="alFinal.pbc">临床前期</td>
       <td>
-        <input type="radio" value="无症状期" name="pbc" [(ngModel)]="pbc">无症状期</td>
+        <input type="radio" value="无症状期" name="pbc" [(ngModel)]="alFinal.pbc">无症状期</td>
       <td>
-        <input type="radio" value="症状期" name="pbc" [(ngModel)]="pbc">症状期</td>
+        <input type="radio" value="症状期" name="pbc" [(ngModel)]="alFinal.pbc">症状期</td>
       <td>
-        <input type="radio" value="肝功能不全期" name="pbc" [(ngModel)]="pbc">肝功能不全期</td>
+        <input type="radio" value="肝功能不全期" name="pbc" [(ngModel)]="alFinal.pbc">肝功能不全期</td>
     </tr>
     <tr>
       <td colspan="4">
@@ -22,21 +22,21 @@
     </tr>
     <tr>
       <td>
-        <input type="radio" value="无症状期" name="aih" [(ngModel)]="aih">无症状期</td>
+        <input type="radio" value="无症状期" name="aih" [(ngModel)]="alFinal.aih">无症状期</td>
       <td>
-        <input type="radio" value="症状期" name="aih" [(ngModel)]="aih">症状期</td>
+        <input type="radio" value="症状期" name="aih" [(ngModel)]="alFinal.aih">症状期</td>
       <td>
-        <input type="radio" value="缓解期" name="aih" [(ngModel)]="aih">缓解期</td>
+        <input type="radio" value="缓解期" name="aih" [(ngModel)]="alFinal.aih">缓解期</td>
       <td>
-        <input type="radio" value="复发" name="aih" [(ngModel)]="aih">复发</td>
+        <input type="radio" value="复发" name="aih" [(ngModel)]="alFinal.aih">复发</td>
     </tr>
     <tr>
       <td>
-        <input type="radio" value="肝硬化代偿期" name="aih" [(ngModel)]="aih">肝硬化代偿期</td>
+        <input type="radio" value="肝硬化代偿期" name="aih" [(ngModel)]="alFinal.aih">肝硬化代偿期</td>
       <td>
-        <input type="radio" value="肝硬化失代偿期" name="aih" [(ngModel)]="aih">肝硬化失代偿期</td>
+        <input type="radio" value="肝硬化失代偿期" name="aih" [(ngModel)]="alFinal.aih">肝硬化失代偿期</td>
       <td colspan="2">
-        <input type="radio" value="急性肝功能衰竭" name="aih" [(ngModel)]="aih">急性肝功能衰竭</td>
+        <input type="radio" value="急性肝功能衰竭" name="aih" [(ngModel)]="alFinal.aih">急性肝功能衰竭</td>
     </tr>
     <tr>
       <td colspan="4">
@@ -45,28 +45,29 @@
     </tr>
     <tr>
       <td>
-        <input type="radio" value="儿童" name="special" [(ngModel)]="special">儿童</td>
+        <input type="radio" value="儿童" name="special" [(ngModel)]="alFinal.special">儿童</td>
       <td>
-        <input type="radio" value="妊娠期" name="special" [(ngModel)]="special">妊娠期</td>
+        <input type="radio" value="妊娠期" name="special" [(ngModel)]="alFinal.special">妊娠期</td>
       <td>
-        <input type="radio" value="多次复发" name="special" [(ngModel)]="special">多次复发</td>
+        <input type="radio" value="多次复发" name="special" [(ngModel)]="alFinal.special">多次复发</td>
       <td>
-        <input type="radio" value="对激素耐药" name="special" [(ngModel)]="special">对激素耐药</td>
+        <input type="radio" value="对激素耐药" name="special" [(ngModel)]="alFinal.special">对激素耐药</td>
     </tr>
     <tr>
       <td>
-        <input type="radio" value="合并慢性乙型肝炎" name="special" [(ngModel)]="special">合并慢性乙型肝炎</td>
+        <input type="radio" value="合并慢性乙型肝炎" name="special" [(ngModel)]="alFinal.special">合并慢性乙型肝炎</td>
       <td>
-        <input type="radio" value="AIH-PBC重叠" name="special" [(ngModel)]="special">AIH-PBC重叠</td>
+        <input type="radio" value="AIH-PBC重叠" name="special" [(ngModel)]="alFinal.special">AIH-PBC重叠</td>
       <td>
-        <input type="radio" value="AIH-PSC重叠" name="special" [(ngModel)]="special">AIH-PSC重叠</td>
-      <td>
-        <input type="radio" value="自身免疫性胆管炎" name="special" [(ngModel)]="special">自身免疫性胆管炎
+        <input type="radio" value="AIH-PSC重叠" name="special" [(ngModel)]="alFinal.special">AIH-PSC重叠</td>
+<td>
+  <input type="radio" value="自身免疫性胆管炎" name="speci
+al" [(ngModel)]="alFinal.special">自身免疫性胆管炎
       </td>
     </tr>
   </table>
   <hr>
-  <button class="btn btn-danger">返回</button>
-  <button class="btn btn-success">确定</button>
+  <button class="btn btn-danger" routerLink="/autoimmune">返回</button>
+  <button class="btn btn-success" (click)="submit()">确定</button>
   <hr>
 </div>

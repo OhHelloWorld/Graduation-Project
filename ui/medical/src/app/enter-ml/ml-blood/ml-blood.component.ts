@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-ml-blood',
@@ -7,9 +8,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MlBloodComponent implements OnInit {
 
-  constructor() { }
+  mlBlood:{
+    personId:number,
+    wbc:string,
+    hb:string,
+    thc:string,
+    plt:string,
+    n:string,
+    e:string
+  }
+
+  constructor(private http:HttpClient) { }
 
   ngOnInit() {
+    this.mlBlood = {
+      personId:sessionStorage['personId'],
+      wbc:undefined,
+      hb:undefined,
+      thc:undefined,
+      plt:undefined,
+      n:undefined,
+      e:undefined
+    };
+  }
+
+  submit(){
+    this.http.post('/api/mlBlood',this.mlBlood).subscribe();
   }
 
 }

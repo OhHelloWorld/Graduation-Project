@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity(name = "ml_allergy")
-public class MlAllergy {
+public class    MlAllergy {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

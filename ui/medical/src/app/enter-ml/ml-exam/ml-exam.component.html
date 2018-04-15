@@ -9,13 +9,13 @@
       <td>
         <div class="form-group form-inline">
           <label class="control-label">谷丙转氨酶(ALT)(IU/L)：</label>
-          <input type="text" class="form-control">
+          <input type="text" name="alt" [(ngModel)]="mlBiochemical.alt" class="form-control">
         </div>
       </td>
       <td>
         <div class="form-group form-inline">
           <label class="control-label">谷草转氨酶(AST)(IU/L)：</label>
-          <input type="text" class="form-control">
+          <input type="text" name="ast" [(ngModel)]="mlBiochemical.ast" class="form-control">
         </div>
       </td>
     </tr>
@@ -23,13 +23,13 @@
       <td>
         <div class="form-group form-inline">
           <label class="control-label">谷氨酰转肽酶(GGT)(IU/L)：</label>
-          <input type="text" class="form-control">
+          <input type="text" name="ggt" [(ngModel)]="mlBiochemical.ggt" class="form-control">
         </div>
       </td>
       <td>
         <div class="form-group form-inline">
           <label class="control-label">碱性磷酸酶(ALP)(IU/L)：</label>
-          <input type="text" class="form-control">
+          <input type="text" name="alp" [(ngModel)]="mlBiochemical.alp" class="form-control">
         </div>
       </td>
     </tr>
@@ -37,13 +37,13 @@
       <td>
         <div class="form-group form-inline">
           <label class="control-label">胆汁酸(umol/L)：</label>
-          <input type="text" class="form-control">
+          <input type="text" name="acid" [(ngModel)]="mlBiochemical.acid" class="form-control">
         </div>
       </td>
       <td>
         <div class="form-group form-inline">
           <label class="control-label">总胆红素(TBIL)(umol/L)：</label>
-          <input type="text" class="form-control">
+          <input type="text" name="tbil" [(ngModel)]="mlBiochemical.tbil" class="form-control">
         </div>
       </td>
     </tr>
@@ -51,13 +51,13 @@
       <td>
         <div class="form-group form-inline">
           <label class="control-label">直接胆红素(结合，DBIL)(umol/L)：</label>
-          <input type="text" class="form-control">
+          <input type="text" name="dbil" [(ngModel)]="mlBiochemical.dbil" class="form-control">
         </div>
       </td>
       <td>
         <div class="form-group form-inline">
           <label class="control-label">总蛋白(TP)(g/L)：</label>
-          <input type="text" class="form-control">
+          <input type="text" name="tp" [(ngModel)]="mlBiochemical.tp" class="form-control">
         </div>
       </td>
     </tr>
@@ -65,7 +65,7 @@
       <td>
         <div class="form-group form-inline">
           <label class="control-label">白蛋白(ALB)(g/L)：</label>
-          <input type="text" class="form-control">
+          <input type="text" name="alb" [(ngModel)]="mlBiochemical.alb" class="form-control">
         </div>
       </td>
     </tr>
@@ -78,13 +78,13 @@
       <td>
         <div class="form-group form-inline">
           <label class="control-label">肌酐(Scr)(umol/L)：</label>
-          <input type="text" class="form-control">
+          <input type="text" name="scr" [(ngModel)]="mlBiochemical.scr" class="form-control">
         </div>
       </td>
       <td>
         <div class="form-group form-inline">
           <label class="control-label">尿素氮(mmol/L)：</label>
-          <input type="text" class="form-control">
+          <input type="text" name="un" [(ngModel)]="mlBiochemical.un" class="form-control">
         </div>
       </td>
     </tr>
@@ -97,7 +97,7 @@
       <td>
         <div class="form-group form-inline">
           <label class="control-label">空腹血糖(mmol/L)：</label>
-          <input type="text" class="form-control">
+          <input type="text" name="fbg" [(ngModel)]="mlBiochemical.fbg" class="form-control">
         </div>
       </td>
     </tr>
@@ -110,13 +110,13 @@
       <td>
         <div class="form-group form-inline">
           <label class="control-label">凝血酶原时间(PT)(秒)：</label>
-          <input type="text" class="form-control">
+          <input type="text" name="pt" [(ngModel)]="mlBiochemical.pt" class="form-control">
         </div>
       </td>
       <td>
         <div class="form-group form-inline">
           <label class="control-label">凝血酶原标准化比值(INR)：</label>
-          <input type="text" class="form-control">
+          <input type="text" name="inr" [(ngModel)]="mlBiochemical.inr" class="form-control">
         </div>
       </td>
     </tr>
@@ -129,13 +129,13 @@
       <td>
         <div class="form-group form-inline">
           <label class="control-label">甲胎蛋白(AFP)(ug/L)：</label>
-          <input type="text" class="form-control">
+          <input type="text" name="afp" [(ngModel)]="mlBiochemical.afp" class="form-control">
         </div>
       </td>
     </tr>
   </table>
   <hr>
-  <button class="btn btn-danger">返回</button>
-  <button class="btn btn-success">确定</button>
+  <button class="btn btn-danger" routerLink="/medicineLiver">返回</button>
+  <button class="btn btn-success" (click)="submit()">确定</button>
   <hr>
 </div>

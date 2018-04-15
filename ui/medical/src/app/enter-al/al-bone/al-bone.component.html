@@ -9,7 +9,7 @@
       <td colspan="4">
         <form class="form-inline">
           <span>骨密度：</span>
-          <input type="text" name="">
+          <input type="text" name="lv" [(ngModel)]="alBone.lv">
         </form>
       </td>
     </tr>
@@ -18,16 +18,16 @@
     </tr>
     <tr>
       <td>
-        <input type="radio" name="">未检测
+        <input type="radio" name="lvT" [(ngModel)]="alBone.lvT" value="未检测">未检测
       </td>
       <td>
-        <input type="radio" name="">>1
+        <input type="radio" name="lvT" [(ngModel)]="alBone.lvT" value=">1">>1
       </td>
       <td>
-        <input type="radio" name="">-1~-2.5
+        <input type="radio" name="lvT" [(ngModel)]="alBone.lvT" value="-1~-2.5">-1~-2.5
       </td>
       <td>
-        <input type="radio" name="">
+        <input type="radio" name="lvT" [(ngModel)]="alBone.lvT" value="<-2.5">
         <-2.5 </td>
     </tr>
     <tr>
@@ -39,7 +39,7 @@
       <td colspan="4">
         <form class="form-inline">
           <span>骨密度：</span>
-          <input type="text" name="">
+          <input type="text" name="fn" [ngModel]="fn">
         </form>
       </td>
     </tr>
@@ -48,16 +48,16 @@
     </tr>
     <tr>
       <td>
-        <input type="radio" name="">未检测
+        <input type="radio" name="fnT" [(ngModel)]="alBone.fnT" value="未检测">未检测
       </td>
       <td>
-        <input type="radio" name="">>1
+        <input type="radio" name="fnT" [(ngModel)]="alBone.fnT" value=">1">>1
       </td>
       <td>
-        <input type="radio" name="">-1~-2.5
+        <input type="radio" name="fnT" [(ngModel)]="alBone.fnT" value="-1~-2.5">-1~-2.5
       </td>
       <td>
-        <input type="radio" name="">
+        <input type="radio" name="fnT" [(ngModel)]="alBone.fnT" value="<-2.5">
         <-2.5 </td>
     </tr>
     <tr>
@@ -69,7 +69,7 @@
       <td colspan="4">
         <form class="form-inline">
           <span>骨密度：</span>
-          <input type="text" name="">
+          <input type="text" name="br" [(ngModel)]="alBone.br">
         </form>
       </td>
     </tr>
@@ -78,16 +78,16 @@
     </tr>
     <tr>
       <td>
-        <input type="radio" name="">未检测
+        <input type="radio" name="brT" [(ngModel)]="alBone.brT" value="未检测">未检测
       </td>
       <td>
-        <input type="radio" name="">>1
+        <input type="radio" name="brT" [(ngModel)]="alBone.brT" value=">1">>1
       </td>
       <td>
-        <input type="radio" name="">-1~-2.5
+        <input type="radio" name="brT" [(ngModel)]="alBone.brT" value="-1~-2.5">-1~-2.5
       </td>
       <td>
-        <input type="radio" name="">
+        <input type="radio" name="brT" [(ngModel)]="alBone.brT" value="<-2.5">
         <-2.5 </td>
     </tr>
     <tr>
@@ -99,7 +99,7 @@
       <td colspan="4">
         <form class="form-inline">
           <span>骨密度：</span>
-          <input type="text" name="">
+          <input type="text" name="th" [(ngModel)]="alBone.th">
         </form>
       </td>
     </tr>
@@ -108,16 +108,16 @@
     </tr>
     <tr>
       <td>
-        <input type="radio" name="">未检测
+        <input type="radio" name="thT" [(ngModel)]="alBone.thT" value="未检测">未检测
       </td>
       <td>
-        <input type="radio" name="">>1
+        <input type="radio" name="thT" [(ngModel)]="alBone.thT" value=">1">>1
       </td>
       <td>
-        <input type="radio" name="">-1~-2.5
+        <input type="radio" name="thT" [(ngModel)]="alBone.thT" value="-1~-2.5">-1~-2.5
       </td>
       <td>
-        <input type="radio" name="">
+        <input type="radio" name="thT" [(ngModel)]="alBone.thT" value="<-2.5">
         <-2.5 </td>
     </tr>
     <tr>
@@ -130,21 +130,21 @@
     </tr>
     <tr>
       <td>
-        <input type="radio" name="">骨量正常
+        <input type="radio" name="diagnosis" [(ngModel)]="alBone.diagnosis" value="骨量正常">骨量正常
       </td>
       <td>
-        <input type="radio" name="">骨量减少
+        <input type="radio" name="diagnosis" [(ngModel)]="alBone.diagnosis" value="骨量减少">骨量减少
       </td>
       <td>
-        <input type="radio" name="">骨质疏松
+        <input type="radio" name="diagnosis" [(ngModel)]="alBone.diagnosis" value="骨质疏松">骨质疏松
       </td>
       <td>
-        <input type="radio" name="">严重骨质疏松
+        <input type="radio" name="diagnosis" [(ngModel)]="alBone.diagnosis" value="严重骨质疏松">严重骨质疏松
       </td>
     </tr>
   </table>
   <hr>
-  <button class="btn btn-danger">返回</button>
-  <button class="btn btn-success">成功</button>
+  <button class="btn btn-danger" routerLink="/autoimmune">返回</button>
+  <button class="btn btn-success" (click)="submit()">成功</button>
   <hr>
 </div>

@@ -7,11 +7,11 @@
     </tr>
     <tr>
       <td class="col-md-2">
-        <input type="radio">无</td>
+        <input type="radio" value="无" name="allergy" [(ngModel)]="mlAllergy.allergy">无</td>
       <td class="col-md-2">
-        <input type="radio" name="">有</td>
+        <input type="radio" value="有" name="allergy" [(ngModel)]="mlAllergy.allergy">有</td>
       <td class="col-md-2">
-        <input type="radio" name="">不详</td>
+        <input type="radio" value="不详" name="allergy" [(ngModel)]="mlAllergy.allergy">不详</td>
     </tr>
     <tr>
       <td colspan="3">
@@ -20,7 +20,7 @@
     </tr>
     <tr>
       <td>
-        <input type="text" name="" class="form-control col-md-5">
+        <input type="text" name="allergen" [(ngModel)]="mlAllergy.allergen" class="form-control col-md-5">
       </td>
     </tr>
     <tr>
@@ -30,12 +30,12 @@
     </tr>
     <tr>
       <td>
-        <input type="text" name="" class="form-control col-md-5">
+        <input type="text" name="remark" [(ngModel)]="mlAllergy.remark" class="form-control col-md-5">
       </td>
     </tr>
   </table>
   <hr>
-  <button class="btn btn-danger">返回</button>
-  <button class="btn btn-success">确定</button>
+  <button class="btn btn-danger" routerLink="/medicineLiver">返回</button>
+  <button class="btn btn-success" (click)="submit()">确定</button>
   <hr>
 </div>

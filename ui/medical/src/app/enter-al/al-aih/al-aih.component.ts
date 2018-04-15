@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-al-aih',
@@ -7,9 +9,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AlAihComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
+  alAih:{
+    personId:number,
+    anasma1:string,
+    anasma2:string,
+    antiLkm:string,
+    antiSla:string,
+    igg:string,
+    liverHistology:string,
+    excludeViralHepatitis:string
   }
 
+  constructor(private http:HttpClient) { }
+
+  ngOnInit() {
+
+    this.alAih = {
+      personId:sessionStorage['personId'],
+      anasma1:undefined,
+      anasma2:undefined,
+      antiLkm:undefined,
+      antiSla:undefined,
+      igg:undefined,
+      liverHistology:undefined,
+      excludeViralHepatitis:undefined
+    };
+  }
+
+  submit(){
+    this.http.post('/api/alAih',this.alAih).subscribe();
+  }
 }

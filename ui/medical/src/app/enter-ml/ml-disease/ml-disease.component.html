@@ -8,10 +8,10 @@
       </tr>
       <tr>
         <td>
-          <input type="radio" name="">是
+          <input type="radio" name="other" value="是" [(ngModel)]="mlDiseaseHistory.other">是
         </td>
         <td colspan="4">
-          <input type="radio" name="">否
+          <input type="radio" name="other" value="否" [(ngModel)]="mlDiseaseHistory.other">否
         </td>
       </tr>
       <tr>
@@ -21,15 +21,15 @@
       </tr>
       <tr>
         <td>
-          <input type="checkbox" name="">饮酒</td>
+          <input type="checkbox" name="one" value="饮酒" [(ngModel)]="mlDiseaseHistory.one">饮酒</td>
         <td>
-          <input type="checkbox" name="">吸烟</td>
+          <input type="checkbox" name="one" value="吸烟" [(ngModel)]="mlDiseaseHistory.one">吸烟</td>
         <td>
-          <input type="checkbox" name="">过敏</td>
+          <input type="checkbox" name="one" value="过敏" [(ngModel)]="mlDiseaseHistory.one">过敏</td>
         <td>
-          <input type="checkbox" name="">感染</td>
+          <input type="checkbox" name="one" value="感染" [(ngModel)]="mlDiseaseHistory.one">感染</td>
         <td>
-          <input type="checkbox" name="">手术</td>
+          <input type="checkbox" name="one" value="手术" [(ngModel)]="mlDiseaseHistory.one">手术</td>
       </tr>
       <tr>
         <td colspan="5">
@@ -38,14 +38,14 @@
       </tr>
       <tr>
         <td>
-          <input type="radio" name="">是</td>
+          <input type="radio" name="tour" value="是" [(ngModel)]="mlDiseaseHistory.tour">是</td>
         <td colspan="4">
-          <input type="radio" name="">否</td>
+          <input type="radio" name="tour" value="否" [(ngModel)]="mlDiseaseHistory.tour">否</td>
       </tr>
     </table>
     <hr>
-    <button class="btn btn-danger">返回</button>
-    <button class="btn btn-success">确定</button>
+    <button class="btn btn-danger" routerLink="/medicineLiver">返回</button>
+    <button class="btn btn-success" (click)="submit()">确定</button>
     <hr>
   </form>
 </div>

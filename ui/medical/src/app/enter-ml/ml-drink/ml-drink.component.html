@@ -7,13 +7,13 @@
     </tr>
     <tr>
       <td>
-        <input type="radio" name="">长期饮酒</td>
+        <input type="radio" name="history" value="长期饮酒" [(ngModel)]="mlDrink.history">长期饮酒</td>
       <td>
-        <input type="radio" name="">偶尔饮酒</td>
+        <input type="radio" name="history" value="偶尔饮酒" [(ngModel)]="mlDrink.history">偶尔饮酒</td>
       <td>
-        <input type="radio" name="">不饮酒</td>
+        <input type="radio" name="history" value="不饮酒" [(ngModel)]="mlDrink.history">不饮酒</td>
       <td>
-        <input type="radio" name="">不详
+        <input type="radio" name="history" value="不详" [(ngModel)]="mlDrink.history">不详
       </td>
     </tr>
     <tr>
@@ -23,13 +23,13 @@
     </tr>
     <tr>
       <td>
-        <input type="checkbox" name="">白酒</td>
+        <input type="checkbox" name="species" value="白酒" [(ngModel)]="species1">白酒</td>
       <td>
-        <input type="checkbox" name="">红酒</td>
+        <input type="checkbox" name="species" value="红酒" [(ngModel)]="species2">红酒</td>
       <td>
-        <input type="checkbox" name="">啤酒</td>
+        <input type="checkbox" name="species" value="啤酒" [(ngModel)]="species3">啤酒</td>
       <td>
-        <input type="checkbox" name="">其他</td>
+        <input type="checkbox" name="species" value="其他" [(ngModel)]="species4">其他</td>
     </tr>
     <tr>
       <td colspan="4">
@@ -38,12 +38,12 @@
     </tr>
     <tr>
       <td colspan="4">
-        <input type="text" name="" class="form-control">
+        <input type="text" name="time" [(ngModel)]="mlDrink.time" class="form-control">
       </td>
     </tr>
   </table>
   <hr>
-  <button class="btn btn-danger">返回</button>
-  <button class="btn btn-success">确定</button>
+  <button class="btn btn-danger" routerLink="/medicineLiver">返回</button>
+  <button class="btn btn-success" (click)="submit()">确定</button>
   <hr>
 </div>
