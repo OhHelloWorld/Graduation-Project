@@ -18,4 +18,30 @@ public class MlBiochemicalServiceImpl implements MlBiochemicalService {
         mlBiochemicalRepository.save(mlBiochemical);
 
     }
+
+    @Override
+    public MlBiochemical findByPersonId(Integer personId) {
+        return mlBiochemicalRepository.findByPersonId(personId);
+    }
+
+    @Override
+    public void updateMlBiochemical(MlBiochemical mlBiochemical) {
+        MlBiochemical oldObj = findByPersonId(mlBiochemical.getPersonId());
+        oldObj.setAcid(mlBiochemical.getAcid());
+        oldObj.setAfp(mlBiochemical.getAfp());
+        oldObj.setAlb(mlBiochemical.getAlb());
+        oldObj.setAlp(mlBiochemical.getAlp());
+        oldObj.setAlt(mlBiochemical.getAlt());
+        oldObj.setAst(mlBiochemical.getAst());
+        oldObj.setDbil(mlBiochemical.getDbil());
+        oldObj.setFbg(mlBiochemical.getFbg());
+        oldObj.setGgt(mlBiochemical.getGgt());
+        oldObj.setInr(mlBiochemical.getInr());
+        oldObj.setPt(mlBiochemical.getPt());
+        oldObj.setScr(mlBiochemical.getScr());
+        oldObj.setTbil(mlBiochemical.getTbil());
+        oldObj.setTp(mlBiochemical.getTp());
+        oldObj.setUn(mlBiochemical.getUn());
+        mlBiochemicalRepository.save(oldObj);
+    }
 }

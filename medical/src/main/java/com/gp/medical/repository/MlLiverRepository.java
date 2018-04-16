@@ -4,4 +4,6 @@ import com.gp.medical.entity.MlLiver;
 import org.springframework.data.repository.CrudRepository;
 
 public interface MlLiverRepository extends CrudRepository<MlLiver,Integer> {
+
+    MlLiver findByPersonId(Integer personId);
 }

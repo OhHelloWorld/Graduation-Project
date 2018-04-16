@@ -10,23 +10,23 @@ import java.util.List;
  */
 public interface PersonService {
 
-    void savePerson(Person alPerson, Long userId);
+    void savePerson(Person alPerson, Integer userId);
 
-    List<Person> minePersonByPage(Long userId,String page);
+    List<Person> minePersonByPage(Integer userId,String page);
 
     List<Person> allPerson();
 
-    Person getPersonById(Long id);
+    Person getPersonById(Integer id);
 
     String uploadImage(MultipartFile file);
 
     List<Person> latestPerson();
 
-    Long getPersonCount();
+    Integer getPersonCount(String gender, String age);
 
-    int getMinePersonCount(Long userId);
+    int getMinePersonCount(Integer userId);
 
-    List<Person> getPersonByPage(String page);
+    List<Person> getPersonByPage(String page,String gender,String age);
 
-    Boolean hasCollect(Long userId,Long personId);
+    Boolean hasCollect(Integer userId,Integer personId);
 }

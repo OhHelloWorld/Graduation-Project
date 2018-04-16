@@ -18,4 +18,21 @@ public class AlPcInsLiverServiceImpl implements AlPcInsLiverService {
         alPcInsLiverRepository.save(alPcInsLiver);
 
     }
+
+    @Override
+    public AlPcInsLiver findByPersonId(Integer personId) {
+        return alPcInsLiverRepository.findByPersonId(personId);
+    }
+
+    @Override
+    public void updateAlPcInsLiver(AlPcInsLiver alPcInsLiver) {
+        AlPcInsLiver oldObj = findByPersonId(alPcInsLiver.getPersonId());
+        oldObj.setAlbumin(alPcInsLiver.getAlbumin());
+        oldObj.setAlp(alPcInsLiver.getAlp());
+        oldObj.setAlt(alPcInsLiver.getAlt());
+        oldObj.setAst(alPcInsLiver.getAst());
+        oldObj.setGgt(alPcInsLiver.getGgt());
+        oldObj.setGlobulin(alPcInsLiver.getGlobulin());
+        alPcInsLiverRepository.save(oldObj);
+    }
 }

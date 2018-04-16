@@ -16,7 +16,7 @@ public class User implements UserDetails{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Integer id;
     private String username;
     private String password;
     @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
@@ -36,11 +36,11 @@ public class User implements UserDetails{
     inverseJoinColumns = @JoinColumn(name = "doc_id",referencedColumnName = "id"))
     private List<Document> docCollections;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

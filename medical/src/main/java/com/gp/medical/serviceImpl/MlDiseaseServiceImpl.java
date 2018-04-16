@@ -16,4 +16,18 @@ public class MlDiseaseServiceImpl implements MlDiseaseService {
     public void saveMlDisease(MlDiseaseHistory mlDiseaseHistory) {
         mlDiseaseRepository.save(mlDiseaseHistory);
     }
+
+    @Override
+    public MlDiseaseHistory findByPersonId(Integer personId) {
+        return mlDiseaseRepository.findByPersonId(personId);
+    }
+
+    @Override
+    public void updateMlDisease(MlDiseaseHistory mlDiseaseHistory) {
+        MlDiseaseHistory oldObj = findByPersonId(mlDiseaseHistory.getPersonId());
+        oldObj.setOne(mlDiseaseHistory.getOne());
+        oldObj.setOther(mlDiseaseHistory.getOther());
+        oldObj.setTour(mlDiseaseHistory.getTour());
+        mlDiseaseRepository.save(oldObj);
+    }
 }

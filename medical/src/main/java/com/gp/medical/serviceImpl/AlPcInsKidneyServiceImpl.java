@@ -18,4 +18,17 @@ public class AlPcInsKidneyServiceImpl implements AlPcInsKidneyService {
         alPcInsKidneyRepository.save(alPcInsKidney);
 
     }
+
+    @Override
+    public AlPcInsKidney findByPersonId(Integer personId) {
+        return alPcInsKidneyRepository.findByPersonId(personId);
+    }
+
+    @Override
+    public void updateAlPcInsKidney(AlPcInsKidney alPcInsKidney) {
+        AlPcInsKidney oldObj = findByPersonId(alPcInsKidney.getPersonId());
+        oldObj.setBun(alPcInsKidney.getBun());
+        oldObj.setCr(alPcInsKidney.getCr());
+        alPcInsKidneyRepository.save(oldObj);
+    }
 }

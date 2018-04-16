@@ -11,24 +11,24 @@ import java.util.List;
  */
 public interface UserService {
 
-    Long registeredUser(User user);
+    Integer registeredUser(User user);
 
     User login(User user);
 
-    void collectionPerson(Long userId,Long personId);
+    void collectionPerson(Integer userId,Integer personId);
 
-    void uncollectPerson(Long userId,Long personId);
+    void uncollectPerson(Integer userId,Integer personId);
 
-    void collectionDoc(Long userId,Long docId);
+    void collectionDoc(Integer userId,Integer docId);
 
-    void uncollectDoc(Long userId,Long docId);
+    void uncollectDoc(Integer userId,Integer docId);
 
-    List<Person> pageCollections(Long userId,int page);
+    List<Person> pageCollections(Integer userId,int page);
 
-    List<Document> pageDocCollections(Long userId,int page);
+    List<Document> pageDocCollections(Integer userId,int page);
 
-    int getCollectionCount(Long userId);
+    int getCollectionCount(Integer userId);
 
-    int getDocCollectionCount(Long userId);
+    int getDocCollectionCount(Integer userId);
 
 }

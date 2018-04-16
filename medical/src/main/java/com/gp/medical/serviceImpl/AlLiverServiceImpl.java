@@ -18,4 +18,23 @@ public class AlLiverServiceImpl implements AlLiverService {
         alLiverRepository.save(alLiver);
 
     }
+
+    @Override
+    public AlLiver findByPersonId(Integer personId) {
+        return alLiverRepository.findByPersonId(personId);
+    }
+
+    @Override
+    public void updateAlLiver(AlLiver alLiver) {
+        AlLiver oldObj = findByPersonId(alLiver.getPersonId());
+        oldObj.setHbcAg(alLiver.getHbcAg());
+        oldObj.setHbsAg(alLiver.getHbsAg());
+        oldObj.setHcv(alLiver.getHcv());
+        oldObj.setIh(alLiver.getIh());
+        oldObj.setLi(alLiver.getLi());
+        oldObj.setPi1(alLiver.getPi1());
+        oldObj.setPi2(alLiver.getPi2());
+        oldObj.setRc(alLiver.getRc());
+        alLiverRepository.save(oldObj);
+    }
 }

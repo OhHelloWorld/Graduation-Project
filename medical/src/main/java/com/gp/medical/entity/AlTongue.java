@@ -13,8 +13,8 @@ public class AlTongue {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    private Long personId;
+    private Integer id;
+    private Integer personId;
     private String tongueQuality;
     private String tongueBody;
     private String mossyQuality;
@@ -23,19 +23,19 @@ public class AlTongue {
     private String tongueLeft;
     private String tongueRight;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public Long getPersonId() {
+    public Integer getPersonId() {
         return personId;
     }
 
-    public void setPersonId(Long personId) {
+    public void setPersonId(Integer personId) {
         this.personId = personId;
     }
 

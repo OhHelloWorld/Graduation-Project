@@ -18,6 +18,27 @@ public class AlFourServiceImpl implements AlFourService{
 
     @Override
     public void saveAlFour(AlFour alFour) {
-        alFourRepository.save(Switch.switchAlFour(alFour));
+        alFourRepository.save(alFour);
+    }
+
+    @Override
+    public AlFour findByPersonId(Integer personId) {
+        return alFourRepository.findByPersonId(personId);
+    }
+
+    @Override
+    public void updateAlFour(AlFour alFour) {
+        AlFour oldObj = findByPersonId(alFour.getPersonId());
+        oldObj.setAngry(alFour.getAngry());
+        oldObj.setDepress(alFour.getDepress());
+        oldObj.setDry(alFour.getDry());
+        oldObj.setFatigue(alFour.getFatigue());
+        oldObj.setInsomnia(alFour.getInsomnia());
+        oldObj.setItch(alFour.getItch());
+        oldObj.setThirst(alFour.getThirst());
+        oldObj.setTinnitus(alFour.getTinnitus());
+        oldObj.setVague(alFour.getVague());
+        oldObj.setWake(alFour.getWake());
+        alFourRepository.save(oldObj);
     }
 }

@@ -18,4 +18,18 @@ public class MlDrinkServiceImpl implements MlDrinkService {
         mlDrinkRepository.save(mlDrink);
 
     }
+
+    @Override
+    public MlDrink findByPersonId(Integer personId) {
+        return mlDrinkRepository.findByPersonId(personId);
+    }
+
+    @Override
+    public void updateMlDrink(MlDrink mlDrink) {
+        MlDrink oldObj = findByPersonId(mlDrink.getPersonId());
+        oldObj.setHistory(mlDrink.getHistory());
+        oldObj.setSpecies(mlDrink.getSpecies());
+        oldObj.setTime(mlDrink.getTime());
+        mlDrinkRepository.save(oldObj);
+    }
 }

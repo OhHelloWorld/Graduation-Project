@@ -20,7 +20,7 @@ public interface DocumentService {
      * @param docId
      * @return
      */
-    Document getDocumentById(Long docId);
+    Document getDocumentById(Integer docId);
 
     /**
      * 得到所有文章（分页）
@@ -33,7 +33,7 @@ public interface DocumentService {
      * 得到所有文章数量
      * @return
      */
-    Long getDocCount();
+    Integer getDocCount();
 
     /**
      * 判断用户是否收藏某文章
@@ -41,5 +41,5 @@ public interface DocumentService {
      * @param docId
      * @return
      */
-    Boolean hasCollect(Long userId,Long docId);
+    Boolean hasCollect(Integer userId,Integer docId);
 }

@@ -25,7 +25,7 @@ public class UserController {
      * @return user_id
      */
     @PostMapping(path = "/register")
-    public Long register(@RequestBody User user){
+    public Integer register(@RequestBody User user){
         return userService.registeredUser(user);
     }
 
@@ -45,7 +45,7 @@ public class UserController {
      * @param userId
      */
     @GetMapping(path = "/collection/{personId}")
-    public void collectPerson(@PathVariable Long personId,@RequestHeader(value = "userId") Long userId){
+    public void collectPerson(@PathVariable Integer personId,@RequestHeader(value = "userId") Integer userId){
         userService.collectionPerson(userId,personId);
     }
 
@@ -55,7 +55,7 @@ public class UserController {
      * @param personId
      */
     @GetMapping(path = "/uncollectPerson")
-    public void uncollectPerson(@RequestHeader(value = "userId") Long userId,@RequestParam(value = "personId") Long personId){
+    public void uncollectPerson(@RequestHeader(value = "userId") Integer userId,@RequestParam(value = "personId") Integer personId){
         userService.uncollectPerson(userId,personId);
     }
 
@@ -65,7 +65,7 @@ public class UserController {
      * @param userId
      */
     @GetMapping(path = "/docCollection/{docId}")
-    public void collectionDoc(@PathVariable Long docId,@RequestHeader(value = "userId") Long userId){
+    public void collectionDoc(@PathVariable Integer docId,@RequestHeader(value = "userId") Integer userId){
         userService.collectionDoc(userId,docId);
     }
 
@@ -75,7 +75,7 @@ public class UserController {
      * @param docId
      */
     @GetMapping(path = "/uncollectDoc")
-    public void uncollectDoc(@RequestHeader(value = "userId") Long userId,@RequestParam(value = "docId") Long docId){
+    public void uncollectDoc(@RequestHeader(value = "userId") Integer userId,@RequestParam(value = "docId") Integer docId){
         userService.uncollectDoc(userId,docId);
     }
 
@@ -85,7 +85,7 @@ public class UserController {
      * @return
      */
     @GetMapping(path = "/collections/page")
-    public List<Person> pageCollections(@RequestHeader(value = "userId") Long userId,@RequestParam(value = "page") String page){
+    public List<Person> pageCollections(@RequestHeader(value = "userId") Integer userId,@RequestParam(value = "page") String page){
         return userService.pageCollections(userId,Integer.valueOf(page));
     }
 
@@ -96,7 +96,7 @@ public class UserController {
      * @return
      */
     @GetMapping(path = "/docCollections/page")
-    public List<Document> pageDocCollections(@RequestHeader(value = "userId") Long userId,@RequestParam(value = "page") String page){
+    public List<Document> pageDocCollections(@RequestHeader(value = "userId") Integer userId,@RequestParam(value = "page") String page){
         return userService.pageDocCollections(userId,Integer.valueOf(page));
     }
 
@@ -106,7 +106,7 @@ public class UserController {
      * @return
      */
     @GetMapping(path = "/collections/count")
-    public int getCollectionCount(@RequestHeader(value = "userId") Long userId){
+    public int getCollectionCount(@RequestHeader(value = "userId") Integer userId){
          return userService.getCollectionCount(userId);
     }
 
@@ -116,7 +116,7 @@ public class UserController {
      * @return
      */
     @GetMapping(path = "/docCollections/count")
-    public int getDocCollectionCount(@RequestHeader(value = "userId") Long userId){
+    public int getDocCollectionCount(@RequestHeader(value = "userId") Integer userId){
         return userService.getDocCollectionCount(userId);
     }
 

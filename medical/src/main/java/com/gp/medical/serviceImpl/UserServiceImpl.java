@@ -51,11 +51,11 @@ public class UserServiceImpl implements UserDetailsService,UserService {
     }
 
     @Override
-    public Long registeredUser(User user) {
+    public Integer registeredUser(User user) {
 
         //权限设置
         List<Authority> authorityList = new ArrayList<>();
-        authorityList.add(authorityRepository.findOne(1L));
+        authorityList.add(authorityRepository.findOne(1));
 
         //收藏列表初始化
         List<Person> collectionPersons = new ArrayList<>();
@@ -84,35 +84,35 @@ public class UserServiceImpl implements UserDetailsService,UserService {
     }
 
     @Override
-    public void collectionPerson(Long userId,Long personId) {
+    public void collectionPerson(Integer userId,Integer personId) {
         User user = userRepository.findOne(userId);
         user.getPersonCollections().add(personRepository.findOne(personId));
         userRepository.save(user);
     }
 
     @Override
-    public void uncollectPerson(Long userId, Long personId) {
+    public void uncollectPerson(Integer userId, Integer personId) {
         User user = userRepository.findOne(userId);
         user.getPersonCollections().remove(personRepository.findOne(personId));
         userRepository.save(user);
     }
 
     @Override
-    public void uncollectDoc(Long userId,Long docId){
+    public void uncollectDoc(Integer userId,Integer docId){
         User user = userRepository.findOne(userId);
         user.getDocCollections().remove(documentRepository.findOne(docId));
         userRepository.save(user);
     }
 
     @Override
-    public void collectionDoc(Long userId,Long docId){
+    public void collectionDoc(Integer userId,Integer docId){
         User user = userRepository.findOne(userId);
         user.getDocCollections().add(documentRepository.findOne(docId));
         userRepository.save(user);
     }
 
     @Override
-    public List<Person> pageCollections(Long userId,int page){
+    public List<Person> pageCollections(Integer userId,int page){
         User user = userRepository.findOne(userId);
         List<Person> collectionsInDatabase =  user.getPersonCollections();
         List<Person> collections = new ArrayList<>();
@@ -123,7 +123,7 @@ public class UserServiceImpl implements UserDetailsService,UserService {
     }
 
     @Override
-    public List<Document> pageDocCollections(Long userId,int page){
+    public List<Document> pageDocCollections(Integer userId,int page){
         User user = userRepository.findOne(userId);
         List<Document> collectionsInDatabase = user.getDocCollections();
         List<Document> collections = new ArrayList<>();
@@ -134,7 +134,7 @@ public class UserServiceImpl implements UserDetailsService,UserService {
     }
 
     @Override
-    public int getCollectionCount(Long userId) {
+    public int getCollectionCount(Integer userId) {
         User user = userRepository.findOne(userId);
         if(user.getPersonCollections() != null) {
             return user.getPersonCollections().size();
@@ -144,7 +144,7 @@ public class UserServiceImpl implements UserDetailsService,UserService {
     }
 
     @Override
-    public int getDocCollectionCount(Long userId) {
+    public int getDocCollectionCount(Integer userId) {
         User user = userRepository.findOne(userId);
         if(user.getDocCollections() != null){
             return user.getDocCollections().size();

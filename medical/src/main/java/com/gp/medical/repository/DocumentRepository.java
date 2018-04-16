@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by Administrator on 2018/3/12 0012.
  */
-public interface DocumentRepository extends CrudRepository<Document,Long>{
+public interface DocumentRepository extends CrudRepository<Document,Integer>{
 
     @Query(value = "select * from document order by id desc limit 24 offset ?1",nativeQuery = true)
     List<Document> getDocByPage(int offset);

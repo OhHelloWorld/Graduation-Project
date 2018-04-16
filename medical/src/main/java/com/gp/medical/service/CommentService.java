@@ -13,5 +13,5 @@ public interface CommentService {
      * @param userId
      * @param docId
      */
-    void saveComment(Comment comment,Long userId,Long docId);
+    void saveComment(Comment comment,Integer userId,Integer docId);
 }

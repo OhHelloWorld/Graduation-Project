@@ -12,7 +12,7 @@ public class Comment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Integer id;
     //评论时间
     private Date time;
     //评论内容
@@ -26,11 +26,11 @@ public class Comment {
     //评论的用户
     private User user;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

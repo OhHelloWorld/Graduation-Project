@@ -32,7 +32,7 @@ public class DocumentController {
      * @return
      */
     @GetMapping(path = "/{docId}")
-    public Document getDocumentById(@PathVariable Long docId){
+    public Document getDocumentById(@PathVariable Integer docId){
         return documentService.getDocumentById(docId);
     }
 
@@ -51,7 +51,7 @@ public class DocumentController {
      * @return
      */
     @GetMapping(path = "/count")
-    public Long getDocCount(){
+    public Integer getDocCount(){
         return documentService.getDocCount();
     }
 
@@ -62,7 +62,7 @@ public class DocumentController {
      * @return
      */
     @GetMapping(path = "/hasCollect")
-    public Boolean getCollectStatus(@RequestHeader(value = "userId") Long userId,@RequestParam(value = "docId") Long docId){
+    public Boolean getCollectStatus(@RequestHeader(value = "userId") Integer userId,@RequestParam(value = "docId") Integer docId){
         return documentService.hasCollect(userId,docId);
     }
 }

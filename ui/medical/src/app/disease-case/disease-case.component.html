@@ -1,21 +1,21 @@
 <div class="container" style="height: auto">
   <div>
     <b>性别：</b>
-    <a class="col-md-offset-1" role="button">全部</a>
-    <a class="col-md-offset-1" role="button">男</a>
-    <a class="col-md-offset-1" role="button">女</a>
+    <button class="btn btn-info btn-sm col-md-offset-1" (click)="selectGender1()">不限</button>
+    <button class="btn btn-info btn-sm col-md-offset-1" (click)="selectGender2()">男</button>
+    <button class="btn btn-info btn-sm col-md-offset-1" (click)="selectGender3()">女</button>
     <hr>
     <b>年龄：</b>
-    <a class="col-md-offset-1" role="button">全部</a>
-    <a class="col-md-offset-1" role="button">0到10岁</a>
-    <a class="col-md-offset-1" role="button">11到20岁</a>
-    <a class="col-md-offset-1" role="button">21到60岁</a>
-    <a class="col-md-offset-1" role="button">60岁以上</a>
+    <button class="btn btn-success btn-sm col-md-offset-1" (click)="selectAge1()">不限</button>
+    <button class="btn btn-success btn-sm col-md-offset-1" (click)="selectAge2()">0到10岁</button>
+    <button class="btn btn-success btn-sm col-md-offset-1" (click)="selectAge3()">11到20岁</button>
+    <button class="btn btn-success btn-sm col-md-offset-1" (click)="selectAge4()">21到60岁</button>
+    <button class="btn btn-success btn-sm col-md-offset-1" (click)="selectAge5()">60岁到100岁</button>
     <hr>
-    <b>分类：</b>
-    <a class="col-md-offset-1" role="button">全部</a>
-    <a class="col-md-offset-1" style="width: 110px" role="button">自身免疫性肝病</a>
-    <a class="col-md-offset-1" style="width: 110px" role="button">药物性肝损伤</a>
+    <b>筛选：</b>
+    <span class="col-md-offset-1">性别：{{gender}}</span>
+    <span class="col-md-offset-1">年龄：{{age}}</span>
+    <button class="col-md-offset-1 btn btn-primary btn-sm" (click)="submit()">确定</button>
   </div>
   <hr>
   <app-case-list [cases]="cases"></app-case-list>

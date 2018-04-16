@@ -18,4 +18,22 @@ public class AlPcInsBloodServiceImpl implements AlPcInsBloodService {
         alPcInsBloodRepository.save(alPcInsBlood);
 
     }
+
+    @Override
+    public AlPcInsBlood findByPersonId(Integer personId) {
+        return alPcInsBloodRepository.findByPersonId(personId);
+    }
+
+    @Override
+    public void updateAlPcInsBlood(AlPcInsBlood alPcInsBlood) {
+        AlPcInsBlood oldObj = findByPersonId(alPcInsBlood.getPersonId());
+        oldObj.setHb(alPcInsBlood.getHb());
+        oldObj.setLymphocyte(alPcInsBlood.getLymphocyte());
+        oldObj.setNeutrophil(alPcInsBlood.getNeutrophil());
+        oldObj.setRbc(alPcInsBlood.getRbc());
+        oldObj.setWbc(alPcInsBlood.getWbc());
+        alPcInsBloodRepository.save(oldObj);
+    }
+
+
 }

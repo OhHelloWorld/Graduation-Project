@@ -7,25 +7,25 @@ package com.gp.medical.entity;
 public class CommentDTO {
 
     //评论的文章Id
-    private Long docId;
+    private Integer docId;
     //评论的用户Id
-    private Long userId;
+    private Integer userId;
     //评论的内容
     private String content;
 
-    public Long getDocId() {
+    public Integer getDocId() {
         return docId;
     }
 
-    public void setDocId(Long docId) {
+    public void setDocId(Integer docId) {
         this.docId = docId;
     }
 
-    public Long getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 

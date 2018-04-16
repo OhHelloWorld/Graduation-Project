@@ -12,4 +12,8 @@ public interface AlFourService {
      * @param alFour
      */
     void saveAlFour(AlFour alFour);
+
+    AlFour findByPersonId(Integer personId);
+
+    void updateAlFour(AlFour alFour);
 }

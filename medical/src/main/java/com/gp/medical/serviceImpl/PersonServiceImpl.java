@@ -35,15 +35,15 @@ public class PersonServiceImpl implements PersonService {
     private int limitNum;
 
     @Override
-    public void savePerson(Person person, Long userId) {
+    public void savePerson(Person person, Integer userId) {
         person.setUser(userRepository.findOne(userId));
         personRepository.save(person);
     }
 
     @Override
-    public List<Person> minePersonByPage(Long userId,String page) {
+    public List<Person> minePersonByPage(Integer userId,String page) {
         List<Person> personList = new ArrayList<>();
-        for(Person person : personRepository.minePersonByPage(userId,Integer.valueOf(page)-1,limitNum)){
+        for(Person person : personRepository.minePersonByPage(userId,(Integer.valueOf(page)-1)*limitNum,limitNum)){
             personList.add(Switch.switchPerson(person));
         }
         return personList;
@@ -59,7 +59,7 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public Person getPersonById(Long id) {
+    public Person getPersonById(Integer id) {
         return Switch.switchPerson(personRepository.findOne(id));
     }
 
@@ -86,19 +86,44 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public Long getPersonCount() {
-        return personRepository.count();
+    public Integer getPersonCount(String gender, String age) {
+
+        if("不限".equals(gender) && "不限".equals(age)){
+            return Math.toIntExact(personRepository.count());
+        }else if("不限".equals(gender) && !"不限".equals(age)){
+            String[] ageArray = age.split("-");
+            return personRepository.getAgeConditionPersonCount(Integer.valueOf(ageArray[0]),Integer.valueOf(ageArray[1]));
+        }else if(!"不限".equals(gender) && "不限".equals(age)){
+            return personRepository.getGenderConditionPersonCount(gender);
+        }else{
+            String[] ageArray = age.split("-");
+            return personRepository.getGenderAndAgeConditionPersonCount(gender,Integer.valueOf(ageArray[0]),Integer.valueOf(ageArray[1]));
+        }
     }
 
     @Override
-    public int getMinePersonCount(Long userId) {
+    public int getMinePersonCount(Integer userId) {
         return personRepository.getPersonByUserId(userId).size();
     }
 
     @Override
-    public List<Person> getPersonByPage(String page) {
-        List<Person> personInDatabase = personRepository.getPersonByPage(limitNum,(Integer.valueOf(page)-1) * limitNum);
+    public List<Person> getPersonByPage(String page,String gender,String age) {
+
+        List<Person> personInDatabase = null;
         List<Person> personList = new ArrayList<>();
+        int offset = (Integer.valueOf(page)-1) * limitNum;
+
+        if("不限".equals(gender) && "不限".equals(age)){
+            personInDatabase =  personRepository.getPersonByPage(limitNum,offset);
+        }else if("不限".equals(gender) && !"不限".equals(age)){
+            String[] ageArray = age.split("-");
+            personInDatabase = personRepository.getPersonByPageAndAge(limitNum,offset,Integer.valueOf(ageArray[0]),Integer.valueOf(ageArray[1]));
+        }else if(!"不限".equals(gender) && "不限".equals(age)){
+            personInDatabase = personRepository.getPersonByPageAndGender(limitNum,offset,gender);
+        }else{
+            String[] ageArray = age.split("-");
+            personInDatabase = personRepository.getPersonByPageAndGenderAndAge(limitNum,offset,gender,Integer.valueOf(ageArray[0]),Integer.valueOf(ageArray[1]));
+        }
         for(Person person : personInDatabase){
             personList.add(Switch.switchPerson(person));
         }
@@ -106,9 +131,9 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public Boolean hasCollect(Long userId, Long personId) {
+    public Boolean hasCollect(Integer userId, Integer personId) {
         List<User> userList = personRepository.findOne(personId).getUserList();
-        List<Long> userIdList = new ArrayList<>();
+        List<Integer> userIdList = new ArrayList<>();
         for(User user : userList){
             userIdList.add(user.getId());
         }

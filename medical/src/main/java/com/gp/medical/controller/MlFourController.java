@@ -3,10 +3,7 @@ package com.gp.medical.controller;
 import com.gp.medical.entity.MlFour;
 import com.gp.medical.service.MlFourService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path = "/api/mlFour")
@@ -18,5 +15,10 @@ public class MlFourController {
     @PostMapping(path = "")
     public void saveMlFour(@RequestBody MlFour mlFour){
         mlFourService.saveMlFour(mlFour);
+    }
+
+    @GetMapping(path = "")
+    public MlFour findByPersonId(@RequestParam Integer personId){
+        return mlFourService.findByPersonId(personId);
     }
 }

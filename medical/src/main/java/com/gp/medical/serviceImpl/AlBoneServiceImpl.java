@@ -16,4 +16,24 @@ public class AlBoneServiceImpl implements AlBoneService {
     public void saveAlBone(AlBone alBone) {
         alBoneRepository.save(alBone);
     }
+
+    @Override
+    public AlBone findByPersonId(Integer personId) {
+        return alBoneRepository.findByPersonId(personId);
+    }
+
+    @Override
+    public void updateAlBone(AlBone alBone) {
+        AlBone oldObj = findByPersonId(alBone.getPersonId());
+        oldObj.setBr(alBone.getBr());
+        oldObj.setBrT(alBone.getBrT());
+        oldObj.setDiagnosis(alBone.getDiagnosis());
+        oldObj.setFn(alBone.getFn());
+        oldObj.setFnT(alBone.getFnT());
+        oldObj.setLv(alBone.getLv());
+        oldObj.setLvT(alBone.getLvT());
+        oldObj.setTh(alBone.getTh());
+        oldObj.setThT(alBone.getThT());
+        alBoneRepository.save(oldObj);
+    }
 }

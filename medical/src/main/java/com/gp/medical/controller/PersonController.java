@@ -24,7 +24,7 @@ public class PersonController {
      * @param userId
      */
     @PostMapping(path = "")
-    public void savePerson(@RequestBody Person person, @RequestHeader(value = "userId") Long userId){
+    public void savePerson(@RequestBody Person person, @RequestHeader(value = "userId") Integer userId){
         personService.savePerson(person,userId);
     }
 
@@ -52,7 +52,7 @@ public class PersonController {
      * @return
      */
     @GetMapping(path = "/mine/page")
-    public List<Person> minePerson(@RequestHeader(value = "userId") Long userId,@RequestParam(value = "page") String page){
+    public List<Person> minePerson(@RequestHeader(value = "userId") Integer userId,@RequestParam(value = "page") String page){
         return personService.minePersonByPage(userId,page);
     }
 
@@ -62,7 +62,7 @@ public class PersonController {
      * @return
      */
     @GetMapping(path = "/mine/count")
-    public int minePersonCount(@RequestHeader(value = "userId") Long userId){
+    public int minePersonCount(@RequestHeader(value = "userId") Integer userId){
         return personService.getMinePersonCount(userId);
     }
 
@@ -73,13 +73,17 @@ public class PersonController {
      * @return
      */
     @GetMapping(path = "/{id}")
-    public Person getPersonById(@PathVariable Long id){
+    public Person getPersonById(@PathVariable Integer id){
         return personService.getPersonById(id);
     }
 
+    /**
+     * 得到所有病例数量
+     * @return
+     */
     @GetMapping(path = "/count")
-    public Long getPersonCount(){
-        return personService.getPersonCount();
+    public Integer getPersonCount(@RequestParam String gender,@RequestParam String age){
+        return personService.getPersonCount(gender,age);
     }
 
     /**
@@ -98,8 +102,8 @@ public class PersonController {
      * @return
      */
     @GetMapping(path = "/page")
-    public List<Person> getPersonByPage(@RequestParam String page){
-        return personService.getPersonByPage(page);
+    public List<Person> getPersonByPage(@RequestParam String page,@RequestParam String gender,@RequestParam String age){
+        return personService.getPersonByPage(page,gender,age);
     }
 
     /**
@@ -109,7 +113,7 @@ public class PersonController {
      * @return
      */
     @GetMapping(path = "/hasCollect")
-    public Boolean getCollectStatus(@RequestHeader(value = "userId") Long userId,@RequestParam(value = "personId") Long personId){
+    public Boolean getCollectStatus(@RequestHeader(value = "userId") Integer userId,@RequestParam(value = "personId") Integer personId){
         return personService.hasCollect(userId,personId);
     }
 

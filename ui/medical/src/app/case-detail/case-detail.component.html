@@ -1,14 +1,18 @@
 <div class="container" style="height: auto;">
   <table class="table table-bordered">
     <tr>
+      <td colspan="3"><b style="color: lightgreen">基本信息</b></td>
+      <td class="col-md-3" rowspan="4"><img src="/image/{{case.fileName}}" style="height: 200px;width: 150px;margin-left: 10%"></td>
+    </tr>
+    <tr>
       <td class="col-md-3">姓名：{{case.name}}</td>
-      <td class="col-md-3">病例号：{{id}}</td>
-      <td class="col-md-3">年龄：{{case.age}}</td>
-      <td class="col-md-3" rowspan="4"><img src="/image/{{case.fileName}}" style="height: 30%;width: 80%;margin-left: 10%"></td>
+      <td class="col-md-3">病例号：{{case.id}}</td>
+      <td class="col-md-3"></td>
     </tr>
     <tr>
       <td>性别：{{case.gender}}</td>
       <td>民族：{{case.nation}}</td>
+      <td>年龄：{{case.age}}</td>
     </tr>
     <tr>
       <td>身高：{{case.height}}</td>
@@ -16,45 +20,122 @@
       <td>BMI：{{case.bmi}}</td>
     </tr>
     <tr>
-      <td>婚否：{{marry}}</td>
       <td>文化程度：{{case.culture}}</td>
-      <td>职业：{{job}}</td>
+      <td>住址：{{case.address}}</td>
+      <td>联系方式：{{case.phone}}</td>
     </tr>
     <tr>
-      <td>1</td>
-      <td>2</td>
-      <td>3</td>
-      <td>4</td>
+      <td colspan="4"><b style="color: lightgreen">自身免疫性肝病</b></td>
     </tr>
     <tr>
-      <td>1</td>
-      <td>2</td>
-      <td>3</td>
-      <td>4</td>
+      <td colspan="4"><b style="color: lightblue">四诊信息</b></td>
     </tr>
     <tr>
-      <td>1</td>
-      <td>2</td>
-      <td>3</td>
-      <td>4</td>
+      <td>乏力：</td>
+      <td>{{alFour.fatigue}}</td>
+      <td>皮肤瘙痒：</td>
+      <td>{{alFour.itch}}</td>
     </tr>
     <tr>
-      <td>1</td>
-      <td>2</td>
-      <td>3</td>
-      <td>4</td>
+      <td>两目干涩：</td>
+      <td>{{alFour.dry}}</td>
+      <td>视物模糊：</td>
+      <td>{{alFour.vague}}</td>
     </tr>
     <tr>
-      <td>1</td>
-      <td>2</td>
-      <td>3</td>
-      <td>4</td>
+      <td>抑郁：</td>
+      <td>{{alFour.depress}}</td>
+      <td>烦躁易怒：</td>
+      <td>{{alFour.angry}}</td>
     </tr>
     <tr>
-      <td>1</td>
-      <td>2</td>
-      <td>3</td>
-      <td>4</td>
+      <td>失眠：</td>
+      <td>{{alFour.insomnia}}</td>
+      <td>易醒：</td>
+      <td>{{alFour.wake}}</td>
+    </tr>
+    <tr>
+      <td>耳鸣：</td>
+      <td>{{alFour.tinnitus}}</td>
+      <td>口干：</td>
+      <td>{{alFour.thirst}}</td>
+    </tr>
+    <tr>
+      <td colspan="4"><b style="color: lightblue">舌脉象</b></td>
+    </tr>
+    <tr>
+      <td>舌质：{{alTongue.tongueQuality}}</td>
+      <td>舌体：{{alTongue.tongueBody}}</td>
+      <td>苔质：{{alTongue.mossyQuality}}</td>
+      <td>舌苔色：{{alTongue.mossyColor}}</td>
+    </tr>
+    <tr>
+      <td>舌下静脉曲张：{{alTongue.varice}}</td>
+      <td>左手脉象：{{alTongue.tongueLeft}}</td>
+      <td>右手脉象：{{alTongue.tongueRight}}</td>
+    </tr>
+    <tr>
+      <td colspan="4"><b style="color: lightblue">理化检查——肝功能</b></td>
+    </tr>
+    <tr>
+      <td>白蛋白：{{alPcInsLiver.albumin}}</td>
+      <td>球蛋白：{{alPcInsLiver.globulin}}</td>
+      <td>ALT：{{alPcInsLiver.alt}}</td>
+      <td>AST：{{alPcInsLiver.ast}}</td>
+    </tr>
+    <tr>
+      <td>GGT：{{alPcInsLiver.ggt}}</td>
+      <td>ALP：{{alPcInsLiver.alp}}</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td colspan="4"><b style="color: lightblue">理化检查——肾功能</b></td>
+    </tr>
+    <tr>
+      <td>BUN：{{alPcInsKidney.bun}}</td>
+      <td>Cr：{{alPcInsKidney.cr}}</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td colspan="4"><b style="color: lightblue">理化检查——凝血</b></td>
+    </tr>
+    <tr>
+      <td>PT：{{alPcInsCoa.pt}}</td>
+      <td>INR：{{alPcInsCoa.inr}}</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td colspan="4"><b style="color: lightblue">理化检查——血常规</b></td>
+    </tr>
+    <tr>
+      <td>RBC：{{alPcInsBlood.rbc}}</td>
+      <td>HB：{{alPcInsBlood.hb}}</td>
+      <td>WBC：{{alPcInsBlood.wbc}}</td>
+      <td>中性粒细胞：{{alPcInsBlood.neutrophil}}</td>
+    </tr>
+    <tr>
+      <td>淋巴细胞：{{alPcInsBlood.lymphocyte}}</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td colspan="4"><b style="color: lightblue">理化检查——乙肝</b></td>
+    </tr>
+    <tr>
+      <td>HbsAg：{{alPcInsHb.hbsAg}}</td>
+      <td>HbsAb：{{alPcInsHb.hbsAb}}</td>
+      <td>HbeAg：{{alPcInsHb.hbeAg}}</td>
+      <td>HbeAb：{{alPcInsHb.hbeAb}}</td>
+    </tr>
+    <tr>
+      <td>HbcAb：{{alPcInsHb.hbcAb}}</td>
+      <td>HbvRna：{{alPcInsHb.hbvRna}}</td>
+      <td></td>
+      <td></td>
     </tr>
   </table>
   <hr>

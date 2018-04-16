@@ -16,4 +16,17 @@ public class AlPcInsCoaServiceImpl implements AlPcInsCoaService {
     public void saveCoa(AlPcInsCoagulation alPcInsCoagulation) {
         alPcInsCoaRepository.save(alPcInsCoagulation);
     }
+
+    @Override
+    public AlPcInsCoagulation findByPersonId(Integer personId) {
+        return alPcInsCoaRepository.findByPersonId(personId);
+    }
+
+    @Override
+    public void updateAlPcInsCoa(AlPcInsCoagulation alPcInsCoagulation) {
+        AlPcInsCoagulation oldObj = findByPersonId(alPcInsCoagulation.getPersonId());
+        oldObj.setInr(alPcInsCoagulation.getInr());
+        oldObj.setPt(alPcInsCoagulation.getPt());
+        alPcInsCoaRepository.save(oldObj);
+    }
 }

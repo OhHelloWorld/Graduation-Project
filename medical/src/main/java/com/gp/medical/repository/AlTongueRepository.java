@@ -6,5 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 /**
  * Created by Administrator on 2018/3/22 0022.
  */
-public interface AlTongueRepository extends CrudRepository<AlTongue,Long>{
+public interface AlTongueRepository extends CrudRepository<AlTongue,Integer>{
+
+    AlTongue findByPersonId(Integer personId);
 }

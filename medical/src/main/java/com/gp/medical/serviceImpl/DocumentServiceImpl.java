@@ -33,7 +33,7 @@ public class DocumentServiceImpl implements DocumentService{
         return documentList;
     }
 
-    public Document getDocumentById(Long docId){
+    public Document getDocumentById(Integer docId){
         Document documentInDatabase = documentRepository.findOne(docId);
         return Switch.switchDoc(documentInDatabase);
     }
@@ -49,14 +49,14 @@ public class DocumentServiceImpl implements DocumentService{
     }
 
     @Override
-    public Long getDocCount() {
-        return documentRepository.count();
+    public Integer getDocCount() {
+        return Math.toIntExact(documentRepository.count());
     }
 
     @Override
-    public Boolean hasCollect(Long userId, Long docId) {
+    public Boolean hasCollect(Integer userId, Integer docId) {
         List<User> userList = documentRepository.findOne(docId).getUserList();
-        List<Long> userIdList = new ArrayList<>();
+        List<Integer> userIdList = new ArrayList<>();
         for(User user : userList){
             userIdList.add(user.getId());
         }

@@ -19,4 +19,22 @@ public class AlTongueServiceImpl implements AlTongueService{
     public void saveTongue(AlTongue tongue) {
         alTongueRepository.save(tongue);
     }
+
+    @Override
+    public AlTongue findByPersonId(Integer personId) {
+        return alTongueRepository.findByPersonId(personId);
+    }
+
+    @Override
+    public void updateAlTongue(AlTongue alTongue) {
+        AlTongue oldObj = findByPersonId(alTongue.getPersonId());
+        oldObj.setMossyColor(alTongue.getMossyColor());
+        oldObj.setMossyQuality(alTongue.getMossyQuality());
+        oldObj.setTongueBody(alTongue.getTongueBody());
+        oldObj.setTongueLeft(alTongue.getTongueLeft());
+        oldObj.setTongueQuality(alTongue.getTongueQuality());
+        oldObj.setTongueRight(alTongue.getTongueRight());
+        oldObj.setVarice(alTongue.getVarice());
+        alTongueRepository.save(oldObj);
+    }
 }

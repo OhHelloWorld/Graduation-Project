@@ -18,4 +18,20 @@ public class MlLiverServiceImpl implements MlLiverService {
         mlLiverRepository.save(mlLiver);
 
     }
+
+    @Override
+    public MlLiver findByPersonId(Integer personId) {
+        return mlLiverRepository.findByPersonId(personId);
+    }
+
+    @Override
+    public void updateMlLiver(MlLiver mlLiver) {
+        MlLiver oldObj = findByPersonId(mlLiver.getPersonId());
+        oldObj.setOption1(mlLiver.getOption1());
+        oldObj.setOption2(mlLiver.getOption2());
+        oldObj.setOption3(mlLiver.getOption3());
+        oldObj.setOption4(mlLiver.getOption4());
+        oldObj.setOption5(mlLiver.getOption5());
+        mlLiverRepository.save(oldObj);
+    }
 }

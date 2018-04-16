@@ -18,4 +18,25 @@ public class MlFourServiceImpl implements MlFourService {
         mlFourRepository.save(mlFour);
 
     }
+
+    @Override
+    public MlFour findByPersonId(Integer personId) {
+        return mlFourRepository.findByPersonId(personId);
+    }
+
+    @Override
+    public void updateMlFour(MlFour mlFour) {
+        MlFour oldObj = findByPersonId(mlFour.getPersonId());
+        oldObj.setAngry(mlFour.getAngry());
+        oldObj.setDepress(mlFour.getDepress());
+        oldObj.setDry(mlFour.getDry());
+        oldObj.setFatigue(mlFour.getFatigue());
+        oldObj.setInsomnia(mlFour.getInsomnia());
+        oldObj.setItch(mlFour.getItch());
+        oldObj.setThirst(mlFour.getThirst());
+        oldObj.setTinnitus(mlFour.getTinnitus());
+        oldObj.setVague(mlFour.getVague());
+        oldObj.setWake(mlFour.getWake());
+        mlFourRepository.save(oldObj);
+    }
 }

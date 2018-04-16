@@ -26,7 +26,7 @@ public class CommentServiceImpl implements CommentService{
     private DocumentRepository documentRepository;
 
     @Override
-    public void saveComment(Comment comment,Long userId,Long docId) {
+    public void saveComment(Comment comment,Integer userId,Integer docId) {
         comment.setUser(userRepository.findOne(userId));
         comment.setTime(new Date());
         comment.setDocument(documentRepository.findOne(docId));

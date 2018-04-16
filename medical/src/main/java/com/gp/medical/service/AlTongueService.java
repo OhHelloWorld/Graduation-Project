@@ -12,4 +12,8 @@ public interface AlTongueService {
      * @param tongue
      */
     void saveTongue(AlTongue tongue);
+
+    AlTongue findByPersonId(Integer personId);
+
+    void updateAlTongue(AlTongue alTongue);
 }
