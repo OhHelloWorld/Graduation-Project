@@ -1,9 +1,6 @@
 package com.gp.medical.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity(name = "al_bone")
 public class AlBone {
@@ -12,12 +9,16 @@ public class AlBone {
     private int id;
     private int personId;
     private String lv;
+    @Column(name = "lv_t")
     private String lvT;
     private String fn;
+    @Column(name = "fn_t")
     private String fnT;
     private String br;
+    @Column(name = "br_t")
     private String brT;
     private String th;
+    @Column(name = "th_t")
     private String thT;
     private String diagnosis;
 

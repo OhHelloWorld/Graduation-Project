@@ -177,8 +177,8 @@ create table al_bone(
 create table al_aih(
     id int not null auto_increment,
     person_id int not null,
-    anasma1 varchar(5),
-    anasma2 varchar(5),
+    anasma1 varchar(10),
+    anasma2 varchar(10),
     anti_lkm varchar(10),
     anti_sla varchar(10),
     igg varchar(20),
@@ -216,7 +216,7 @@ create table ml_disease_history(
     id int not null auto_increment,
     person_id int not null,
     other varchar(5),
-    one varchar(30),
+    one varchar(50),
     tour varchar(5),
     primary key(id)
 );
@@ -273,7 +273,7 @@ create table ml_blood(
 );
 
 create table ml_liver(
-    id int not null,
+    id int not null auto_increment,
     person_id int not null,
     option1 varchar(50),
     option2 varchar(50),

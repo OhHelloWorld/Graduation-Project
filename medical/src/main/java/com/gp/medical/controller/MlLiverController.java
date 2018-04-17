@@ -21,4 +21,9 @@ public class MlLiverController {
     public MlLiver findByPersonId(@RequestParam Integer personId){
         return mlLiverService.findByPersonId(personId);
     }
+
+    @PostMapping(path = "/update")
+    public void updateMlLiver(@RequestBody MlLiver mlLiver){
+        mlLiverService.updateMlLiver(mlLiver);
+    }
 }

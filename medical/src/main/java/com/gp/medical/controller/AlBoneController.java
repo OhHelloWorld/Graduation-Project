@@ -21,4 +21,9 @@ public class AlBoneController {
     public AlBone findByPersonId(@RequestParam Integer personId){
         return alBoneService.findByPersonId(personId);
     }
+
+    @PostMapping(path = "/update")
+    public void updateAlBone(@RequestBody AlBone alBone){
+        alBoneService.updateAlBone(alBone);
+    }
 }

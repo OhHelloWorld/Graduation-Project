@@ -21,4 +21,9 @@ public class AlFinalController {
     public AlFinal findByPersonId(@RequestParam Integer personId){
         return alFinalService.findByPersonId(personId);
     }
+
+    @PostMapping(path = "/update")
+    public void updateAlFinal(@RequestBody AlFinal alFinal){
+        alFinalService.updateAlFinal(alFinal);
+    }
 }

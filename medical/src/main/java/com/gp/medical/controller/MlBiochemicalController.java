@@ -21,4 +21,9 @@ public class MlBiochemicalController {
     public MlBiochemical findByPersonId(@RequestParam Integer personId){
         return mlBiochemicalService.findByPersonId(personId);
     }
+
+    @PostMapping(path = "/update")
+    public void updateBiochemical(@RequestBody MlBiochemical mlBiochemical){
+        mlBiochemicalService.updateMlBiochemical(mlBiochemical);
+    }
 }

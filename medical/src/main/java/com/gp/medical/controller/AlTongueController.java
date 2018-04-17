@@ -28,4 +28,9 @@ public class AlTongueController {
     public AlTongue findByPersonId(@RequestParam Integer personId){
         return alTongueService.findByPersonId(personId);
     }
+
+    @PostMapping(path = "/update")
+    public void updateAlTongue(@RequestBody AlTongue alTongue){
+        alTongueService.updateAlTongue(alTongue);
+    }
 }

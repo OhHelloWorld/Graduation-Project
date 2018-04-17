@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-ml-exam',
@@ -7,6 +7,8 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./ml-exam.component.css']
 })
 export class MlExamComponent implements OnInit {
+
+  flag:boolean;
 
   mlBiochemical:{
     personId:number,
@@ -49,10 +51,29 @@ export class MlExamComponent implements OnInit {
       inr:undefined,
       afp:undefined,
     };
+
+    this.flag = false;
+    this.getMlBiochemical();
   }
 
   submit(){
-    this.http.post('/api/mlBiochemical',this.mlBiochemical).subscribe();
+    if(!this.flag){
+      this.http.post('/api/mlBiochemical',this.mlBiochemical).subscribe();
+    }else{
+      this.http.post('/api/mlBiochemical/update',this.mlBiochemical).subscribe();
+    }
+  }
+
+  getMlBiochemical(){
+    this.http.get<any>('/api/mlBiochemical',{
+      params:new HttpParams().set('personId',''+sessionStorage['personId'])
+    }).subscribe(data => {
+      if(data != null){
+        this.flag = true;
+        this.mlBiochemical = data;
+        this.mlBiochemical.personId = sessionStorage['personId'];
+      }
+    });
   }
 
 }

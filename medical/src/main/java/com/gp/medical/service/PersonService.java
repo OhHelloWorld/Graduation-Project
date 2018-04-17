@@ -10,7 +10,7 @@ import java.util.List;
  */
 public interface PersonService {
 
-    void savePerson(Person alPerson, Integer userId);
+    void savePerson(Person person, Integer userId);
 
     List<Person> minePersonByPage(Integer userId,String page);
 
@@ -29,4 +29,6 @@ public interface PersonService {
     List<Person> getPersonByPage(String page,String gender,String age);
 
     Boolean hasCollect(Integer userId,Integer personId);
+
+    void updatePerson(Person person);
 }

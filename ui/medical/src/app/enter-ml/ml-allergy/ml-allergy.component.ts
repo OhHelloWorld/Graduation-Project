@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-ml-allergy',
@@ -7,6 +7,8 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./ml-allergy.component.css']
 })
 export class MlAllergyComponent implements OnInit {
+
+  flag:boolean;
 
   mlAllergy:{
     personId:number,
@@ -25,10 +27,29 @@ export class MlAllergyComponent implements OnInit {
       allergen:undefined,
       remark:undefined
     }
+
+    this.flag = false;
+
+    this.getMlAllergy();
   }
 
   submit(){
-    this.http.post('/api/mlAllergy',this.mlAllergy).subscribe();
+    if(!this.flag){
+      this.http.post('/api/mlAllergy',this.mlAllergy).subscribe();
+    }else{
+      this.http.post('/api/mlAllergy/update',this.mlAllergy).subscribe();
+    }
   }
 
+  getMlAllergy(){
+    this.http.get<any>('/api/mlAllergy',{
+      params:new HttpParams().set('personId',''+sessionStorage['personId'])
+    }).subscribe(data => {
+      if(data != null){
+        this.flag = true;
+        this.mlAllergy = data;
+        this.mlAllergy.personId = sessionStorage['personId'];
+      }
+    });
+  }
 }

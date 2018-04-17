@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-al-exam',
@@ -54,6 +54,12 @@ export class AlExamComponent implements OnInit {
   	hbvRna:string,
   }
 
+  flag1:boolean;
+  flag2:boolean;
+  flag3:boolean;
+  flag4:boolean;
+  flag5:boolean;
+
   constructor(private http:HttpClient) { }
 
   ngOnInit() {
@@ -74,8 +80,8 @@ export class AlExamComponent implements OnInit {
   	};
   	this.alPcInsCoagulation = {
   	  personId:sessionStorage['personId'],
-	  pt:undefined,
-	  inr:undefined,
+  	  pt:undefined,
+  	  inr:undefined,
   	};
   	this.alPcInsBlood = {
   	  personId:sessionStorage['personId'],
@@ -94,27 +100,125 @@ export class AlExamComponent implements OnInit {
       hbcAb:undefined,
       hbvRna:undefined,    
     };
+
+    this.flag1 = false;
+    this.flag2 = false;
+    this.flag3 = false;
+    this.flag4 = false;
+    this.flag5 = false;
+
+    this.getAlPcInsLiver();
+    this.getAlPcInsKidney();
+    this.getAlPcInsCoa();
+    this.getAlPcInsBlood();
+    this.getAlInsHb();
     
   }
 
   submit1(){
-  	this.http.post('/api/alPcIns/liver',this.alPcInsLiver).subscribe();
+    if(!this.flag1){
+  	  this.http.post('/api/alPcIns/liver',this.alPcInsLiver).subscribe();
+    }else{
+      this.http.post('/api/alPcIns/liver/update',this.alPcInsLiver).subscribe();
+    }
   }
 
   submit2(){
-  	this.http.post('/api/alPcIns/kidney',this.alPcInsKidney).subscribe();
+    if(!this.flag2){
+  	  this.http.post('/api/alPcIns/kidney',this.alPcInsKidney).subscribe();
+    }else{
+      this.http.post('/api/alPcIns/kidney/update',this.alPcInsKidney).subscribe();
+    }
   }
 
   submit3(){
-  	this.http.post('/api/alPcIns/coa',this.alPcInsCoagulation).subscribe();
+    if(!this.flag3){
+  	  this.http.post('/api/alPcIns/coa',this.alPcInsCoagulation).subscribe();
+    }else{
+      this.http.post('/api/alPcIns/coa/update',this.alPcInsCoagulation).subscribe();
+    }
   }
 
   submit4(){
-  	this.http.post('/api/alPcIns/blood',this.alPcInsBlood).subscribe();
+    if(!this.flag4){
+  	  this.http.post('/api/alPcIns/blood',this.alPcInsBlood).subscribe();
+    }else{
+      this.http.post('/api/alPcIns/blood/update',this.alPcInsBlood).subscribe();
+    }
   }
 
   submit5(){
-  	this.http.post('/api/alPcIns/hb',this.alPcInsHepatitisB).subscribe();
+    if(!this.flag5){
+  	  this.http.post('/api/alPcIns/hb',this.alPcInsHepatitisB).subscribe();
+    }else{
+      this.http.post('/api/alPcIns/hb/update',this.alPcInsHepatitisB).subscribe();
+    }
+  }
+
+
+  //alPcInsLiver
+  getAlPcInsLiver(){
+    this.http.get<any>('/api/alPcIns/liver',{
+      params:new HttpParams().set('personId',''+sessionStorage['personId'])
+    }).subscribe(data => {
+      if(data != null){
+        this.alPcInsLiver = data;
+        this.flag1 = true;
+        this.alPcInsLiver.personId = sessionStorage['personId'];
+      }
+    });
+  }
+
+  //alPcInsKidney
+  getAlPcInsKidney(){
+    this.http.get<any>('/api/alPcIns/kidney',{
+      params:new HttpParams().set('personId',''+sessionStorage['personId'])
+    }).subscribe(data => {
+      if(data != null){
+        this.alPcInsKidney = data;
+        this.flag2 = true;
+        this.alPcInsKidney.personId = sessionStorage['personId'];
+      }
+    });
+  }
+
+  //alPcInsCoa
+  getAlPcInsCoa(){
+    this.http.get<any>('/api/alPcIns/coa',{
+      params:new HttpParams().set('personId',''+sessionStorage['personId'])
+    }).subscribe(data => {
+      if(data != null){
+        this.flag3 = true;
+        this.alPcInsCoagulation = data;
+        this.alPcInsCoagulation.personId = sessionStorage['personId'];
+      }
+    })
+  }
+
+  //alPcInsBlood
+  getAlPcInsBlood(){
+    this.http.get<any>('/api/alPcIns/blood',{
+      params:new HttpParams().set('personId',''+sessionStorage['personId'])
+    }).subscribe(data => {
+      if(data != null){
+        this.flag4 = true;
+        this.alPcInsBlood = data;
+        this.alPcInsBlood.personId = sessionStorage['personId'];
+      }
+    });
+  }
+
+  //alPcInsHb
+  getAlInsHb(){
+    this.http.get<any>('/api/alPcIns/hb',{
+      params:new HttpParams().set('personId',''+sessionStorage['personId'])
+    }).subscribe(data => {
+      if(data != null){
+        this.flag5 = true;
+        this.alPcInsHepatitisB = data;
+        this.alPcInsHepatitisB.personId = sessionStorage['personId'];
+      }
+    });
   }
 
 }

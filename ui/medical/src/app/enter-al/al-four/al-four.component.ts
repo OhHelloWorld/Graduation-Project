@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-al-four',
@@ -7,6 +7,8 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./al-four.component.css']
 })
 export class AlFourComponent implements OnInit {
+
+  flag:boolean;
 
   alFour:{
     personId:number,
@@ -20,28 +22,47 @@ export class AlFourComponent implements OnInit {
     wake:string,
     tinnitus:string,
     thirst:string,
-  }
+  };
 
   constructor(private http:HttpClient) { }
 
   ngOnInit() {
     this.alFour = {
       personId:sessionStorage['personId'],
-      fatigue:'0',
-      itch:'0',
-      dry:'0',
-      vague:'0',
-      depress:'0',
-      angry:'0',
-      insomnia:'0',
-      wake:'0',
-      tinnitus:'0',
-      thirst:'0'
+      fatigue:undefined,
+      itch:undefined,
+      dry:undefined,
+      vague:undefined,
+      depress:undefined,
+      angry:undefined,
+      insomnia:undefined,
+      wake:undefined,
+      tinnitus:undefined,
+      thirst:undefined
     };
+
+    this.flag = false;
+    this.getAlFour();
   }
 
   submit(){
-    this.http.post('/api/alFour',this.alFour).subscribe();
+    if(!this.flag){
+      this.http.post('/api/alFour',this.alFour).subscribe();
+    }else{
+      this.http.post('/api/alFour/update',this.alFour).subscribe();
+    }
+  }
+
+  getAlFour(){
+    this.http.get<any>('/api/alFour',{
+      params:new HttpParams().set('personId',''+sessionStorage['personId'])
+    }).subscribe(data => {
+      if(data != null){
+        this.flag = true;
+        this.alFour = data;
+        this.alFour.personId = sessionStorage['personId'];
+      }
+    });
   }
 
 }

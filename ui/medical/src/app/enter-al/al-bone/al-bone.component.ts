@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-al-bone',
@@ -7,6 +7,8 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./al-bone.component.css']
 })
 export class AlBoneComponent implements OnInit {
+
+  flag:boolean;
 
   alBone:{
     personId:number,
@@ -36,10 +38,30 @@ export class AlBoneComponent implements OnInit {
       thT:undefined,
       diagnosis:undefined
     }
+
+    this.flag = false;
+
+    this.getAlBone();
   }
 
   submit(){
-    this.http.post('/api/alBone',this.alBone).subscribe();
+    if(!this.flag){
+      this.http.post('/api/alBone',this.alBone).subscribe();
+    }else{
+      this.http.post('/api/alBone/update',this.alBone).subscribe();
+    }
+  }
+
+  getAlBone(){
+    this.http.get<any>('/api/alBone',{
+      params:new HttpParams().set('personId',''+sessionStorage['personId'])
+    }).subscribe(data => {
+      if(data != null){
+        this.flag = true;
+        this.alBone = data;
+        this.alBone.personId = sessionStorage['personId'];
+      }
+    });
   }
 
 }

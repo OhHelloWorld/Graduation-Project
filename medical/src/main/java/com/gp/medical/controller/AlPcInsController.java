@@ -74,5 +74,30 @@ public class AlPcInsController {
         return alPcInsHbService.findByPersonId(personId);
     }
 
+    @PostMapping(path = "/liver/update")
+    public void updateLiver(@RequestBody AlPcInsLiver alPcInsLiver){
+        alPcInsLiverService.updateAlPcInsLiver(alPcInsLiver);
+    }
+
+    @PostMapping(path = "/kidney/update")
+    public void updateKidney(@RequestBody AlPcInsKidney alPcInsKidney){
+        alPcInsKidneyService.updateAlPcInsKidney(alPcInsKidney);
+    }
+
+    @PostMapping(path = "/coa/update")
+    public void updateCoa(@RequestBody AlPcInsCoagulation alPcInsCoagulation){
+        alPcInsCoaService.updateAlPcInsCoa(alPcInsCoagulation);
+    }
+
+    @PostMapping(path = "/blood/update")
+    public void updateBlood(@RequestBody AlPcInsBlood alPcInsBlood){
+        alPcInsBloodService.updateAlPcInsBlood(alPcInsBlood);
+    }
+
+    @PostMapping(path = "/hb/update")
+    public void updateHb(@RequestBody AlPcInsHepatitisB alPcInsHepatitisB){
+        alPcInsHbService.updateAlPcInsHb(alPcInsHepatitisB);
+    }
+
 
 }

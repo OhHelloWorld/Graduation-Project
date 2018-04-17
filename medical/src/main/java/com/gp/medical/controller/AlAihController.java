@@ -21,4 +21,9 @@ public class AlAihController {
     public AlAih findByPersonId(@RequestParam Integer personId){
         return alAihService.findByPersonId(personId);
     }
+
+    @PostMapping(path = "/update")
+    public void updateAlAih(@RequestBody AlAih alAih){
+        alAihService.updateAlAih(alAih);
+    }
 }

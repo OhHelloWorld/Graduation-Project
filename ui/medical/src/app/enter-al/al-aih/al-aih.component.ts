@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpParams } from '@angular/common/http';
 
 
 @Component({
@@ -8,6 +8,8 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./al-aih.component.css']
 })
 export class AlAihComponent implements OnInit {
+
+  flag:boolean;
 
   alAih:{
     personId:number,
@@ -34,9 +36,30 @@ export class AlAihComponent implements OnInit {
       liverHistology:undefined,
       excludeViralHepatitis:undefined
     };
+
+    this.flag = false;
+
+    this.getAlAih();
   }
 
   submit(){
-    this.http.post('/api/alAih',this.alAih).subscribe();
+    if(!this.flag){
+      this.http.post('/api/alAih',this.alAih).subscribe();
+    }else{
+      this.http.post('/api/alAih/update',this.alAih).subscribe();
+    }
   }
+
+  getAlAih(){
+    this.http.get<any>('/api/alAih',{
+      params:new HttpParams().set('personId',''+sessionStorage['personId'])
+    }).subscribe(data => {
+      if(data != null){
+        this.alAih = data;
+        this.alAih.personId = sessionStorage['personId'];
+        this.flag = true;
+      }
+    });
+  }
+
 }

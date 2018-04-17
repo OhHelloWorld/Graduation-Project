@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http'; 
+import { HttpClient,HttpParams } from '@angular/common/http'; 
 
 @Component({
   selector: 'app-ml-four',
@@ -7,6 +7,8 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./ml-four.component.css']
 })
 export class MlFourComponent implements OnInit {
+
+  flag:boolean;
 
   mlFour:{
     personId:number,
@@ -38,10 +40,28 @@ export class MlFourComponent implements OnInit {
       tinnitus:undefined,
       thirst:undefined
     };
+    this.flag = false;
+    this.getMlFour();
   }
 
   submit(){
-    this.http.post('/api/mlFour',this.mlFour).subscribe();
+    if(!this.flag){
+      this.http.post('/api/mlFour',this.mlFour).subscribe();
+    }else{
+      this.http.post('/api/mlFour/update',this.mlFour).subscribe();
+    }
+  }
+
+  getMlFour(){
+    this.http.get<any>('/api/mlFour',{
+      params:new HttpParams().set('personId',''+sessionStorage['personId'])
+    }).subscribe(data => {
+      if(data != null){
+        this.flag = true;
+        this.mlFour = data;
+        this.mlFour.personId = sessionStorage['personId'];
+      }
+    });
   }
 
 }

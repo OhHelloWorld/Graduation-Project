@@ -21,4 +21,9 @@ public class MlFourController {
     public MlFour findByPersonId(@RequestParam Integer personId){
         return mlFourService.findByPersonId(personId);
     }
+
+    @PostMapping(path = "/update")
+    public void updateMlFour(@RequestBody MlFour mlFour){
+        mlFourService.updateMlFour(mlFour);
+    }
 }

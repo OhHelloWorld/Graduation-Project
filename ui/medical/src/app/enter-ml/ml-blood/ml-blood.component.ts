@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-ml-blood',
@@ -7,6 +7,8 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./ml-blood.component.css']
 })
 export class MlBloodComponent implements OnInit {
+
+  flag:boolean;
 
   mlBlood:{
     personId:number,
@@ -30,10 +32,29 @@ export class MlBloodComponent implements OnInit {
       n:undefined,
       e:undefined
     };
+
+    this.flag = false;
+    this.getMlBlood();
   }
 
   submit(){
-    this.http.post('/api/mlBlood',this.mlBlood).subscribe();
+    if(!this.flag){
+      this.http.post('/api/mlBlood',this.mlBlood).subscribe();
+    }else{
+      this.http.post('/api/mlBlood/update',this.mlBlood).subscribe();
+    }
+  }
+
+  getMlBlood(){
+    this.http.get<any>('/api/mlBlood',{
+      params:new HttpParams().set('personId',''+sessionStorage['personId'])
+    }).subscribe(data => {
+      if(data != null){
+        this.flag = true;
+        this.mlBlood = data;
+        this.mlBlood.personId = sessionStorage['personId'];
+      }
+    });
   }
 
 }

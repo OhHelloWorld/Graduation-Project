@@ -21,4 +21,9 @@ public class AlLiverController {
     public AlLiver findByPersonId(@RequestParam Integer personId){
         return alLiverService.findByPersonId(personId);
     }
+
+    @PostMapping(path = "/update")
+    public void updateAlLiver(@RequestBody AlLiver alLiver){
+        alLiverService.updateAlLiver(alLiver);
+    }
 }

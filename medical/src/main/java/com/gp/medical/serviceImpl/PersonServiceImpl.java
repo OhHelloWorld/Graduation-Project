@@ -51,11 +51,11 @@ public class PersonServiceImpl implements PersonService {
 
     @Override
     public List<Person> allPerson() {
-        List<Person> alPersonList = new ArrayList<>();
-        for(Person alPerson : personRepository.allPerson()){
-            alPersonList.add(Switch.switchPerson(alPerson));
+        List<Person> personList = new ArrayList<>();
+        for(Person person : personRepository.allPerson()){
+            personList.add(Switch.switchPerson(person));
         }
-        return alPersonList;
+        return personList;
     }
 
     @Override
@@ -142,5 +142,22 @@ public class PersonServiceImpl implements PersonService {
         }else{
             return false;
         }
+    }
+
+    @Override
+    public void updatePerson(Person person) {
+        Person oldObj = personRepository.findOne(person.getId());
+        oldObj.setAddress(person.getAddress());
+        oldObj.setAge(person.getAge());
+        oldObj.setBmi(person.getBmi());
+        oldObj.setCulture(person.getCulture());
+        oldObj.setFileName(person.getFileName());
+        oldObj.setGender(person.getGender());
+        oldObj.setHeight(person.getHeight());
+        oldObj.setName(person.getName());
+        oldObj.setNation(person.getNation());
+        oldObj.setPhone(person.getPhone());
+        oldObj.setWeight(person.getWeight());
+        personRepository.save(oldObj);
     }
 }

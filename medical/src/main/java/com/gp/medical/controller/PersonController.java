@@ -117,4 +117,9 @@ public class PersonController {
         return personService.hasCollect(userId,personId);
     }
 
+    @PostMapping(path = "/update")
+    public void updatePerson(@RequestBody Person person){
+        personService.updatePerson(person);
+    }
+
 }

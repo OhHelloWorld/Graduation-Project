@@ -21,4 +21,9 @@ public class MlDiseaseController {
     public MlDiseaseHistory findByPersonId(@RequestParam Integer personId){
         return mlDiseaseService.findByPersonId(personId);
     }
+
+    @PostMapping(path = "/update")
+    public void updateMlDisease(@RequestBody MlDiseaseHistory mlDiseaseHistory){
+        mlDiseaseService.updateMlDisease(mlDiseaseHistory);
+    }
 }

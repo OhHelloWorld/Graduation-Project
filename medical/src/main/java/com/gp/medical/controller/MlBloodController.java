@@ -21,4 +21,9 @@ public class MlBloodController {
     public MlBlood findByPersonId(@RequestParam Integer personId){
         return mlBloodService.findByPersonId(personId);
     }
+
+    @PostMapping(path = "/update")
+    public void updateMlBlood(@RequestBody MlBlood mlBlood){
+        mlBloodService.updateMlBlood(mlBlood);
+    }
 }
