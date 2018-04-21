@@ -10,6 +10,7 @@ export class MedicineLiverComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  	sessionStorage.currentItem = 'ml';
   }
 
 }

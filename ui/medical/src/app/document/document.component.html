@@ -1,17 +1,4 @@
-<div class="container" style="height: auto">
-  <div>
-    <b>发布时间：</b>
-    <a class="col-md-offset-1" role="button">全部</a>
-    <a class="col-md-offset-1" role="button">今天</a>
-    <a class="col-md-offset-1" role="button">最近三天</a>
-    <a class="col-md-offset-1" role="button">一周内</a>
-    <hr>
-    <b>分类：</b>
-    <a class="col-md-offset-1" role="button">全部</a>
-    <a class="col-md-offset-1" style="width: 110px" role="button">心脏病</a>
-    <a class="col-md-offset-1" style="width: 110px" role="button">肝病</a>
-  </div>
-  <hr>
+<div class="container" style="height: 800px">
   <app-doc-list [docs]="docs"></app-doc-list>
   <div class="col-md-12">
     <app-pagination [dataNums]="dataNums" (currentPage)="currentPageHandle($event)"></app-pagination>

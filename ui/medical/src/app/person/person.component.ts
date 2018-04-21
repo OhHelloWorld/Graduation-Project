@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { FileUploader } from 'ng2-file-upload';
 import { Router } from '@angular/router';
+// import * as $ from "jquery";
 
 const URL = 'http://localhost:4200/api/person/file'
 
@@ -28,6 +29,8 @@ export class PersonComponent implements OnInit {
 
   imgUrl:string;
 
+  information:string;
+
   public uploader:FileUploader = new FileUploader({
     url: URL,
     method:'POST',
@@ -51,7 +54,7 @@ export class PersonComponent implements OnInit {
       address:undefined,
       fileName:undefined,
     };
-
+    this.information = '病例创建成功';
   }
 
   submit(){
@@ -65,7 +68,9 @@ export class PersonComponent implements OnInit {
           // 上传文件后获取服务器返回的数据
           person.fileName =  response;
           //发送person数据
-          http.post('/api/person',person,{headers:new HttpHeaders().set('userId',localStorage['id'])}).subscribe();
+          http.post('/api/person',person,{headers:new HttpHeaders().set('userId',localStorage['id'])}).subscribe(() =>{
+            $('#info').modal();
+          });
         }
       };
   }
@@ -82,6 +87,14 @@ export class PersonComponent implements OnInit {
   }
   blurWeight(){
     this.judgeBmi();
+  }
+
+  back(){
+    if(sessionStorage['currentItem'] == 'al'){
+      this.router.navigate(['/autoimmune']);
+    }else{
+      this.router.navigate(['/medicineLiver']);
+    }
   }
 
 }

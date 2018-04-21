@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -159,5 +160,37 @@ public class PersonServiceImpl implements PersonService {
         oldObj.setPhone(person.getPhone());
         oldObj.setWeight(person.getWeight());
         personRepository.save(oldObj);
+    }
+
+    @Override
+    public List<Person> getSearchPerson(String name) {
+        List<Person> personList = new ArrayList<>();
+        List<Person> personInDataBaseList = personRepository.getSearchPerson(name);
+        if(!personInDataBaseList.isEmpty()){
+            for(Person person : personInDataBaseList){
+                personList.add(Switch.switchPerson(person));
+            }
+        }
+        return personList;
+    }
+
+    @Override
+    public List<Integer> getAgeChartData() {
+        List<BigInteger> ageChartDataInDatabase =  personRepository.getAgeChartData();
+        List<Integer> ageChartData = new ArrayList<>();
+        for(BigInteger ageCount : ageChartDataInDatabase){
+            ageChartData.add(Integer.valueOf(""+ageCount));
+        }
+        return ageChartData;
+    }
+
+    @Override
+    public List<Integer> getGenderChartData() {
+        List<BigInteger> genderChartDataInDatabase = personRepository.getGenderChartData();
+        List<Integer> genderChartData = new ArrayList<>();
+        for(BigInteger genderCount: genderChartDataInDatabase){
+            genderChartData.add(Integer.valueOf(""+genderCount));
+        }
+        return genderChartData;
     }
 }

@@ -23,6 +23,8 @@ export class AlBoneComponent implements OnInit {
     diagnosis:string
   }
 
+  information:string;
+
   constructor(private http:HttpClient) { }
 
   ngOnInit() {
@@ -41,6 +43,8 @@ export class AlBoneComponent implements OnInit {
 
     this.flag = false;
 
+    this.information = '骨密度数据保存成功';
+
     this.getAlBone();
   }
 
@@ -50,6 +54,7 @@ export class AlBoneComponent implements OnInit {
     }else{
       this.http.post('/api/alBone/update',this.alBone).subscribe();
     }
+    $('#info').modal();
   }
 
   getAlBone(){

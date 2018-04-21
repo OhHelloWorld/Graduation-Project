@@ -21,6 +21,8 @@ export class AlTongueComponent implements OnInit {
     tongueRight:string
   }
 
+  information:string;
+
   constructor(private http:HttpClient) { }
 
   ngOnInit() {
@@ -36,7 +38,7 @@ export class AlTongueComponent implements OnInit {
     };
 
     this.flag = false;
-
+    this.information = '舌脉象数据保存成功';
     this.getAlTongue();
   }
 
@@ -46,7 +48,7 @@ export class AlTongueComponent implements OnInit {
     }else{
       this.http.post('/api/alTongue/update',this.tongue).subscribe();
     }
-
+    $('#info').modal();
   }
 
   getAlTongue(){

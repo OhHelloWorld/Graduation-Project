@@ -1,3 +1,4 @@
+<app-infobox [information]="information"></app-infobox>
 <div class="container" style="height: auto;">
   <form class="form-inline">
     <hr>
@@ -115,7 +116,7 @@
     <hr>
     <input type="file" ng2FileSelect [uploader]="uploader">
     <hr>
-    <button class="btn btn-danger" routerLink="/autoimmune">返回</button>
+    <button class="btn btn-danger" (click)="back()">返回</button>
     <button class="btn btn-success" (click)="submit()">确定</button>
     <hr>
   </form>

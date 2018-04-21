@@ -27,17 +27,12 @@
           </ul>
         </li>
       </ul>
-      <form class="navbar-form navbar-left">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="关键字">
-        </div>
-        <button type="submit" class="btn btn-success">搜索</button>
-      </form>
       <ul class="nav navbar-nav navbar-right">
         <li>
           <a *ngIf="!hasUser" role="button" data-toggle="modal" data-target="#signInModal">登录</a>
           <a *ngIf="hasUser" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">{{username}}</a>
           <ul class="dropdown-menu">
+            <li><a role="button" routerLink="/myCase">我的病例</a></li>
             <li><a role="button" routerLink="/collection">我的病例收藏</a></li>
             <li><a role="button" routerLink="/collectionDoc">我的文章收藏</a></li>
             <li><a role="button" (click)="logout()">退出</a></li>

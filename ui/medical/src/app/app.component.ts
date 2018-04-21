@@ -1,4 +1,5 @@
 import { Component,OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ export class AppComponent implements OnInit{
   username:string;
   hasUser = false;
 
-  constructor(){}
+  constructor(private router:Router){}
 
   ngOnInit(){
     if(localStorage['username']){
@@ -24,6 +25,7 @@ export class AppComponent implements OnInit{
   logout(){
     localStorage.removeItem('username');
     localStorage.removeItem('id');
+    this.router.navigate(['/home']);
     location.reload();
   }
 }

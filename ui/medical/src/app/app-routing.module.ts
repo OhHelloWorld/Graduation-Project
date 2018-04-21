@@ -29,6 +29,7 @@ import { MlLiverComponent } from './enter-ml/ml-liver/ml-liver.component';
 
 import { CollectionComponent } from './collection/collection.component';
 import { CollectionDocComponent } from './collection-doc/collection-doc.component';
+import { MyCaseComponent } from './my-case/my-case.component';
 import { PersonSelectComponent } from './person-select/person-select.component';
 
 import { AuthGuard } from './auth-guard.service';
@@ -62,6 +63,7 @@ const appRoutes:Routes = [
   {path:'collection',component:CollectionComponent,canActivate:[AuthGuard]},
   {path:'collectionDoc',component:CollectionDocComponent,canActivate:[AuthGuard]},
   {path:'select/:category',component:PersonSelectComponent,canActivate:[AuthGuard]},
+  {path:'myCase',component:MyCaseComponent,canActivate:[AuthGuard]}
 ];
 
 @NgModule(

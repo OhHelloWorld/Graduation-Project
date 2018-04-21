@@ -17,6 +17,8 @@ export class AlDiagnosisComponent implements OnInit {
     special:string
   }
 
+  information:string;
+
   constructor(private http:HttpClient) { }
 
   ngOnInit() {
@@ -29,6 +31,8 @@ export class AlDiagnosisComponent implements OnInit {
 
     this.flag = false;
 
+    this.information = '最后诊断和特殊情况数据保存成功';
+
     this.getAlFinal();
   }
 
@@ -38,6 +42,7 @@ export class AlDiagnosisComponent implements OnInit {
     }else{
       this.http.post('/api/alFinal/update',this.alFinal).subscribe();
     }
+    $('#info').modal();
   }
 
   getAlFinal(){

@@ -7,18 +7,18 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
-
-  register:{username:string,password:string,againPass:string};
   user:{username:string,password:string};
+  againPass:string;
 
   constructor(private http:HttpClient) { }
 
   ngOnInit() {
-    this.register = {username:'',password:'',againPass:''}
+    this.user = {username:'',password:''}
+    this.againPass = '';
   }
 
   registered(){
-    this.user = {username:this.register.username,password:btoa(this.register.password)}
+    this.user = {username:this.user.username,password:btoa(this.user.password)}
     this.http.post('/api/user/register',this.user).subscribe(data => console.log(data));
   }
 

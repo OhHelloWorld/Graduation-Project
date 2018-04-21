@@ -31,4 +31,10 @@ public interface PersonService {
     Boolean hasCollect(Integer userId,Integer personId);
 
     void updatePerson(Person person);
+
+    List<Person> getSearchPerson(String name);
+
+    List<Integer> getAgeChartData();
+
+    List<Integer> getGenderChartData();
 }

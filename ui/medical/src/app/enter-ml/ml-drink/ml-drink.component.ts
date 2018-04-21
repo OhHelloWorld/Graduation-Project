@@ -22,6 +22,8 @@ export class MlDrinkComponent implements OnInit {
     time:string
   };
 
+  information:string;
+
   constructor(private http:HttpClient) { }
 
   ngOnInit() {
@@ -37,6 +39,7 @@ export class MlDrinkComponent implements OnInit {
     this.species4 = false;
 
     this.flag = false;
+    this.information = '饮酒史保存成功';
     this.getMlDrink();
   }
 
@@ -60,6 +63,7 @@ export class MlDrinkComponent implements OnInit {
     }else{
       this.http.post('/api/mlDrink/update',this.mlDrink).subscribe();
     }
+    $('#info').modal();
   }
 
   getMlDrink(){

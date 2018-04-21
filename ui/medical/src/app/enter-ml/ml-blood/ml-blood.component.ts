@@ -20,6 +20,8 @@ export class MlBloodComponent implements OnInit {
     e:string
   }
 
+  information:string;
+
   constructor(private http:HttpClient) { }
 
   ngOnInit() {
@@ -34,6 +36,7 @@ export class MlBloodComponent implements OnInit {
     };
 
     this.flag = false;
+    this.information = '血常规数据保存成功';
     this.getMlBlood();
   }
 
@@ -43,6 +46,7 @@ export class MlBloodComponent implements OnInit {
     }else{
       this.http.post('/api/mlBlood/update',this.mlBlood).subscribe();
     }
+    $('#info').modal();
   }
 
   getMlBlood(){

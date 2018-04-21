@@ -60,6 +60,8 @@ export class AlExamComponent implements OnInit {
   flag4:boolean;
   flag5:boolean;
 
+  information:string;
+
   constructor(private http:HttpClient) { }
 
   ngOnInit() {
@@ -107,6 +109,8 @@ export class AlExamComponent implements OnInit {
     this.flag4 = false;
     this.flag5 = false;
 
+    this.information = '保存成功';
+
     this.getAlPcInsLiver();
     this.getAlPcInsKidney();
     this.getAlPcInsCoa();
@@ -121,6 +125,7 @@ export class AlExamComponent implements OnInit {
     }else{
       this.http.post('/api/alPcIns/liver/update',this.alPcInsLiver).subscribe();
     }
+    $('#info').modal();
   }
 
   submit2(){
@@ -129,6 +134,7 @@ export class AlExamComponent implements OnInit {
     }else{
       this.http.post('/api/alPcIns/kidney/update',this.alPcInsKidney).subscribe();
     }
+    $('#info').modal();
   }
 
   submit3(){
@@ -137,6 +143,7 @@ export class AlExamComponent implements OnInit {
     }else{
       this.http.post('/api/alPcIns/coa/update',this.alPcInsCoagulation).subscribe();
     }
+    $('#info').modal();
   }
 
   submit4(){
@@ -145,6 +152,7 @@ export class AlExamComponent implements OnInit {
     }else{
       this.http.post('/api/alPcIns/blood/update',this.alPcInsBlood).subscribe();
     }
+    $('#info').modal();
   }
 
   submit5(){
@@ -153,6 +161,7 @@ export class AlExamComponent implements OnInit {
     }else{
       this.http.post('/api/alPcIns/hb/update',this.alPcInsHepatitisB).subscribe();
     }
+    $('#info').modal();
   }
 
 

@@ -24,6 +24,8 @@ export class MlFourComponent implements OnInit {
     thirst:string,
   }
 
+  information:string;
+
   constructor(private http:HttpClient) { }
 
   ngOnInit() {
@@ -41,6 +43,7 @@ export class MlFourComponent implements OnInit {
       thirst:undefined
     };
     this.flag = false;
+    this.information = '四诊信息数据保存成功';
     this.getMlFour();
   }
 
@@ -50,6 +53,7 @@ export class MlFourComponent implements OnInit {
     }else{
       this.http.post('/api/mlFour/update',this.mlFour).subscribe();
     }
+    $('#info').modal();
   }
 
   getMlFour(){

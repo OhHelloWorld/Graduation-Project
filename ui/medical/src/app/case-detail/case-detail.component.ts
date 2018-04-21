@@ -386,7 +386,9 @@ export class CaseDetailComponent implements OnInit {
       {
         headers:new HttpHeaders().set('userId',localStorage['id'])
       }
-    ).subscribe();
+    ).subscribe(() => {
+      location.reload();
+    });
   }
 
   uncollect(){
@@ -395,7 +397,9 @@ export class CaseDetailComponent implements OnInit {
         headers:new HttpHeaders().set('userId',localStorage['id']),
         params:new HttpParams().set('personId',''+this.case.id)
       }
-    ).subscribe();
+    ).subscribe(() => {
+      location.reload();
+    });
   }
 
   //根据personId得到alFour

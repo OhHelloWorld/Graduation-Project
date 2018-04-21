@@ -16,6 +16,7 @@ export class MlAllergyComponent implements OnInit {
     allergen:string,
     remark:string
   }
+  information:string;
 
   constructor(private http:HttpClient) { }
 
@@ -29,7 +30,7 @@ export class MlAllergyComponent implements OnInit {
     }
 
     this.flag = false;
-
+    this.information = '既往过敏史保存成功';
     this.getMlAllergy();
   }
 
@@ -39,6 +40,7 @@ export class MlAllergyComponent implements OnInit {
     }else{
       this.http.post('/api/mlAllergy/update',this.mlAllergy).subscribe();
     }
+    $('#info').modal();
   }
 
   getMlAllergy(){

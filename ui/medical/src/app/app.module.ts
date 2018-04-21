@@ -43,6 +43,10 @@ import { AuthGuard } from './auth-guard.service';
 import { InfoGuard } from './info-guard.service'; 
 import { PersonSelectComponent } from './person-select/person-select.component';
 import { CollectionDocComponent } from './collection-doc/collection-doc.component';
+import { MyCaseComponent } from './my-case/my-case.component';
+import { AgeChartComponent } from './age-chart/age-chart.component';
+import { GenderChartComponent } from './gender-chart/gender-chart.component';
+import { InfoboxComponent } from './infobox/infobox.component';
 
 @NgModule({
   declarations: [
@@ -78,6 +82,10 @@ import { CollectionDocComponent } from './collection-doc/collection-doc.componen
     CollectionComponent,
     PersonSelectComponent,
     CollectionDocComponent,
+    MyCaseComponent,
+    AgeChartComponent,
+    GenderChartComponent,
+    InfoboxComponent,
   ],
   imports: [
     BrowserModule,

@@ -4,6 +4,7 @@ import com.gp.medical.entity.Person;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
+import java.math.BigInteger;
 import java.util.List;
 
 /**
@@ -43,4 +44,27 @@ public interface PersonRepository extends CrudRepository<Person,Integer>{
 
     @Query(value = "select count(*) from person where gender = ?1 and age between ?2 and ?3",nativeQuery = true)
     Integer getGenderAndAgeConditionPersonCount(String gender,int age1,int age2);
+
+    @Query(value = "select * from person where name like %?1%",nativeQuery = true)
+    List<Person> getSearchPerson(String name);
+
+    @Query(value = "select count(*) from person where age between 0 and 10" +
+            " union all " +
+            "select count(*) from person where age between 11 and 20" +
+            " union all " +
+            "select count(*) from person where age between 21 and 30" +
+            " union all " +
+            "select count(*) from person where age between 31 and 40" +
+            " union all " +
+            "select count(*) from person where age between 41 and 50" +
+            " union all " +
+            "select count(*) from person where age between 51 and 60" +
+            " union all " +
+            "select count(*) from person where age > 60",nativeQuery = true)
+    List<BigInteger> getAgeChartData();
+
+    @Query(value = "select count(*) from person where gender = '男'" +
+            " union all " +
+            "select count(*) from person where gender = '女'",nativeQuery = true)
+    List<BigInteger> getGenderChartData();
 }

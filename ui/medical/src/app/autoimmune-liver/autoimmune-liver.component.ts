@@ -9,6 +9,7 @@ export class AutoimmuneLiverComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  	sessionStorage.currentItem = 'al';
   }
 
 }

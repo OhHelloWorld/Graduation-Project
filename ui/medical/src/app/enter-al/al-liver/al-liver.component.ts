@@ -22,6 +22,8 @@ export class AlLiverComponent implements OnInit {
     hcv:string
   }
 
+  information:string;
+
   constructor(private http:HttpClient) { }
 
   ngOnInit() {
@@ -38,6 +40,7 @@ export class AlLiverComponent implements OnInit {
     };
 
     this.flag = false;
+    this.information = '肝脏病理学检查数据保存成功';
     this.getAlLiver();
   }
 
@@ -47,6 +50,7 @@ export class AlLiverComponent implements OnInit {
     }else{
       this.http.post('/api/alLiver/update',this.alLiver).subscribe();
     }
+    $('#info').modal();
   }
 
   getAlLiver(){

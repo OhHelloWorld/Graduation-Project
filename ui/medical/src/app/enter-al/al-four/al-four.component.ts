@@ -24,6 +24,8 @@ export class AlFourComponent implements OnInit {
     thirst:string,
   };
 
+  information:string;
+
   constructor(private http:HttpClient) { }
 
   ngOnInit() {
@@ -42,6 +44,7 @@ export class AlFourComponent implements OnInit {
     };
 
     this.flag = false;
+    this.information = '四诊信息数据保存成功';
     this.getAlFour();
   }
 
@@ -51,6 +54,7 @@ export class AlFourComponent implements OnInit {
     }else{
       this.http.post('/api/alFour/update',this.alFour).subscribe();
     }
+    $('#info').modal();
   }
 
   getAlFour(){

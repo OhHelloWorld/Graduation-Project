@@ -29,6 +29,8 @@ export class MlExamComponent implements OnInit {
     afp:string,
   }
 
+  information:string;
+
   constructor(private http:HttpClient) { }
 
   ngOnInit() {
@@ -53,6 +55,7 @@ export class MlExamComponent implements OnInit {
     };
 
     this.flag = false;
+    this.information = '生化检查数据保存成功';
     this.getMlBiochemical();
   }
 
@@ -62,6 +65,7 @@ export class MlExamComponent implements OnInit {
     }else{
       this.http.post('/api/mlBiochemical/update',this.mlBiochemical).subscribe();
     }
+    $('#info').modal();
   }
 
   getMlBiochemical(){

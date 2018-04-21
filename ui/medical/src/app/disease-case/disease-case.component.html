@@ -1,20 +1,50 @@
+<div id="chart" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <form class="form-group col-md-3">
+          <select class="form-control" name="selectedValue" [(ngModel)]="selectedValue" (click)="select()">
+            <option value="default">请选择分析条件</option>
+            <option value="age">年龄</option>
+            <option value="gender">性别</option>
+          </select>
+        </form>
+      </div>
+      <div class="modal-body">
+        <div id="ageChart" *ngIf="isAge">
+          <app-age-chart [ageDatas]="ageChartDatas"></app-age-chart>
+        </div>
+        <div id="genderChart" *ngIf="isGender">
+          <app-gender-chart [genderDatas]="genderChartDatas"></app-gender-chart>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="container" style="height: auto">
   <div>
+    <form class="form-group form-inline">
+      <input type="text" class="form-control" placeholder="请输入病例全部或部分姓名" name="name" [(ngModel)]="name">
+      <button type="submit" class="btn btn-warning" (click)="search()">搜索</button>
+      <button type="button" class="btn btn-warning" (click)="openChart()">数据分析</button>
+      <hr>
+    </form>
     <b>性别：</b>
-    <button class="btn btn-info btn-sm col-md-offset-1" (click)="selectGender1()">不限</button>
-    <button class="btn btn-info btn-sm col-md-offset-1" (click)="selectGender2()">男</button>
-    <button class="btn btn-info btn-sm col-md-offset-1" (click)="selectGender3()">女</button>
+    <a class="col-md-offset-1" role="button" (click)="selectGender1()">不限</a>
+    <a class="col-md-offset-1" role="button" (click)="selectGender2()">男</a>
+    <a class="col-md-offset-1" role="button" (click)="selectGender3()">女</a>
     <hr>
     <b>年龄：</b>
-    <button class="btn btn-success btn-sm col-md-offset-1" (click)="selectAge1()">不限</button>
-    <button class="btn btn-success btn-sm col-md-offset-1" (click)="selectAge2()">0到10岁</button>
-    <button class="btn btn-success btn-sm col-md-offset-1" (click)="selectAge3()">11到20岁</button>
-    <button class="btn btn-success btn-sm col-md-offset-1" (click)="selectAge4()">21到60岁</button>
-    <button class="btn btn-success btn-sm col-md-offset-1" (click)="selectAge5()">60岁到100岁</button>
+    <a class="col-md-offset-1" role="button" (click)="selectAge1()">不限</a>
+    <a class="col-md-offset-1" role="button" (click)="selectAge2()">0到10岁</a>
+    <a class="col-md-offset-1" role="button" (click)="selectAge3()">11到20岁</a>
+    <a class="col-md-offset-1" role="button" (click)="selectAge4()">21到60岁</a>
+    <a class="col-md-offset-1" role="button" (click)="selectAge5()">60岁以上</a>
     <hr>
     <b>筛选：</b>
-    <span class="col-md-offset-1">性别：{{gender}}</span>
-    <span class="col-md-offset-1">年龄：{{age}}</span>
+    <span class="col-md-offset-1">性别：<span style="color: red">{{gender}}</span></span>
+    <span class="col-md-offset-1">年龄：<span style="color: red">{{age}}</span></span>
     <button class="col-md-offset-1 btn btn-primary btn-sm" (click)="submit()">确定</button>
   </div>
   <hr>

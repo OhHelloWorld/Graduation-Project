@@ -19,6 +19,8 @@ export class MlLiverComponent implements OnInit {
     option5:string,
   }
 
+  information:string;
+
   constructor(private http:HttpClient) { }
 
   ngOnInit() {
@@ -32,7 +34,7 @@ export class MlLiverComponent implements OnInit {
     };
 
     this.flag = false;
-
+    this.information = '肝脏组织学检查数据保存成功';
     this.getMlLiver();
   }
 
@@ -42,6 +44,7 @@ export class MlLiverComponent implements OnInit {
     }else{
       this.http.post('/api/mlLiver/update',this.mlLiver).subscribe();
     }
+    $('#info').modal();
   }
 
   getMlLiver(){

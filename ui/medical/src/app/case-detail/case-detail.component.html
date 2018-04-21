@@ -1,28 +1,32 @@
-<div class="container" style="height: auto;">
+<div class="container" style="height: auto;background-image: url(../../assets/image/case-detail.jpg);background-repeat: repeat-y;">
+  <button *ngIf="!hasCollect" class="btn btn-success" (click)="collect()">收藏</button>
+  <button *ngIf="hasCollect" class="btn btn-info" (click)="uncollect()">取消收藏</button>
+  <button class="btn btn-warning" routerLink="/case">返回</button>
+  <hr>
   <table class="table table-bordered">
     <tr>
       <td colspan="3"><b style="color: lightgreen">基本信息</b></td>
       <td class="col-md-3" rowspan="4"><img src="/image/{{case.fileName}}" style="height: 200px;width: 150px;margin-left: 10%"></td>
     </tr>
     <tr>
-      <td class="col-md-3">姓名：{{case.name}}</td>
-      <td class="col-md-3">病例号：{{case.id}}</td>
+      <td class="col-md-3"><b>姓名：</b>{{case.name}}</td>
+      <td class="col-md-3"><b>病例号：</b>{{case.id}}</td>
       <td class="col-md-3"></td>
     </tr>
     <tr>
-      <td>性别：{{case.gender}}</td>
-      <td>民族：{{case.nation}}</td>
-      <td>年龄：{{case.age}}</td>
+      <td><b>性别：</b>{{case.gender}}</td>
+      <td><b>民族：</b>{{case.nation}}</td>
+      <td><b>年龄：</b>{{case.age}}</td>
     </tr>
     <tr>
-      <td>身高：{{case.height}}</td>
-      <td>体重：{{case.weight}}</td>
-      <td>BMI：{{case.bmi}}</td>
+      <td><b>身高：</b>{{case.height}}</td>
+      <td><b>体重：</b>{{case.weight}}</td>
+      <td><b>BMI：</b>{{case.bmi}}</td>
     </tr>
     <tr>
-      <td>文化程度：{{case.culture}}</td>
-      <td>住址：{{case.address}}</td>
-      <td>联系方式：{{case.phone}}</td>
+      <td><b>文化程度：</b>{{case.culture}}</td>
+      <td><b>住址：</b>{{case.address}}</td>
+      <td><b>联系方式：</b>{{case.phone}}</td>
     </tr>
     <tr>
       <td colspan="4"><b style="color: lightgreen">自身免疫性肝病</b></td>
@@ -31,61 +35,61 @@
       <td colspan="4"><b style="color: lightblue">四诊信息</b></td>
     </tr>
     <tr>
-      <td>乏力：</td>
+      <td><b>乏力：</b></td>
       <td>{{alFour.fatigue}}</td>
-      <td>皮肤瘙痒：</td>
+      <td><b>皮肤瘙痒：</b></td>
       <td>{{alFour.itch}}</td>
     </tr>
     <tr>
-      <td>两目干涩：</td>
+      <td><b>两目干涩：</b></td>
       <td>{{alFour.dry}}</td>
-      <td>视物模糊：</td>
+      <td><b>视物模糊：</b></td>
       <td>{{alFour.vague}}</td>
     </tr>
     <tr>
-      <td>抑郁：</td>
+      <td><b>抑郁：</b></td>
       <td>{{alFour.depress}}</td>
-      <td>烦躁易怒：</td>
+      <td><b>烦躁易怒：</b></td>
       <td>{{alFour.angry}}</td>
     </tr>
     <tr>
-      <td>失眠：</td>
+      <td><b>失眠：</b></td>
       <td>{{alFour.insomnia}}</td>
-      <td>易醒：</td>
+      <td><b>易醒：</b></td>
       <td>{{alFour.wake}}</td>
     </tr>
     <tr>
-      <td>耳鸣：</td>
+      <td><b>耳鸣：</b></td>
       <td>{{alFour.tinnitus}}</td>
-      <td>口干：</td>
+      <td><b>口干：</b></td>
       <td>{{alFour.thirst}}</td>
     </tr>
     <tr>
       <td colspan="4"><b style="color: lightblue">舌脉象</b></td>
     </tr>
     <tr>
-      <td>舌质：{{alTongue.tongueQuality}}</td>
-      <td>舌体：{{alTongue.tongueBody}}</td>
-      <td>苔质：{{alTongue.mossyQuality}}</td>
-      <td>舌苔色：{{alTongue.mossyColor}}</td>
+      <td><b>舌质：</b>{{alTongue.tongueQuality}}</td>
+      <td><b>舌体：</b>{{alTongue.tongueBody}}</td>
+      <td><b>苔质：</b>{{alTongue.mossyQuality}}</td>
+      <td><b>舌苔色：</b>{{alTongue.mossyColor}}</td>
     </tr>
     <tr>
-      <td>舌下静脉曲张：{{alTongue.varice}}</td>
-      <td>左手脉象：{{alTongue.tongueLeft}}</td>
-      <td>右手脉象：{{alTongue.tongueRight}}</td>
+      <td><b>舌下静脉曲张：</b>{{alTongue.varice}}</td>
+      <td><b>左手脉象：</b>{{alTongue.tongueLeft}}</td>
+      <td><b>右手脉象：</b>{{alTongue.tongueRight}}</td>
     </tr>
     <tr>
       <td colspan="4"><b style="color: lightblue">理化检查——肝功能</b></td>
     </tr>
     <tr>
-      <td>白蛋白：{{alPcInsLiver.albumin}}</td>
-      <td>球蛋白：{{alPcInsLiver.globulin}}</td>
-      <td>ALT：{{alPcInsLiver.alt}}</td>
-      <td>AST：{{alPcInsLiver.ast}}</td>
+      <td><b>白蛋白：</b>{{alPcInsLiver.albumin}}</td>
+      <td><b>球蛋白：</b>{{alPcInsLiver.globulin}}</td>
+      <td><b>ALT：</b>{{alPcInsLiver.alt}}</td>
+      <td><b>AST：</b>{{alPcInsLiver.ast}}</td>
     </tr>
     <tr>
-      <td>GGT：{{alPcInsLiver.ggt}}</td>
-      <td>ALP：{{alPcInsLiver.alp}}</td>
+      <td><b>GGT：</b>{{alPcInsLiver.ggt}}</td>
+      <td><b>ALP：</b>{{alPcInsLiver.alp}}</td>
       <td></td>
       <td></td>
     </tr>
@@ -93,8 +97,8 @@
       <td colspan="4"><b style="color: lightblue">理化检查——肾功能</b></td>
     </tr>
     <tr>
-      <td>BUN：{{alPcInsKidney.bun}}</td>
-      <td>Cr：{{alPcInsKidney.cr}}</td>
+      <td><b>BUN：</b>{{alPcInsKidney.bun}}</td>
+      <td><b>Cr：</b>{{alPcInsKidney.cr}}</td>
       <td></td>
       <td></td>
     </tr>
@@ -102,8 +106,8 @@
       <td colspan="4"><b style="color: lightblue">理化检查——凝血</b></td>
     </tr>
     <tr>
-      <td>PT：{{alPcInsCoa.pt}}</td>
-      <td>INR：{{alPcInsCoa.inr}}</td>
+      <td><b>PT：</b>{{alPcInsCoa.pt}}</td>
+      <td><b>INR：</b>{{alPcInsCoa.inr}}</td>
       <td></td>
       <td></td>
     </tr>
@@ -111,13 +115,13 @@
       <td colspan="4"><b style="color: lightblue">理化检查——血常规</b></td>
     </tr>
     <tr>
-      <td>RBC：{{alPcInsBlood.rbc}}</td>
-      <td>HB：{{alPcInsBlood.hb}}</td>
-      <td>WBC：{{alPcInsBlood.wbc}}</td>
-      <td>中性粒细胞：{{alPcInsBlood.neutrophil}}</td>
+      <td><b>RBC：</b>{{alPcInsBlood.rbc}}</td>
+      <td><b>HB：</b>{{alPcInsBlood.hb}}</td>
+      <td><b>WBC：</b>{{alPcInsBlood.wbc}}</td>
+      <td><b>中性粒细胞：</b>{{alPcInsBlood.neutrophil}}</td>
     </tr>
     <tr>
-      <td>淋巴细胞：{{alPcInsBlood.lymphocyte}}</td>
+      <td><b>淋巴细胞：</b>{{alPcInsBlood.lymphocyte}}</td>
       <td></td>
       <td></td>
       <td></td>
@@ -126,14 +130,14 @@
       <td colspan="4"><b style="color: lightblue">理化检查——乙肝</b></td>
     </tr>
     <tr>
-      <td>HbsAg：{{alPcInsHb.hbsAg}}</td>
-      <td>HbsAb：{{alPcInsHb.hbsAb}}</td>
-      <td>HbeAg：{{alPcInsHb.hbeAg}}</td>
-      <td>HbeAb：{{alPcInsHb.hbeAb}}</td>
+      <td><b>HbsAg：</b>{{alPcInsHb.hbsAg}}</td>
+      <td><b>HbsAb：</b>{{alPcInsHb.hbsAb}}</td>
+      <td><b>HbeAg：</b>{{alPcInsHb.hbeAg}}</td>
+      <td><b>HbeAb：</b>{{alPcInsHb.hbeAb}}</td>
     </tr>
     <tr>
-      <td>HbcAb：{{alPcInsHb.hbcAb}}</td>
-      <td>HbvRna：{{alPcInsHb.hbvRna}}</td>
+      <td><b>HbcAb：</b>{{alPcInsHb.hbcAb}}</td>
+      <td><b>HbvRna：</b>{{alPcInsHb.hbvRna}}</td>
       <td></td>
       <td></td>
     </tr>
@@ -141,19 +145,19 @@
       <td colspan="4"><b style="color: lightblue">骨密度</b></td>
     </tr>
     <tr>
-      <td>腰椎1-4：{{alBone.lv}}</td>
-      <td>腰椎1-4 T值：{{alBone.lvT}}</td>
-      <td>股骨颈：{{alBone.fn}}</td>
-      <td>股骨颈 T值：{{alBone.fnT}}</td>
+      <td><b>腰椎1-4：</b>{{alBone.lv}}</td>
+      <td><b>腰椎1-4 T值：</b>{{alBone.lvT}}</td>
+      <td><b>股骨颈：</b>{{alBone.fn}}</td>
+      <td><b>股骨颈 T值：</b>{{alBone.fnT}}</td>
     </tr>
     <tr>
-      <td>大粗隆：{{alBone.br}}</td>
-      <td>大粗隆 T值：{{alBone.brT}}</td>
-      <td>全髋：{{alBone.th}}</td>
-      <td>全髋 T值：{{alBone.thT}}</td>
+      <td><b>大粗隆：</b>{{alBone.br}}</td>
+      <td><b>大粗隆 T值：</b>{{alBone.brT}}</td>
+      <td><b>全髋：</b>{{alBone.th}}</td>
+      <td><b>全髋 T值：</b>{{alBone.thT}}</td>
     </tr>
     <tr>
-      <td>诊断：{{alBone.diagnosis}}</td>
+      <td><b>诊断：</b>{{alBone.diagnosis}}</td>
       <td></td>
       <td></td>
       <td></td>
@@ -162,39 +166,39 @@
       <td colspan="4"><b style="color: lightblue">肝脏病理学检查</b></td>
     </tr>
     <tr>
-      <td>小叶内炎症：{{alLiver.li}}</td>
-      <td>界面性肝炎：{{alLiver.ih}}</td>
-      <td>汇管区炎症：{{alLiver.pi2}}</td>
-      <td>淋巴细胞浆细胞浸润：{{alLiver.pi2}}</td>
+      <td><b>小叶内炎症：</b>{{alLiver.li}}</td>
+      <td><b>界面性肝炎：</b>{{alLiver.ih}}</td>
+      <td><b>汇管区炎症：</b>{{alLiver.pi2}}</td>
+      <td><b>淋巴细胞浆细胞浸润：</b>{{alLiver.pi2}}</td>
     </tr>
     <tr>
-      <td>玫瑰花结样改变：{{alLiver.rc}}</td>
-      <td>HBsAg染色 :{{alLiver.hbsAg}}</td>
-      <td>HBcAg染色：{{alLiver.hbcAg}}</td>
-      <td>HCV染色：{{alLiver.hcv}}</td>
+      <td><b>玫瑰花结样改变：</b>{{alLiver.rc}}</td>
+      <td><b>HBsAg染色:</b>{{alLiver.hbsAg}}</td>
+      <td><b>HBcAg染色：</b>{{alLiver.hbcAg}}</td>
+      <td><b>HCV染色：</b>{{alLiver.hcv}}</td>
     </tr>
     <tr>
       <td colspan="4"><b style="color: lightblue">简化AIH</b></td>
     </tr>
     <tr>
-      <td>ANA或SMA：{{alAih.anasma1}}</td>
-      <td>ANA/SMA：{{alAih.anasma2}}</td>
-      <td>Anti-LKM-l：{{alAih.antiLkm}}</td>
-      <td>Anti-SLA：{{alAih.antiSla}}</td>
+      <td><b>ANA或SMA：</b>{{alAih.anasma1}}</td>
+      <td><b>ANA/SMA：</b>{{alAih.anasma2}}</td>
+      <td><b>Anti-LKM-l：</b>{{alAih.antiLkm}}</td>
+      <td><b>Anti-SLA：</b>{{alAih.antiSla}}</td>
     </tr>
     <tr>
-      <td>IgG：{{alAih.igg}}</td>
-      <td>肝组织学：{{alAih.liverHistology}}</td>
-      <td>排除病毒性肝炎：{{alAih.excludeViralHepatitis}}</td>
+      <td><b>IgG：</b>{{alAih.igg}}</td>
+      <td><b>肝组织学：</b>{{alAih.liverHistology}}</td>
+      <td><b>排除病毒性肝炎：</b>{{alAih.excludeViralHepatitis}}</td>
       <td></td>
     </tr>
     <tr>
       <td colspan="4"><b style="color: lightblue">最后诊断和特殊情况</b></td>
     </tr>
     <tr>
-      <td>PBC临床分期：{{alFinal.pbc}}</td>
-      <td>AIH临床分期：{{alFinal.aih}}</td>
-      <td>特殊情况：{{alFinal.special}}</td>
+      <td><b>PBC临床分期：</b>{{alFinal.pbc}}</td>
+      <td><b>AIH临床分期：</b>{{alFinal.aih}}</td>
+      <td><b>特殊情况：</b>{{alFinal.special}}</td>
       <td></td>
     </tr>
     <tr>
@@ -204,64 +208,64 @@
       <td colspan="4"><b style="color: lightblue">四诊信息</b></td>
     </tr>
     <tr>
-      <td>乏力：</td>
+      <td><b>乏力：</b></td>
       <td>{{mlFour.fatigue}}</td>
-      <td>皮肤瘙痒：</td>
+      <td><b>皮肤瘙痒：</b></td>
       <td>{{mlFour.itch}}</td>
     </tr>
     <tr>
-      <td>两目干涩：</td>
+      <td><b>两目干涩：</b></td>
       <td>{{mlFour.dry}}</td>
-      <td>视物模糊：</td>
+      <td><b>视物模糊：</b></td>
       <td>{{mlFour.vague}}</td>
     </tr>
     <tr>
-      <td>抑郁：</td>
+      <td><b>抑郁：</b></td>
       <td>{{mlFour.depress}}</td>
-      <td>烦躁易怒：</td>
+      <td><b>烦躁易怒：</b></td>
       <td>{{mlFour.angry}}</td>
     </tr>
     <tr>
-      <td>失眠：</td>
+      <td><b>失眠：</b></td>
       <td>{{mlFour.insomnia}}</td>
-      <td>易醒：</td>
+      <td><b>易醒：</b></td>
       <td>{{mlFour.wake}}</td>
     </tr>
     <tr>
-      <td>耳鸣：</td>
+      <td><b>耳鸣：</b></td>
       <td>{{mlFour.tinnitus}}</td>
-      <td>口干：</td>
+      <td><b>口干：</b></td>
       <td>{{mlFour.thirst}}</td>
     </tr>
     <tr>
       <td colspan="4"><b style="color: lightblue">既往过敏史</b></td>
     </tr>
     <tr>
-      <td>过敏史：{{mlAllergy.allergy}}</td>
-      <td>过敏原：{{mlAllergy.allergen}}</td>
-      <td colspan="2">备注：{{mlAllergy.remark}}</td>
+      <td><b>过敏史：</b>{{mlAllergy.allergy}}</td>
+      <td><b>过敏原：</b>{{mlAllergy.allergen}}</td>
+      <td colspan="2"><b>备注：</b>{{mlAllergy.remark}}</td>
     </tr>
     <tr>
       <td colspan="4"><b style="color: lightblue">饮酒史</b></td>
     </tr>
     <tr>
-      <td>饮酒史：{{mlDrink.history}}</td>
-      <td>饮酒种类：{{mlDrink.species}}</td>
-      <td>饮酒年限：{{mlDrink.time}}</td>
+      <td><b>饮酒史：</b>{{mlDrink.history}}</td>
+      <td><b>饮酒种类：</b>{{mlDrink.species}}</td>
+      <td><b>饮酒年限：</b>{{mlDrink.time}}</td>
       <td></td>
     </tr>
     <tr>
       <td colspan="4"><b style="color: lightblue">血常规</b></td>
     </tr>
     <tr>
-      <td>白细胞总数：{{mlBlood.wbc}}</td>
-      <td>血红蛋白：{{mlBlood.hb}}</td>
-      <td>总血红蛋白浓度：{{mlBlood.thc}}</td>
-      <td>血小板：{{mlBlood.plt}}</td>
+      <td><b>白细胞总数：</b>{{mlBlood.wbc}}</td>
+      <td><b>血红蛋白：</b>{{mlBlood.hb}}</td>
+      <td><b>总血红蛋白浓度：</b>{{mlBlood.thc}}</td>
+      <td><b>血小板：</b>{{mlBlood.plt}}</td>
     </tr>
     <tr>
-      <td>中性粒细胞计数：{{mlBlood.n}}</td>
-      <td>嗜酸性粒细胞计数：{{mlBlood.e}}</td>
+      <td><b>中性粒细胞计数：</b>{{mlBlood.n}}</td>
+      <td><b>嗜酸性粒细胞计数：</b>{{mlBlood.e}}</td>
       <td></td>
       <td></td>
     </tr>
@@ -269,52 +273,52 @@
       <td colspan="4"><b style="color: lightblue">既往疾病史</b></td>
     </tr>
     <tr>
-      <td colspan="2">除药肝以外，是否存在其他疾病史：{{mlDisease.other}}</td>
-      <td>个人史：{{mlDisease.one}}</td>
-      <td>疫区旅游史：{{mlDisease.tour}}</td>
+      <td colspan="2"><b>除药肝以外，是否存在其他疾病史：</b>{{mlDisease.other}}</td>
+      <td><b>个人史：</b>{{mlDisease.one}}</td>
+      <td><b>疫区旅游史：</b>{{mlDisease.tour}}</td>
     </tr>
     <tr>
       <td colspan="4"><b style="color: lightblue">生化检查</b></td>
     </tr>
     <tr>
-      <td>谷丙转氨酶：{{mlBiochemical.alt}}</td>
-      <td>谷草转氨酶：{{mlBiochemical.ast}}</td>
-      <td>谷氨酰转肽酶：{{mlBiochemical.ggt}}</td>
-      <td>碱性磷酸酶：{{mlBiochemical.alp}}</td>
+      <td><b>谷丙转氨酶：</b>{{mlBiochemical.alt}}</td>
+      <td><b>谷草转氨酶：</b>{{mlBiochemical.ast}}</td>
+      <td><b>谷氨酰转肽酶：</b>{{mlBiochemical.ggt}}</td>
+      <td><b>碱性磷酸酶：</b>{{mlBiochemical.alp}}</td>
     </tr>
     <tr>
-      <td>胆汁酸：{{mlBiochemical.acid}}</td>
-      <td>总胆红素：{{mlBiochemical.tbil}}</td>
-      <td>直接胆红素：{{mlBiochemical.dbil}}</td>
-      <td>总蛋白：{{mlBiochemical.tp}}</td>
+      <td><b>胆汁酸：</b>{{mlBiochemical.acid}}</td>
+      <td><b>总胆红素：</b>{{mlBiochemical.tbil}}</td>
+      <td><b>直接胆红素：</b>{{mlBiochemical.dbil}}</td>
+      <td><b>总蛋白：</b>{{mlBiochemical.tp}}</td>
     </tr>
     <tr>
-      <td>白蛋白：{{mlBiochemical.alb}}</td>
-      <td>血清肌酐：{{mlBiochemical.scr}}</td>
-      <td>血清尿素氮：{{mlBiochemical.un}}</td>
-      <td>空腹血糖：{{mlBiochemical.fbg}}</td>
+      <td><b>白蛋白：</b>{{mlBiochemical.alb}}</td>
+      <td><b>血清肌酐：</b>{{mlBiochemical.scr}}</td>
+      <td><b>血清尿素氮：</b>{{mlBiochemical.un}}</td>
+      <td><b>空腹血糖：</b>{{mlBiochemical.fbg}}</td>
     </tr>
     <tr>
-      <td>凝血酶原时间：{{mlBiochemical.pt}}</td>
-      <td>凝血酶原标准化比值：{{mlBiochemical.inr}}</td>
-      <td>甲胎蛋白：{{mlBiochemical.afp}}</td>
+      <td><b>凝血酶原时间：</b>{{mlBiochemical.pt}}</td>
+      <td><b>凝血酶原标准化比值：</b>{{mlBiochemical.inr}}</td>
+      <td><b>甲胎蛋白：</b>{{mlBiochemical.afp}}</td>
       <td></td>
     </tr>
     <tr>
       <td colspan="4"><b style="color: lightblue">肝脏组织学检查</b></td>
     </tr>
     <tr>
-      <td colspan="4">门管区周围或周围间隔区交界面肝炎（碎片状坏死）：{{mlLiver.option1}}</td>
+      <td colspan="4"><b>门管区周围或周围间隔区交界面肝炎（碎片状坏死）：</b>{{mlLiver.option1}}</td>
     </tr>
     <tr>
-      <td colspan="4">局灶性（斑状）溶解性坏死，凋亡及局灶性炎症：{{mlLiver.option3}}</td>
+      <td colspan="4"><b>局灶性（斑状）溶解性坏死，凋亡及局灶性炎症：</b>{{mlLiver.option3}}</td>
     </tr>
     <tr>
-      <td colspan="4">纤维化评分：{{mlLiver.option5}}</td>
+      <td colspan="4"><b>纤维化评分：</b>{{mlLiver.option5}}</td>
     </tr>
     <tr>
-      <td>门管区炎症：{{mlLiver.option4}}</td>
-      <td>融合性坏死：{{mlLiver.option2}}</td>
+      <td><b>门管区炎症：</b>{{mlLiver.option4}}</td>
+      <td><b>融合性坏死：</b>{{mlLiver.option2}}</td>
       <td></td>
       <td></td>
     </tr>
@@ -322,5 +326,6 @@
   <hr>
   <button *ngIf="!hasCollect" class="btn btn-success" (click)="collect()">收藏</button>
   <button *ngIf="hasCollect" class="btn btn-info" (click)="uncollect()">取消收藏</button>
+  <button class="btn btn-warning" routerLink="/case">返回</button>
   <hr>
 </div>

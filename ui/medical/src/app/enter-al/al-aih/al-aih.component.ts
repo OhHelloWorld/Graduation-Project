@@ -22,6 +22,8 @@ export class AlAihComponent implements OnInit {
     excludeViralHepatitis:string
   }
 
+  information:string;
+
   constructor(private http:HttpClient) { }
 
   ngOnInit() {
@@ -39,15 +41,19 @@ export class AlAihComponent implements OnInit {
 
     this.flag = false;
 
+    this.information = '简化AIH数据保存成功';
+
     this.getAlAih();
   }
 
   submit(){
     if(!this.flag){
-      this.http.post('/api/alAih',this.alAih).subscribe();
+      this.http.post('/api/alAih',this.alAih).subscribe(()=>{
+      });
     }else{
       this.http.post('/api/alAih/update',this.alAih).subscribe();
     }
+    $('#info').modal();
   }
 
   getAlAih(){

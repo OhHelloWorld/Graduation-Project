@@ -18,12 +18,28 @@ export class DiseaseCaseComponent implements OnInit{
   age:string;
   catagory:string;
 
+  name:string;
+
+  selectedValue:string;
+  isAge:boolean;
+  isGender:boolean;
+
+  ageChartDatas:any;
+  genderChartDatas:any;
+
   constructor(private http:HttpClient) { }
 
   ngOnInit() {
     this.gender = '不限';
     this.age = '不限';
+    this.name = '';
     this.countCase();
+
+    this.selectedValue='default';
+    this.isAge = false;
+    this.isGender = false;
+    this.getAgeChartData();
+    this.getGenderChartData();
   }
 
   countCase(){
@@ -74,10 +90,50 @@ export class DiseaseCaseComponent implements OnInit{
   }
 
   submit(){
-
     this.countCase();
     this.pageCase();
   }
+
+  search(){
+    this.http.get<any>('/api/person/search',{
+      params:new HttpParams().set('name',this.name)
+    }).subscribe(data =>{
+      this.cases = data;
+    });
+  }
+
+  openChart(){
+    $('#chart').modal();
+  }
+
+  select(){
+    if(this.selectedValue == 'age'){
+      this.isAge = true;
+      this.isGender = false;
+    }else if(this.selectedValue == 'gender'){
+      this.isAge =false;
+      this.isGender = true;
+    }else{
+      this.isAge = false;
+      this.isGender = false;
+    }
+  }
+
+  getAgeChartData(){
+    this.http.get<any>('/api/person/ageChart').subscribe(
+      data => {
+        this.ageChartDatas = data;
+      }
+    );
+  }
+
+  getGenderChartData(){
+    this.http.get<any>('/api/person/genderChart').subscribe(data =>{
+      this.genderChartDatas = data;
+    });
+  }
+
+
 
 
 

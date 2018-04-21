@@ -122,4 +122,19 @@ public class PersonController {
         personService.updatePerson(person);
     }
 
+    @GetMapping(path = "/search")
+    public List<Person>  getSearchPerson(@RequestParam String name){
+        return personService.getSearchPerson(name);
+    }
+
+    @GetMapping(path = "/ageChart")
+    public List<Integer> getAgeChartData(){
+        return personService.getAgeChartData();
+    }
+
+    @GetMapping(path = "/genderChart")
+    public List<Integer> getGenderData(){
+        return personService.getGenderChartData();
+    }
+
 }

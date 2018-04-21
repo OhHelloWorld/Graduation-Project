@@ -23,6 +23,8 @@ export class MlDiseaseComponent implements OnInit {
   one4:boolean;
   one5:boolean;
 
+  information:string;
+
   constructor(private http:HttpClient) { }
 
   ngOnInit() {
@@ -33,6 +35,7 @@ export class MlDiseaseComponent implements OnInit {
       tour:undefined
     };
     this.flag = false;
+    this.information = '既往疾病史保存成功';
     this.getMlDisease();
   }
 
@@ -59,6 +62,7 @@ export class MlDiseaseComponent implements OnInit {
     }else{
       this.http.post('/api/mlDisease/update',this.mlDiseaseHistory).subscribe();
     }
+    $('#info').modal();
   }
 
   getMlDisease(){
