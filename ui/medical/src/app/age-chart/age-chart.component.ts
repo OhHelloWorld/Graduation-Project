@@ -9,16 +9,23 @@ import * as Chart from 'chart.js';
 })
 export class AgeChartComponent implements OnInit {
   
+  canvas:any;
   ctx:any;
   chart:any;
+
+  chartConfiguration:any;
+  chartOptions:any;
   @Input()
   ageDatas:any;
 
   constructor() { }
 
   ngOnInit() {
-  	this.ctx = document.getElementById('age').getContext('2d');
-  	this.chart = new Chart(this.ctx, {
+    this.chartOptions = {
+        responsive: false,
+        display:true
+    }
+    this.chartConfiguration = {
       type: 'bar',
       data: {
           labels: ["0-10岁", "11-20岁", "21-30岁","31-40岁","41-50岁","51-60岁","60岁以上"],
@@ -37,11 +44,12 @@ export class AgeChartComponent implements OnInit {
               borderWidth: 1
           }]
       },
-      options: {
-        responsive: false,
-        display:true
-      }
-    });
+      options: this.chartOptions
+    }
+
+  	this.canvas = document.getElementById('age');
+    this.ctx = this.canvas.getContext('2d');
+  	this.chart = new Chart(this.ctx, this.chartConfiguration);
 
   }
 

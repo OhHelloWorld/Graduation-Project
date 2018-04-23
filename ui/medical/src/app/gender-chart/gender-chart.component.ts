@@ -1,4 +1,5 @@
 import { Component, OnInit,Input } from '@angular/core';
+import * as Chart from 'chart.js';
 
 @Component({
   selector: 'app-gender-chart',
@@ -7,16 +8,24 @@ import { Component, OnInit,Input } from '@angular/core';
 })
 export class GenderChartComponent implements OnInit {
   
+  canvas:any;
   ctx:any;
   chart:any;
+
+  chartConfiguration:any;
+  chartOptions:any;
 
   @Input()
   genderDatas:any;
   constructor() { }
 
   ngOnInit() {
-  	this.ctx = document.getElementById('gender').getContext('2d');
-  	this.chart = new Chart(this.ctx, {
+
+    this.chartOptions = {
+        responsive: false,
+        display:true
+    }
+    this.chartConfiguration = {
       type: 'pie',
       data: {
           labels: ['男','女'],
@@ -30,11 +39,12 @@ export class GenderChartComponent implements OnInit {
               borderWidth: 1
           }]
       },
-      options: {
-        responsive: false,
-        display:true
-      }
-    });
+      options:chartOptions 
+    }
+
+    this.canvas = document.getElementById('gender');
+  	this.ctx = this.canvas.getContext('2d');
+  	this.chart = new Chart(this.ctx, this.chartConfiguration);
 
   }
 
