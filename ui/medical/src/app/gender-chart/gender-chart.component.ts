@@ -39,7 +39,7 @@ export class GenderChartComponent implements OnInit {
               borderWidth: 1
           }]
       },
-      options:chartOptions 
+      options:this.chartOptions 
     }
 
     this.canvas = document.getElementById('gender');
