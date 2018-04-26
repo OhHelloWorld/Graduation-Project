@@ -90,7 +90,7 @@ public class UserController {
     }
 
     /**
-     * 根据用户Id得到该用户的所有文藏收藏（分页）
+     * 根据用户Id得到该用户的所有文章收藏（分页）
      * @param userId
      * @param page
      * @return
